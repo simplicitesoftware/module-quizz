@@ -1,0 +1,3838 @@
+#  ___ _            _ _    _ _    __
+# / __(_)_ __  _ __| (_)__(_) |_ /_/
+# \__ \ | '  \| '_ \ | / _| |  _/ -_)
+# |___/_|_|_|_| .__/_|_\__|_|\__\___|
+#             |_| Module: Qualification 0.5.4
+paths:
+  /rest/QualExercise:
+    get:
+      summary: Search QualExercise business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualexercise-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfQualExercise'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: qualExId
+        description: Search filter for Id
+        type: string
+        required: false
+      - in: query
+        name: qualExType
+        description: Search filter for Type
+        type: string
+        required: false
+        enum:
+        - UML
+        - JAVA
+        - JS
+        - SQL
+        - SIM_BASE
+        - SIM_CONCEPTION
+        - SIM_OPERATION
+        - SIM_INTEGRATION
+        - SIM_REX
+      - in: query
+        name: qualExQuestion
+        description: Search filter for Question
+        type: string
+        required: false
+      - in: query
+        name: qualExAnswerType
+        description: Search filter for Answer type
+        type: string
+        required: false
+        enum:
+        - TXT
+        - ENUM
+        - DIAG
+      - in: query
+        name: qualExAnswerText
+        description: Search filter for Answer
+        type: string
+        required: false
+      - in: query
+        name: qualExImage
+        description: Search filter for Image
+        type: string
+        required: false
+      - in: query
+        name: qualExDifficulty
+        description: Search filter for Difficulty
+        type: string
+        required: false
+        enum:
+        - '1'
+        - '2'
+        - '3'
+      - in: query
+        name: qualExChoicesEnumeration
+        description: Search filter for Choices - Enumeration
+        type: string
+        required: false
+      - in: query
+        name: qualExAnswerEnumeration
+        description: Search filter for Answer - Enumeration
+        type: string
+        required: false
+      - in: query
+        name: qualExRefenum
+        description: Search filter for Ref enum
+        type: string
+        required: false
+        enum:
+        - Simplicité - Conception-Niveau 1-125_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-213_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-215_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-217_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-221_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-225_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-227_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-209_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-233_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-187_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-193_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-195_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-197_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-229_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-201_REF_ENUM
+        - Simplicité - Conception-Niveau 1-177_REF_ENUM
+        - Simplicité - Conception-Niveau 1-175_REF_ENUM
+        - Simplicité - Conception-Niveau 1-127_REF_ENUM
+        - Simplicité - Conception-Niveau 1-129_REF_ENUM
+        - Simplicité - Conception-Niveau 1-135_REF_ENUM
+        - Simplicité - Conception-Niveau 1-137_REF_ENUM
+        - Simplicité - Conception-Niveau 1-139_REF_ENUM
+        - Simplicité - Conception-Niveau 1-141_REF_ENUM
+        - Simplicité - Conception-Niveau 1-147_REF_ENUM
+        - Simplicité - Conception-Niveau 1-157_REF_ENUM
+        - Simplicité - Conception-Niveau 1-159_REF_ENUM
+        - Simplicité - Conception-Niveau 1-165_REF_ENUM
+        - Simplicité - Conception-Niveau 1-167_REF_ENUM
+        - Simplicité - Conception-Niveau 1-145_REF_ENUM
+      tags:
+      - QualExercise
+  /rest/QualExUsr:
+    get:
+      summary: Search QualExUsr business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualexusr-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfQualExUsr'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: qualExusrExId
+        description: Search filter for Exercise FK
+        type: string
+        required: false
+      - in: query
+        name: qualExusrExId__qualExId
+        description: Search filter for Exercise Id
+        type: string
+        required: false
+      - in: query
+        name: qualExusrExId__qualExQuestion
+        description: Search filter for Question
+        type: string
+        required: false
+      - in: query
+        name: qualExusrExId__qualExAnswerText
+        description: Search filter for Answser
+        type: string
+        required: false
+      - in: query
+        name: qualExusrExId__qualExType
+        description: Search filter for Type
+        type: string
+        required: false
+        enum:
+        - UML
+        - JAVA
+        - JS
+        - SQL
+        - SIM_BASE
+        - SIM_CONCEPTION
+        - SIM_OPERATION
+        - SIM_INTEGRATION
+        - SIM_REX
+      - in: query
+        name: qualExusrExId__qualExRefenum
+        description: Search filter for Exercise FK Ref enum
+        type: string
+        required: false
+        enum:
+        - Simplicité - Conception-Niveau 1-125_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-213_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-215_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-217_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-221_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-225_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-227_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-209_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-233_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-187_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-193_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-195_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-197_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-229_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-201_REF_ENUM
+        - Simplicité - Conception-Niveau 1-177_REF_ENUM
+        - Simplicité - Conception-Niveau 1-175_REF_ENUM
+        - Simplicité - Conception-Niveau 1-127_REF_ENUM
+        - Simplicité - Conception-Niveau 1-129_REF_ENUM
+        - Simplicité - Conception-Niveau 1-135_REF_ENUM
+        - Simplicité - Conception-Niveau 1-137_REF_ENUM
+        - Simplicité - Conception-Niveau 1-139_REF_ENUM
+        - Simplicité - Conception-Niveau 1-141_REF_ENUM
+        - Simplicité - Conception-Niveau 1-147_REF_ENUM
+        - Simplicité - Conception-Niveau 1-157_REF_ENUM
+        - Simplicité - Conception-Niveau 1-159_REF_ENUM
+        - Simplicité - Conception-Niveau 1-165_REF_ENUM
+        - Simplicité - Conception-Niveau 1-167_REF_ENUM
+        - Simplicité - Conception-Niveau 1-145_REF_ENUM
+      - in: query
+        name: qualExusrExId__qualExAnswerType
+        description: Search filter for Exercise FK Answer type
+        type: string
+        required: false
+        enum:
+        - TXT
+        - ENUM
+        - DIAG
+      - in: query
+        name: qualExusrExId__qualExAnswerEnumeration
+        description: Search filter for Exercise FK Answer - Enumeration
+        type: string
+        required: false
+      - in: query
+        name: qualExusrAnswer
+        description: Search filter for Answer
+        type: string
+        required: false
+      - in: query
+        name: qualExusrImage
+        description: Search filter for Image
+        type: string
+        required: false
+      - in: query
+        name: qualExusrAnswerEnumeration
+        description: Search filter for Answer - Enumeration
+        type: string
+        required: false
+        enum:
+        - A
+        - B
+        - C
+        - SQL_QST_1_CHOICES_ENUM_0
+        - SQL_QST_1_CHOICES_ENUM_1
+      - in: query
+        name: qualExusrCheck
+        description: Search filter for Check
+        type: string
+        required: false
+        enum:
+        - OK
+        - KO
+        - NA
+      - in: query
+        name: qualExusrSubmitted
+        description: Search filter for Submitted
+        type: boolean
+        required: false
+      - in: query
+        name: qualExusrProgress
+        description: Search filter for qual exusr progress
+        type: integer
+        required: false
+      - in: query
+        name: qualExusrUsrexamId
+        description: Search filter for User's exam|User's exams
+        type: string
+        required: false
+      - in: query
+        name: qualExusrUsrexamId__qualUsrexamId
+        description: Search filter for User's exam|User's exams qual usrexam id
+        type: string
+        required: false
+      - in: query
+        name: qualExusrUsrexamId__qualUsrexamUsrId
+        description: Search filter for User's exam|User's exams Candidate|Candidates
+        type: string
+        required: false
+      - in: query
+        name: qualExusrUsrexamId__qualUsrexamUsrId__usr_login
+        description: Search filter for Login
+        type: string
+        required: false
+      - in: query
+        name: qualExusrUsrexamId__qualUsrexamExamId
+        description: Search filter for User's exam|User's exams Exam
+        type: string
+        required: false
+      - in: query
+        name: qualExusrUsrexamId__qualUsrexamDateLimite
+        description: Search filter for User's exam|User's exams qual usrexam date
+          limite
+        type: string
+        required: false
+      - in: query
+        name: qualExusrUsrexamId__qualUsrexamExamId__qualExamName
+        description: Search filter for User's exam|User's exams Exam qual exam name
+        type: string
+        required: false
+      tags:
+      - QualExUsr
+  /login:
+    get:
+      summary: Login (obtain bearer token)
+      security:
+      - basicAuth: []
+      produces:
+      - text/plain
+      - application/json
+      operationId: login
+      responses:
+        '200':
+          description: Successful login
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+      parameters:
+      - in: query
+        name: _output
+        description: Optional output format
+        type: string
+        required: false
+        enum:
+        - json
+        - oauth2
+        - token
+      tags:
+      - session
+  /logout:
+    get:
+      summary: Logout (revoke bearer token)
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: logout
+      responses:
+        '200':
+          description: Successfull logout
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+      tags:
+      - session
+  /rest/QualUser/{row_id}/publication:User-EXCEL:
+    get:
+      summary: Call a custom publication for a QualUser business object record or
+        for all records
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualuser-publication-user-excel
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/PublicationResult'
+          description: Success in calling the custom publication
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - QualUser
+  /rest/QualExam/{row_id}:
+    post:
+      summary: Create a new QualExambusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualexam-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/QualExam'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/QualExam'
+        in: body
+        name: body
+      tags:
+      - QualExam
+      consumes:
+      - application/json
+    get:
+      summary: Get a QualExam business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualexam-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/QualExam'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - QualExam
+    delete:
+      summary: Delete a QualExam business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualexam-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - QualExam
+    put:
+      summary: Update a QualExambusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualexam-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/QualExam'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/QualExam'
+        in: body
+        name: body
+      tags:
+      - QualExam
+      consumes:
+      - application/json
+  /rest/QualExUsr/{row_id}:
+    post:
+      summary: Create a new QualExUsrbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualexusr-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/QualExUsr'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/QualExUsr'
+        in: body
+        name: body
+      tags:
+      - QualExUsr
+      consumes:
+      - application/json
+    get:
+      summary: Get a QualExUsr business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualexusr-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/QualExUsr'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - QualExUsr
+    delete:
+      summary: Delete a QualExUsr business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualexusr-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - QualExUsr
+    put:
+      summary: Update a QualExUsrbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualexusr-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/QualExUsr'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/QualExUsr'
+        in: body
+        name: body
+      tags:
+      - QualExUsr
+      consumes:
+      - application/json
+  /rest/QualUser/{row_id}/publication:User-DEFAULT:
+    get:
+      summary: Call a custom publication for a QualUser business object record or
+        for all records
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualuser-publication-user-default
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/PublicationResult'
+          description: Success in calling the custom publication
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - QualUser
+  /:
+    get:
+      summary: Get user session information
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: info
+      responses:
+        '200':
+          description: Success in getting user session information
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+      parameters:
+      - in: query
+        name: texts
+        description: Texts?
+        type: boolean
+        required: false
+      tags:
+      - session
+  /rest/QualExamEx/{row_id}:
+    post:
+      summary: Create a new QualExamExbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualexamex-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/QualExamEx'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/QualExamEx'
+        in: body
+        name: body
+      tags:
+      - QualExamEx
+      consumes:
+      - application/json
+    get:
+      summary: Get a QualExamEx business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualexamex-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/QualExamEx'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - QualExamEx
+    delete:
+      summary: Delete a QualExamEx business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualexamex-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - QualExamEx
+    put:
+      summary: Update a QualExamExbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualexamex-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/QualExamEx'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/QualExamEx'
+        in: body
+        name: body
+      tags:
+      - QualExamEx
+      consumes:
+      - application/json
+  /rest/QualExercise/{row_id}:
+    post:
+      summary: Create a new QualExercisebusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualexercise-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/QualExercise'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/QualExercise'
+        in: body
+        name: body
+      tags:
+      - QualExercise
+      consumes:
+      - application/json
+    get:
+      summary: Get a QualExercise business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualexercise-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/QualExercise'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - QualExercise
+    delete:
+      summary: Delete a QualExercise business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualexercise-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - QualExercise
+    put:
+      summary: Update a QualExercisebusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualexercise-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/QualExercise'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/QualExercise'
+        in: body
+        name: body
+      tags:
+      - QualExercise
+      consumes:
+      - application/json
+  /rest/QualUser/{row_id}/publication:User-WORD:
+    get:
+      summary: Call a custom publication for a QualUser business object record or
+        for all records
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualuser-publication-user-word
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/PublicationResult'
+          description: Success in calling the custom publication
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - QualUser
+  /rest/QualUserExam:
+    get:
+      summary: Search QualUserExam business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualuserexam-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfQualUserExam'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: qualUsrexamId
+        description: Search filter for qual usrexam id
+        type: string
+        required: false
+      - in: query
+        name: qualUsrexamUsrId
+        description: Search filter for Candidate|Candidates
+        type: string
+        required: false
+      - in: query
+        name: qualUsrexamUsrId__usr_login
+        description: Search filter for Login
+        type: string
+        required: false
+      - in: query
+        name: qualUsrexamUsrId__usr_last_name
+        description: Search filter for Last name
+        type: string
+        required: false
+      - in: query
+        name: qualUsrexamUsrId__usr_first_name
+        description: Search filter for First name
+        type: string
+        required: false
+      - in: query
+        name: qualUsrexamExamId
+        description: Search filter for Exam
+        type: string
+        required: false
+      - in: query
+        name: qualUsrexamExamId__qualExamName
+        description: Search filter for Exam qual exam name
+        type: string
+        required: false
+      - in: query
+        name: qualUsrexamExamId__qualExamPublic
+        description: Search filter for Exam qual exam public
+        type: boolean
+        required: false
+      - in: query
+        name: qualUsrexamScore
+        description: Search filter for qual usrexam score
+        type: integer
+        required: false
+      - in: query
+        name: qualUsrexamDateLimite
+        description: Search filter for qual usrexam date limite
+        type: string
+        required: false
+      - in: query
+        name: qualUsrexamEtat
+        description: Search filter for qual usrexam etat
+        type: string
+        required: false
+        enum:
+        - TODO
+        - DONE
+        - SCORED
+      tags:
+      - QualUserExam
+  /rest/QualUserExam/{row_id}:
+    post:
+      summary: Create a new QualUserExambusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualuserexam-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/QualUserExam'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/QualUserExam'
+        in: body
+        name: body
+      tags:
+      - QualUserExam
+      consumes:
+      - application/json
+    get:
+      summary: Get a QualUserExam business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualuserexam-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/QualUserExam'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - QualUserExam
+    delete:
+      summary: Delete a QualUserExam business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualuserexam-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - QualUserExam
+    put:
+      summary: Update a QualUserExambusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualuserexam-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/QualUserExam'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/QualUserExam'
+        in: body
+        name: body
+      tags:
+      - QualUserExam
+      consumes:
+      - application/json
+  /rest/QualUser:
+    get:
+      summary: Search QualUser business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualuser-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfQualUser'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: usr_image_id
+        description: Search filter for Picture
+        type: string
+        required: false
+      - in: query
+        name: usr_login
+        description: Search filter for Login
+        type: string
+        required: false
+      - in: query
+        name: usr_timezone
+        description: Search filter for Time zone
+        type: string
+        required: false
+        enum:
+        - Etc/GMT+12
+        - Etc/GMT+11
+        - Pacific/Midway
+        - Pacific/Niue
+        - Pacific/Pago_Pago
+        - Pacific/Samoa
+        - US/Samoa
+        - America/Adak
+        - America/Atka
+        - Etc/GMT+10
+        - Pacific/Honolulu
+        - Pacific/Johnston
+        - Pacific/Rarotonga
+        - Pacific/Tahiti
+        - SystemV/HST10
+        - US/Aleutian
+        - US/Hawaii
+        - HST
+        - Pacific/Marquesas
+        - America/Anchorage
+        - America/Juneau
+        - America/Metlakatla
+        - America/Nome
+        - America/Sitka
+        - America/Yakutat
+        - Etc/GMT+9
+        - Pacific/Gambier
+        - SystemV/YST9
+        - SystemV/YST9YDT
+        - US/Alaska
+        - AST
+        - America/Ensenada
+        - America/Los_Angeles
+        - America/Santa_Isabel
+        - America/Tijuana
+        - America/Vancouver
+        - Canada/Pacific
+        - Etc/GMT+8
+        - Mexico/BajaNorte
+        - PST8PDT
+        - Pacific/Pitcairn
+        - SystemV/PST8
+        - SystemV/PST8PDT
+        - US/Pacific
+        - PST
+        - America/Boise
+        - America/Cambridge_Bay
+        - America/Chihuahua
+        - America/Creston
+        - America/Dawson
+        - America/Dawson_Creek
+        - America/Denver
+        - America/Edmonton
+        - America/Fort_Nelson
+        - America/Hermosillo
+        - America/Inuvik
+        - America/Mazatlan
+        - America/Ojinaga
+        - America/Phoenix
+        - America/Shiprock
+        - America/Whitehorse
+        - America/Yellowknife
+        - Canada/Mountain
+        - Canada/Yukon
+        - Etc/GMT+7
+        - MST7MDT
+        - Mexico/BajaSur
+        - Navajo
+        - SystemV/MST7
+        - SystemV/MST7MDT
+        - US/Arizona
+        - US/Mountain
+        - MST
+        - PNT
+        - America/Bahia_Banderas
+        - America/Belize
+        - America/Chicago
+        - America/Costa_Rica
+        - America/El_Salvador
+        - America/Guatemala
+        - America/Indiana/Knox
+        - America/Indiana/Tell_City
+        - America/Knox_IN
+        - America/Managua
+        - America/Matamoros
+        - America/Menominee
+        - America/Merida
+        - America/Mexico_City
+        - America/Monterrey
+        - America/North_Dakota/Beulah
+        - America/North_Dakota/Center
+        - America/North_Dakota/New_Salem
+        - America/Rainy_River
+        - America/Rankin_Inlet
+        - America/Regina
+        - America/Resolute
+        - America/Swift_Current
+        - America/Tegucigalpa
+        - America/Winnipeg
+        - CST6CDT
+        - Canada/Central
+        - Canada/Saskatchewan
+        - Chile/EasterIsland
+        - Etc/GMT+6
+        - Mexico/General
+        - Pacific/Easter
+        - Pacific/Galapagos
+        - SystemV/CST6
+        - SystemV/CST6CDT
+        - US/Central
+        - US/Indiana-Starke
+        - CST
+        - America/Atikokan
+        - America/Bogota
+        - America/Cancun
+        - America/Cayman
+        - America/Coral_Harbour
+        - America/Detroit
+        - America/Eirunepe
+        - America/Fort_Wayne
+        - America/Grand_Turk
+        - America/Guayaquil
+        - America/Havana
+        - America/Indiana/Indianapolis
+        - America/Indiana/Marengo
+        - America/Indiana/Petersburg
+        - America/Indiana/Vevay
+        - America/Indiana/Vincennes
+        - America/Indiana/Winamac
+        - America/Indianapolis
+        - America/Iqaluit
+        - America/Jamaica
+        - America/Kentucky/Louisville
+        - America/Kentucky/Monticello
+        - America/Lima
+        - America/Louisville
+        - America/Montreal
+        - America/Nassau
+        - America/New_York
+        - America/Nipigon
+        - America/Panama
+        - America/Pangnirtung
+        - America/Port-au-Prince
+        - America/Porto_Acre
+        - America/Rio_Branco
+        - America/Thunder_Bay
+        - America/Toronto
+        - Brazil/Acre
+        - Canada/Eastern
+        - Cuba
+        - EST5EDT
+        - Etc/GMT+5
+        - Jamaica
+        - SystemV/EST5
+        - SystemV/EST5EDT
+        - US/East-Indiana
+        - US/Eastern
+        - US/Michigan
+        - EST
+        - IET
+        - America/Anguilla
+        - America/Antigua
+        - America/Aruba
+        - America/Asuncion
+        - America/Barbados
+        - America/Blanc-Sablon
+        - America/Boa_Vista
+        - America/Campo_Grande
+        - America/Caracas
+        - America/Cuiaba
+        - America/Curacao
+        - America/Dominica
+        - America/Glace_Bay
+        - America/Goose_Bay
+        - America/Grenada
+        - America/Guadeloupe
+        - America/Guyana
+        - America/Halifax
+        - America/Kralendijk
+        - America/La_Paz
+        - America/Lower_Princes
+        - America/Manaus
+        - America/Marigot
+        - America/Martinique
+        - America/Moncton
+        - America/Montserrat
+        - America/Port_of_Spain
+        - America/Porto_Velho
+        - America/Puerto_Rico
+        - America/Santiago
+        - America/Santo_Domingo
+        - America/St_Barthelemy
+        - America/St_Kitts
+        - America/St_Lucia
+        - America/St_Thomas
+        - America/St_Vincent
+        - America/Thule
+        - America/Tortola
+        - America/Virgin
+        - Atlantic/Bermuda
+        - Brazil/West
+        - Canada/Atlantic
+        - Chile/Continental
+        - Etc/GMT+4
+        - SystemV/AST4
+        - SystemV/AST4ADT
+        - PRT
+        - America/St_Johns
+        - Canada/Newfoundland
+        - CNT
+        - America/Araguaina
+        - America/Argentina/Buenos_Aires
+        - America/Argentina/Catamarca
+        - America/Argentina/ComodRivadavia
+        - America/Argentina/Cordoba
+        - America/Argentina/Jujuy
+        - America/Argentina/La_Rioja
+        - America/Argentina/Mendoza
+        - America/Argentina/Rio_Gallegos
+        - America/Argentina/Salta
+        - America/Argentina/San_Juan
+        - America/Argentina/San_Luis
+        - America/Argentina/Tucuman
+        - America/Argentina/Ushuaia
+        - America/Bahia
+        - America/Belem
+        - America/Buenos_Aires
+        - America/Catamarca
+        - America/Cayenne
+        - America/Cordoba
+        - America/Fortaleza
+        - America/Godthab
+        - America/Jujuy
+        - America/Maceio
+        - America/Mendoza
+        - America/Miquelon
+        - America/Montevideo
+        - America/Nuuk
+        - America/Paramaribo
+        - America/Punta_Arenas
+        - America/Recife
+        - America/Rosario
+        - America/Santarem
+        - America/Sao_Paulo
+        - Antarctica/Palmer
+        - Antarctica/Rothera
+        - Atlantic/Stanley
+        - Brazil/East
+        - Etc/GMT+3
+        - AGT
+        - BET
+        - America/Noronha
+        - Atlantic/South_Georgia
+        - Brazil/DeNoronha
+        - Etc/GMT+2
+        - America/Scoresbysund
+        - Atlantic/Azores
+        - Atlantic/Cape_Verde
+        - Etc/GMT+1
+        - Africa/Abidjan
+        - Africa/Accra
+        - Africa/Bamako
+        - Africa/Banjul
+        - Africa/Bissau
+        - Africa/Casablanca
+        - Africa/Conakry
+        - Africa/Dakar
+        - Africa/El_Aaiun
+        - Africa/Freetown
+        - Africa/Lome
+        - Africa/Monrovia
+        - Africa/Nouakchott
+        - Africa/Ouagadougou
+        - Africa/Sao_Tome
+        - Africa/Timbuktu
+        - America/Danmarkshavn
+        - Antarctica/Troll
+        - Atlantic/Canary
+        - Atlantic/Faeroe
+        - Atlantic/Faroe
+        - Atlantic/Madeira
+        - Atlantic/Reykjavik
+        - Atlantic/St_Helena
+        - Eire
+        - Etc/GMT
+        - Etc/GMT+0
+        - Etc/GMT-0
+        - Etc/GMT0
+        - Etc/Greenwich
+        - Etc/UCT
+        - Etc/UTC
+        - Etc/Universal
+        - Etc/Zulu
+        - Europe/Belfast
+        - Europe/Dublin
+        - Europe/Guernsey
+        - Europe/Isle_of_Man
+        - Europe/Jersey
+        - Europe/Lisbon
+        - Europe/London
+        - GB
+        - GB-Eire
+        - GMT
+        - GMT0
+        - Greenwich
+        - Iceland
+        - Portugal
+        - UCT
+        - UTC
+        - Universal
+        - WET
+        - Zulu
+        - Africa/Algiers
+        - Africa/Bangui
+        - Africa/Brazzaville
+        - Africa/Ceuta
+        - Africa/Douala
+        - Africa/Kinshasa
+        - Africa/Lagos
+        - Africa/Libreville
+        - Africa/Luanda
+        - Africa/Malabo
+        - Africa/Ndjamena
+        - Africa/Niamey
+        - Africa/Porto-Novo
+        - Africa/Tunis
+        - Arctic/Longyearbyen
+        - Atlantic/Jan_Mayen
+        - CET
+        - Etc/GMT-1
+        - Europe/Amsterdam
+        - Europe/Andorra
+        - Europe/Belgrade
+        - Europe/Berlin
+        - Europe/Bratislava
+        - Europe/Brussels
+        - Europe/Budapest
+        - Europe/Busingen
+        - Europe/Copenhagen
+        - Europe/Gibraltar
+        - Europe/Ljubljana
+        - Europe/Luxembourg
+        - Europe/Madrid
+        - Europe/Malta
+        - Europe/Monaco
+        - Europe/Oslo
+        - Europe/Paris
+        - Europe/Podgorica
+        - Europe/Prague
+        - Europe/Rome
+        - Europe/San_Marino
+        - Europe/Sarajevo
+        - Europe/Skopje
+        - Europe/Stockholm
+        - Europe/Tirane
+        - Europe/Vaduz
+        - Europe/Vatican
+        - Europe/Vienna
+        - Europe/Warsaw
+        - Europe/Zagreb
+        - Europe/Zurich
+        - MET
+        - Poland
+        - ECT
+        - Africa/Blantyre
+        - Africa/Bujumbura
+        - Africa/Cairo
+        - Africa/Gaborone
+        - Africa/Harare
+        - Africa/Johannesburg
+        - Africa/Juba
+        - Africa/Khartoum
+        - Africa/Kigali
+        - Africa/Lubumbashi
+        - Africa/Lusaka
+        - Africa/Maputo
+        - Africa/Maseru
+        - Africa/Mbabane
+        - Africa/Tripoli
+        - Africa/Windhoek
+        - Asia/Amman
+        - Asia/Beirut
+        - Asia/Damascus
+        - Asia/Famagusta
+        - Asia/Gaza
+        - Asia/Hebron
+        - Asia/Jerusalem
+        - Asia/Nicosia
+        - Asia/Tel_Aviv
+        - EET
+        - Egypt
+        - Etc/GMT-2
+        - Europe/Athens
+        - Europe/Bucharest
+        - Europe/Chisinau
+        - Europe/Helsinki
+        - Europe/Kaliningrad
+        - Europe/Kiev
+        - Europe/Mariehamn
+        - Europe/Nicosia
+        - Europe/Riga
+        - Europe/Sofia
+        - Europe/Tallinn
+        - Europe/Tiraspol
+        - Europe/Uzhgorod
+        - Europe/Vilnius
+        - Europe/Zaporozhye
+        - Israel
+        - Libya
+        - ART
+        - CAT
+        - Africa/Addis_Ababa
+        - Africa/Asmara
+        - Africa/Asmera
+        - Africa/Dar_es_Salaam
+        - Africa/Djibouti
+        - Africa/Kampala
+        - Africa/Mogadishu
+        - Africa/Nairobi
+        - Antarctica/Syowa
+        - Asia/Aden
+        - Asia/Baghdad
+        - Asia/Bahrain
+        - Asia/Istanbul
+        - Asia/Kuwait
+        - Asia/Qatar
+        - Asia/Riyadh
+        - Etc/GMT-3
+        - Europe/Istanbul
+        - Europe/Kirov
+        - Europe/Minsk
+        - Europe/Moscow
+        - Europe/Simferopol
+        - Europe/Volgograd
+        - Indian/Antananarivo
+        - Indian/Comoro
+        - Indian/Mayotte
+        - Turkey
+        - W-SU
+        - EAT
+        - Asia/Tehran
+        - Iran
+        - Asia/Baku
+        - Asia/Dubai
+        - Asia/Muscat
+        - Asia/Tbilisi
+        - Asia/Yerevan
+        - Etc/GMT-4
+        - Europe/Astrakhan
+        - Europe/Samara
+        - Europe/Saratov
+        - Europe/Ulyanovsk
+        - Indian/Mahe
+        - Indian/Mauritius
+        - Indian/Reunion
+        - NET
+        - Asia/Kabul
+        - Antarctica/Mawson
+        - Asia/Aqtau
+        - Asia/Aqtobe
+        - Asia/Ashgabat
+        - Asia/Ashkhabad
+        - Asia/Atyrau
+        - Asia/Dushanbe
+        - Asia/Karachi
+        - Asia/Oral
+        - Asia/Qyzylorda
+        - Asia/Samarkand
+        - Asia/Tashkent
+        - Asia/Yekaterinburg
+        - Etc/GMT-5
+        - Indian/Kerguelen
+        - Indian/Maldives
+        - PLT
+        - Asia/Calcutta
+        - Asia/Colombo
+        - Asia/Kolkata
+        - IST
+        - Asia/Kathmandu
+        - Asia/Katmandu
+        - Antarctica/Vostok
+        - Asia/Almaty
+        - Asia/Bishkek
+        - Asia/Dacca
+        - Asia/Dhaka
+        - Asia/Kashgar
+        - Asia/Omsk
+        - Asia/Qostanay
+        - Asia/Thimbu
+        - Asia/Thimphu
+        - Asia/Urumqi
+        - Etc/GMT-6
+        - Indian/Chagos
+        - BST
+        - Asia/Rangoon
+        - Asia/Yangon
+        - Indian/Cocos
+        - Antarctica/Davis
+        - Asia/Bangkok
+        - Asia/Barnaul
+        - Asia/Ho_Chi_Minh
+        - Asia/Hovd
+        - Asia/Jakarta
+        - Asia/Krasnoyarsk
+        - Asia/Novokuznetsk
+        - Asia/Novosibirsk
+        - Asia/Phnom_Penh
+        - Asia/Pontianak
+        - Asia/Saigon
+        - Asia/Tomsk
+        - Asia/Vientiane
+        - Etc/GMT-7
+        - Indian/Christmas
+        - VST
+        - Asia/Brunei
+        - Asia/Choibalsan
+        - Asia/Chongqing
+        - Asia/Chungking
+        - Asia/Harbin
+        - Asia/Hong_Kong
+        - Asia/Irkutsk
+        - Asia/Kuala_Lumpur
+        - Asia/Kuching
+        - Asia/Macao
+        - Asia/Macau
+        - Asia/Makassar
+        - Asia/Manila
+        - Asia/Shanghai
+        - Asia/Singapore
+        - Asia/Taipei
+        - Asia/Ujung_Pandang
+        - Asia/Ulaanbaatar
+        - Asia/Ulan_Bator
+        - Australia/Perth
+        - Australia/West
+        - Etc/GMT-8
+        - Hongkong
+        - PRC
+        - Singapore
+        - CTT
+        - Australia/Eucla
+        - Asia/Chita
+        - Asia/Dili
+        - Asia/Jayapura
+        - Asia/Khandyga
+        - Asia/Pyongyang
+        - Asia/Seoul
+        - Asia/Tokyo
+        - Asia/Yakutsk
+        - Etc/GMT-9
+        - Japan
+        - Pacific/Palau
+        - ROK
+        - JST
+        - Australia/Adelaide
+        - Australia/Broken_Hill
+        - Australia/Darwin
+        - Australia/North
+        - Australia/South
+        - Australia/Yancowinna
+        - ACT
+        - Antarctica/DumontDUrville
+        - Antarctica/Macquarie
+        - Asia/Ust-Nera
+        - Asia/Vladivostok
+        - Australia/ACT
+        - Australia/Brisbane
+        - Australia/Canberra
+        - Australia/Currie
+        - Australia/Hobart
+        - Australia/Lindeman
+        - Australia/Melbourne
+        - Australia/NSW
+        - Australia/Queensland
+        - Australia/Sydney
+        - Australia/Tasmania
+        - Australia/Victoria
+        - Etc/GMT-10
+        - Pacific/Chuuk
+        - Pacific/Guam
+        - Pacific/Port_Moresby
+        - Pacific/Saipan
+        - Pacific/Truk
+        - Pacific/Yap
+        - AET
+        - Australia/LHI
+        - Australia/Lord_Howe
+        - Antarctica/Casey
+        - Asia/Magadan
+        - Asia/Sakhalin
+        - Asia/Srednekolymsk
+        - Etc/GMT-11
+        - Pacific/Bougainville
+        - Pacific/Efate
+        - Pacific/Guadalcanal
+        - Pacific/Kosrae
+        - Pacific/Norfolk
+        - Pacific/Noumea
+        - Pacific/Pohnpei
+        - Pacific/Ponape
+        - SST
+        - Antarctica/McMurdo
+        - Antarctica/South_Pole
+        - Asia/Anadyr
+        - Asia/Kamchatka
+        - Etc/GMT-12
+        - Kwajalein
+        - NZ
+        - Pacific/Auckland
+        - Pacific/Fiji
+        - Pacific/Funafuti
+        - Pacific/Kwajalein
+        - Pacific/Majuro
+        - Pacific/Nauru
+        - Pacific/Tarawa
+        - Pacific/Wake
+        - Pacific/Wallis
+        - NST
+        - NZ-CHAT
+        - Pacific/Chatham
+        - Etc/GMT-13
+        - Pacific/Apia
+        - Pacific/Enderbury
+        - Pacific/Fakaofo
+        - Pacific/Tongatapu
+        - MIT
+        - Etc/GMT-14
+        - Pacific/Kiritimati
+      - in: query
+        name: usr_minrows
+        description: Search filter for Min size of lists
+        type: integer
+        required: false
+      - in: query
+        name: usr_maxrows
+        description: Search filter for Max size of lists
+        type: integer
+        required: false
+      - in: query
+        name: qualUsrTests
+        description: Search filter for Tests
+        type: string
+        required: false
+        enum:
+        - UML
+        - JAVA
+        - JS
+        - SQL
+        - SIM_BASE
+        - SIM_CONCEPTION
+        - SIM_OPERATION
+        - SIM_INTEGRATION
+        - SIM_REX
+      - in: query
+        name: usr_title
+        description: Search filter for Title
+        type: string
+        required: false
+        enum:
+        - MR
+        - MRS
+        - MS
+      - in: query
+        name: usr_first_name
+        description: Search filter for First name
+        type: string
+        required: false
+      - in: query
+        name: usr_last_name
+        description: Search filter for Last name
+        type: string
+        required: false
+      - in: query
+        name: usr_lang
+        description: Search filter for Language
+        type: string
+        required: false
+        enum:
+        - ENU
+        - FRA
+      - in: query
+        name: usr_email
+        description: Search filter for Email address
+        type: string
+        required: false
+      - in: query
+        name: usr_work_num
+        description: Search filter for Work phone number
+        type: string
+        required: false
+      - in: query
+        name: usr_home_num
+        description: Search filter for Home phone
+        type: string
+        required: false
+      - in: query
+        name: qualUsrLevel
+        description: Search filter for Level
+        type: string
+        required: false
+        enum:
+        - '1'
+        - '2'
+        - '3'
+      - in: query
+        name: usr_cell_num
+        description: Search filter for Mobile/cellular phone number
+        type: string
+        required: false
+      - in: query
+        name: usr_active
+        description: Search filter for Active
+        type: string
+        required: false
+        enum:
+        - '0'
+        - '1'
+        - '2'
+        - '3'
+      - in: query
+        name: usr_home_id
+        description: Search filter for Home page
+        type: string
+        required: false
+      - in: query
+        name: usr_home_id__viw_name
+        description: Search filter for Home page
+        type: string
+        required: false
+      - in: query
+        name: usr_address1
+        description: Search filter for Address line 1
+        type: string
+        required: false
+      - in: query
+        name: usr_address2
+        description: Search filter for Address line 2
+        type: string
+        required: false
+      - in: query
+        name: usr_zipcode
+        description: Search filter for Postal/ZIP code
+        type: string
+        required: false
+      - in: query
+        name: usr_city
+        description: Search filter for City
+        type: string
+        required: false
+      - in: query
+        name: usr_state
+        description: Search filter for State
+        type: string
+        required: false
+      - in: query
+        name: usr_country
+        description: Search filter for Country
+        type: string
+        required: false
+        enum:
+        - FR
+        - UK
+        - ES
+        - DE
+        - BE
+        - CH
+        - IE
+        - US
+        - CA
+      - in: query
+        name: qualUsrTypedutilisateur
+        description: Search filter for qual usr typedutilisateur
+        type: string
+        required: false
+        enum:
+        - ADMIN
+        - CAND
+      - in: query
+        name: row_module_id
+        description: Search filter for Module
+        type: string
+        required: false
+      - in: query
+        name: row_module_id__mdl_name
+        description: Search filter for Module name
+        type: string
+        required: false
+      - in: query
+        name: usr_menu
+        description: Search filter for Menu visible
+        type: boolean
+        required: false
+      - in: query
+        name: usr_menu_defcollapsed
+        description: Search filter for Menu collapsed by default
+        type: boolean
+        required: false
+      - in: query
+        name: usr_menu_defdomain_id
+        description: Search filter for Domain menu by default
+        type: string
+        required: false
+      - in: query
+        name: usr_menu_defdomain_id__obd_name
+        description: Search filter for Default opened domain
+        type: string
+        required: false
+      - in: query
+        name: usr_logout
+        description: Search filter for Logout
+        type: string
+        required: false
+      - in: query
+        name: usr_last_logon
+        description: Search filter for Last logon
+        type: string
+        required: false
+      - in: query
+        name: usr_dateformat
+        description: Search filter for Date format
+        type: string
+        required: false
+        enum:
+        - YMD
+        - DMY
+        - MDY
+        - CHF
+      - in: query
+        name: usr_lang_pref
+        description: Search filter for Preferred language
+        type: string
+        required: false
+        enum:
+        - ENU
+        - FRA
+      - in: query
+        name: usr_uuid
+        description: Search filter for UUID
+        type: string
+        required: false
+      tags:
+      - QualUser
+  /rest/QualExam:
+    get:
+      summary: Search QualExam business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualexam-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfQualExam'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: qualExamName
+        description: Search filter for qual exam name
+        type: string
+        required: false
+      - in: query
+        name: qualExamPublic
+        description: Search filter for qual exam public
+        type: boolean
+        required: false
+      - in: query
+        name: qualExType
+        description: Search filter for Type
+        type: string
+        required: false
+        enum:
+        - UML
+        - JAVA
+        - JS
+        - SQL
+        - SIM_BASE
+        - SIM_CONCEPTION
+        - SIM_OPERATION
+        - SIM_INTEGRATION
+        - SIM_REX
+      tags:
+      - QualExam
+  /rest/QualUser/{row_id}:
+    post:
+      summary: Create a new QualUserbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualuser-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/QualUser'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/QualUser'
+        in: body
+        name: body
+      tags:
+      - QualUser
+      consumes:
+      - application/json
+    get:
+      summary: Get a QualUser business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualuser-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/QualUser'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - QualUser
+    delete:
+      summary: Delete a QualUser business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualuser-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - QualUser
+    put:
+      summary: Update a QualUserbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualuser-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/QualUser'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/QualUser'
+        in: body
+        name: body
+      tags:
+      - QualUser
+      consumes:
+      - application/json
+  /rest/QualExamEx:
+    get:
+      summary: Search QualExamEx business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-qualexamex-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfQualExamEx'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: qualExamexExamId
+        description: Search filter for qual examex exam id
+        type: string
+        required: false
+      - in: query
+        name: qualExamexExamId__qualExamName
+        description: Search filter for qual examex exam id qual exam name
+        type: string
+        required: false
+      - in: query
+        name: qualExamexExId
+        description: Search filter for qual examex ex id
+        type: string
+        required: false
+      - in: query
+        name: qualExamexExId__qualExId
+        description: Search filter for qual examex ex id Id
+        type: string
+        required: false
+      - in: query
+        name: qualExamexExId__qualExQuestion
+        description: Search filter for qual examex ex id Question
+        type: string
+        required: false
+      tags:
+      - QualExamEx
+securityDefinitions:
+  basicAuth:
+    type: basic
+  bearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+definitions:
+  Error404:
+    type: object
+    properties:
+      error:
+        description: Error message
+        type: string
+      status:
+        description: Error status
+        type: integer
+        enum:
+        - 404
+  ArrayOfQualExamEx:
+    type: array
+    items:
+      $ref: '#/definitions/QualExamEx'
+  ArrayOfQualExercise:
+    type: array
+    items:
+      $ref: '#/definitions/QualExercise'
+  QualUser:
+    type: object
+    properties:
+      usr_timezone:
+        description: Time zone
+        type: string
+        enum:
+        - Etc/GMT+12
+        - Etc/GMT+11
+        - Pacific/Midway
+        - Pacific/Niue
+        - Pacific/Pago_Pago
+        - Pacific/Samoa
+        - US/Samoa
+        - America/Adak
+        - America/Atka
+        - Etc/GMT+10
+        - Pacific/Honolulu
+        - Pacific/Johnston
+        - Pacific/Rarotonga
+        - Pacific/Tahiti
+        - SystemV/HST10
+        - US/Aleutian
+        - US/Hawaii
+        - HST
+        - Pacific/Marquesas
+        - America/Anchorage
+        - America/Juneau
+        - America/Metlakatla
+        - America/Nome
+        - America/Sitka
+        - America/Yakutat
+        - Etc/GMT+9
+        - Pacific/Gambier
+        - SystemV/YST9
+        - SystemV/YST9YDT
+        - US/Alaska
+        - AST
+        - America/Ensenada
+        - America/Los_Angeles
+        - America/Santa_Isabel
+        - America/Tijuana
+        - America/Vancouver
+        - Canada/Pacific
+        - Etc/GMT+8
+        - Mexico/BajaNorte
+        - PST8PDT
+        - Pacific/Pitcairn
+        - SystemV/PST8
+        - SystemV/PST8PDT
+        - US/Pacific
+        - PST
+        - America/Boise
+        - America/Cambridge_Bay
+        - America/Chihuahua
+        - America/Creston
+        - America/Dawson
+        - America/Dawson_Creek
+        - America/Denver
+        - America/Edmonton
+        - America/Fort_Nelson
+        - America/Hermosillo
+        - America/Inuvik
+        - America/Mazatlan
+        - America/Ojinaga
+        - America/Phoenix
+        - America/Shiprock
+        - America/Whitehorse
+        - America/Yellowknife
+        - Canada/Mountain
+        - Canada/Yukon
+        - Etc/GMT+7
+        - MST7MDT
+        - Mexico/BajaSur
+        - Navajo
+        - SystemV/MST7
+        - SystemV/MST7MDT
+        - US/Arizona
+        - US/Mountain
+        - MST
+        - PNT
+        - America/Bahia_Banderas
+        - America/Belize
+        - America/Chicago
+        - America/Costa_Rica
+        - America/El_Salvador
+        - America/Guatemala
+        - America/Indiana/Knox
+        - America/Indiana/Tell_City
+        - America/Knox_IN
+        - America/Managua
+        - America/Matamoros
+        - America/Menominee
+        - America/Merida
+        - America/Mexico_City
+        - America/Monterrey
+        - America/North_Dakota/Beulah
+        - America/North_Dakota/Center
+        - America/North_Dakota/New_Salem
+        - America/Rainy_River
+        - America/Rankin_Inlet
+        - America/Regina
+        - America/Resolute
+        - America/Swift_Current
+        - America/Tegucigalpa
+        - America/Winnipeg
+        - CST6CDT
+        - Canada/Central
+        - Canada/Saskatchewan
+        - Chile/EasterIsland
+        - Etc/GMT+6
+        - Mexico/General
+        - Pacific/Easter
+        - Pacific/Galapagos
+        - SystemV/CST6
+        - SystemV/CST6CDT
+        - US/Central
+        - US/Indiana-Starke
+        - CST
+        - America/Atikokan
+        - America/Bogota
+        - America/Cancun
+        - America/Cayman
+        - America/Coral_Harbour
+        - America/Detroit
+        - America/Eirunepe
+        - America/Fort_Wayne
+        - America/Grand_Turk
+        - America/Guayaquil
+        - America/Havana
+        - America/Indiana/Indianapolis
+        - America/Indiana/Marengo
+        - America/Indiana/Petersburg
+        - America/Indiana/Vevay
+        - America/Indiana/Vincennes
+        - America/Indiana/Winamac
+        - America/Indianapolis
+        - America/Iqaluit
+        - America/Jamaica
+        - America/Kentucky/Louisville
+        - America/Kentucky/Monticello
+        - America/Lima
+        - America/Louisville
+        - America/Montreal
+        - America/Nassau
+        - America/New_York
+        - America/Nipigon
+        - America/Panama
+        - America/Pangnirtung
+        - America/Port-au-Prince
+        - America/Porto_Acre
+        - America/Rio_Branco
+        - America/Thunder_Bay
+        - America/Toronto
+        - Brazil/Acre
+        - Canada/Eastern
+        - Cuba
+        - EST5EDT
+        - Etc/GMT+5
+        - Jamaica
+        - SystemV/EST5
+        - SystemV/EST5EDT
+        - US/East-Indiana
+        - US/Eastern
+        - US/Michigan
+        - EST
+        - IET
+        - America/Anguilla
+        - America/Antigua
+        - America/Aruba
+        - America/Asuncion
+        - America/Barbados
+        - America/Blanc-Sablon
+        - America/Boa_Vista
+        - America/Campo_Grande
+        - America/Caracas
+        - America/Cuiaba
+        - America/Curacao
+        - America/Dominica
+        - America/Glace_Bay
+        - America/Goose_Bay
+        - America/Grenada
+        - America/Guadeloupe
+        - America/Guyana
+        - America/Halifax
+        - America/Kralendijk
+        - America/La_Paz
+        - America/Lower_Princes
+        - America/Manaus
+        - America/Marigot
+        - America/Martinique
+        - America/Moncton
+        - America/Montserrat
+        - America/Port_of_Spain
+        - America/Porto_Velho
+        - America/Puerto_Rico
+        - America/Santiago
+        - America/Santo_Domingo
+        - America/St_Barthelemy
+        - America/St_Kitts
+        - America/St_Lucia
+        - America/St_Thomas
+        - America/St_Vincent
+        - America/Thule
+        - America/Tortola
+        - America/Virgin
+        - Atlantic/Bermuda
+        - Brazil/West
+        - Canada/Atlantic
+        - Chile/Continental
+        - Etc/GMT+4
+        - SystemV/AST4
+        - SystemV/AST4ADT
+        - PRT
+        - America/St_Johns
+        - Canada/Newfoundland
+        - CNT
+        - America/Araguaina
+        - America/Argentina/Buenos_Aires
+        - America/Argentina/Catamarca
+        - America/Argentina/ComodRivadavia
+        - America/Argentina/Cordoba
+        - America/Argentina/Jujuy
+        - America/Argentina/La_Rioja
+        - America/Argentina/Mendoza
+        - America/Argentina/Rio_Gallegos
+        - America/Argentina/Salta
+        - America/Argentina/San_Juan
+        - America/Argentina/San_Luis
+        - America/Argentina/Tucuman
+        - America/Argentina/Ushuaia
+        - America/Bahia
+        - America/Belem
+        - America/Buenos_Aires
+        - America/Catamarca
+        - America/Cayenne
+        - America/Cordoba
+        - America/Fortaleza
+        - America/Godthab
+        - America/Jujuy
+        - America/Maceio
+        - America/Mendoza
+        - America/Miquelon
+        - America/Montevideo
+        - America/Nuuk
+        - America/Paramaribo
+        - America/Punta_Arenas
+        - America/Recife
+        - America/Rosario
+        - America/Santarem
+        - America/Sao_Paulo
+        - Antarctica/Palmer
+        - Antarctica/Rothera
+        - Atlantic/Stanley
+        - Brazil/East
+        - Etc/GMT+3
+        - AGT
+        - BET
+        - America/Noronha
+        - Atlantic/South_Georgia
+        - Brazil/DeNoronha
+        - Etc/GMT+2
+        - America/Scoresbysund
+        - Atlantic/Azores
+        - Atlantic/Cape_Verde
+        - Etc/GMT+1
+        - Africa/Abidjan
+        - Africa/Accra
+        - Africa/Bamako
+        - Africa/Banjul
+        - Africa/Bissau
+        - Africa/Casablanca
+        - Africa/Conakry
+        - Africa/Dakar
+        - Africa/El_Aaiun
+        - Africa/Freetown
+        - Africa/Lome
+        - Africa/Monrovia
+        - Africa/Nouakchott
+        - Africa/Ouagadougou
+        - Africa/Sao_Tome
+        - Africa/Timbuktu
+        - America/Danmarkshavn
+        - Antarctica/Troll
+        - Atlantic/Canary
+        - Atlantic/Faeroe
+        - Atlantic/Faroe
+        - Atlantic/Madeira
+        - Atlantic/Reykjavik
+        - Atlantic/St_Helena
+        - Eire
+        - Etc/GMT
+        - Etc/GMT+0
+        - Etc/GMT-0
+        - Etc/GMT0
+        - Etc/Greenwich
+        - Etc/UCT
+        - Etc/UTC
+        - Etc/Universal
+        - Etc/Zulu
+        - Europe/Belfast
+        - Europe/Dublin
+        - Europe/Guernsey
+        - Europe/Isle_of_Man
+        - Europe/Jersey
+        - Europe/Lisbon
+        - Europe/London
+        - GB
+        - GB-Eire
+        - GMT
+        - GMT0
+        - Greenwich
+        - Iceland
+        - Portugal
+        - UCT
+        - UTC
+        - Universal
+        - WET
+        - Zulu
+        - Africa/Algiers
+        - Africa/Bangui
+        - Africa/Brazzaville
+        - Africa/Ceuta
+        - Africa/Douala
+        - Africa/Kinshasa
+        - Africa/Lagos
+        - Africa/Libreville
+        - Africa/Luanda
+        - Africa/Malabo
+        - Africa/Ndjamena
+        - Africa/Niamey
+        - Africa/Porto-Novo
+        - Africa/Tunis
+        - Arctic/Longyearbyen
+        - Atlantic/Jan_Mayen
+        - CET
+        - Etc/GMT-1
+        - Europe/Amsterdam
+        - Europe/Andorra
+        - Europe/Belgrade
+        - Europe/Berlin
+        - Europe/Bratislava
+        - Europe/Brussels
+        - Europe/Budapest
+        - Europe/Busingen
+        - Europe/Copenhagen
+        - Europe/Gibraltar
+        - Europe/Ljubljana
+        - Europe/Luxembourg
+        - Europe/Madrid
+        - Europe/Malta
+        - Europe/Monaco
+        - Europe/Oslo
+        - Europe/Paris
+        - Europe/Podgorica
+        - Europe/Prague
+        - Europe/Rome
+        - Europe/San_Marino
+        - Europe/Sarajevo
+        - Europe/Skopje
+        - Europe/Stockholm
+        - Europe/Tirane
+        - Europe/Vaduz
+        - Europe/Vatican
+        - Europe/Vienna
+        - Europe/Warsaw
+        - Europe/Zagreb
+        - Europe/Zurich
+        - MET
+        - Poland
+        - ECT
+        - Africa/Blantyre
+        - Africa/Bujumbura
+        - Africa/Cairo
+        - Africa/Gaborone
+        - Africa/Harare
+        - Africa/Johannesburg
+        - Africa/Juba
+        - Africa/Khartoum
+        - Africa/Kigali
+        - Africa/Lubumbashi
+        - Africa/Lusaka
+        - Africa/Maputo
+        - Africa/Maseru
+        - Africa/Mbabane
+        - Africa/Tripoli
+        - Africa/Windhoek
+        - Asia/Amman
+        - Asia/Beirut
+        - Asia/Damascus
+        - Asia/Famagusta
+        - Asia/Gaza
+        - Asia/Hebron
+        - Asia/Jerusalem
+        - Asia/Nicosia
+        - Asia/Tel_Aviv
+        - EET
+        - Egypt
+        - Etc/GMT-2
+        - Europe/Athens
+        - Europe/Bucharest
+        - Europe/Chisinau
+        - Europe/Helsinki
+        - Europe/Kaliningrad
+        - Europe/Kiev
+        - Europe/Mariehamn
+        - Europe/Nicosia
+        - Europe/Riga
+        - Europe/Sofia
+        - Europe/Tallinn
+        - Europe/Tiraspol
+        - Europe/Uzhgorod
+        - Europe/Vilnius
+        - Europe/Zaporozhye
+        - Israel
+        - Libya
+        - ART
+        - CAT
+        - Africa/Addis_Ababa
+        - Africa/Asmara
+        - Africa/Asmera
+        - Africa/Dar_es_Salaam
+        - Africa/Djibouti
+        - Africa/Kampala
+        - Africa/Mogadishu
+        - Africa/Nairobi
+        - Antarctica/Syowa
+        - Asia/Aden
+        - Asia/Baghdad
+        - Asia/Bahrain
+        - Asia/Istanbul
+        - Asia/Kuwait
+        - Asia/Qatar
+        - Asia/Riyadh
+        - Etc/GMT-3
+        - Europe/Istanbul
+        - Europe/Kirov
+        - Europe/Minsk
+        - Europe/Moscow
+        - Europe/Simferopol
+        - Europe/Volgograd
+        - Indian/Antananarivo
+        - Indian/Comoro
+        - Indian/Mayotte
+        - Turkey
+        - W-SU
+        - EAT
+        - Asia/Tehran
+        - Iran
+        - Asia/Baku
+        - Asia/Dubai
+        - Asia/Muscat
+        - Asia/Tbilisi
+        - Asia/Yerevan
+        - Etc/GMT-4
+        - Europe/Astrakhan
+        - Europe/Samara
+        - Europe/Saratov
+        - Europe/Ulyanovsk
+        - Indian/Mahe
+        - Indian/Mauritius
+        - Indian/Reunion
+        - NET
+        - Asia/Kabul
+        - Antarctica/Mawson
+        - Asia/Aqtau
+        - Asia/Aqtobe
+        - Asia/Ashgabat
+        - Asia/Ashkhabad
+        - Asia/Atyrau
+        - Asia/Dushanbe
+        - Asia/Karachi
+        - Asia/Oral
+        - Asia/Qyzylorda
+        - Asia/Samarkand
+        - Asia/Tashkent
+        - Asia/Yekaterinburg
+        - Etc/GMT-5
+        - Indian/Kerguelen
+        - Indian/Maldives
+        - PLT
+        - Asia/Calcutta
+        - Asia/Colombo
+        - Asia/Kolkata
+        - IST
+        - Asia/Kathmandu
+        - Asia/Katmandu
+        - Antarctica/Vostok
+        - Asia/Almaty
+        - Asia/Bishkek
+        - Asia/Dacca
+        - Asia/Dhaka
+        - Asia/Kashgar
+        - Asia/Omsk
+        - Asia/Qostanay
+        - Asia/Thimbu
+        - Asia/Thimphu
+        - Asia/Urumqi
+        - Etc/GMT-6
+        - Indian/Chagos
+        - BST
+        - Asia/Rangoon
+        - Asia/Yangon
+        - Indian/Cocos
+        - Antarctica/Davis
+        - Asia/Bangkok
+        - Asia/Barnaul
+        - Asia/Ho_Chi_Minh
+        - Asia/Hovd
+        - Asia/Jakarta
+        - Asia/Krasnoyarsk
+        - Asia/Novokuznetsk
+        - Asia/Novosibirsk
+        - Asia/Phnom_Penh
+        - Asia/Pontianak
+        - Asia/Saigon
+        - Asia/Tomsk
+        - Asia/Vientiane
+        - Etc/GMT-7
+        - Indian/Christmas
+        - VST
+        - Asia/Brunei
+        - Asia/Choibalsan
+        - Asia/Chongqing
+        - Asia/Chungking
+        - Asia/Harbin
+        - Asia/Hong_Kong
+        - Asia/Irkutsk
+        - Asia/Kuala_Lumpur
+        - Asia/Kuching
+        - Asia/Macao
+        - Asia/Macau
+        - Asia/Makassar
+        - Asia/Manila
+        - Asia/Shanghai
+        - Asia/Singapore
+        - Asia/Taipei
+        - Asia/Ujung_Pandang
+        - Asia/Ulaanbaatar
+        - Asia/Ulan_Bator
+        - Australia/Perth
+        - Australia/West
+        - Etc/GMT-8
+        - Hongkong
+        - PRC
+        - Singapore
+        - CTT
+        - Australia/Eucla
+        - Asia/Chita
+        - Asia/Dili
+        - Asia/Jayapura
+        - Asia/Khandyga
+        - Asia/Pyongyang
+        - Asia/Seoul
+        - Asia/Tokyo
+        - Asia/Yakutsk
+        - Etc/GMT-9
+        - Japan
+        - Pacific/Palau
+        - ROK
+        - JST
+        - Australia/Adelaide
+        - Australia/Broken_Hill
+        - Australia/Darwin
+        - Australia/North
+        - Australia/South
+        - Australia/Yancowinna
+        - ACT
+        - Antarctica/DumontDUrville
+        - Antarctica/Macquarie
+        - Asia/Ust-Nera
+        - Asia/Vladivostok
+        - Australia/ACT
+        - Australia/Brisbane
+        - Australia/Canberra
+        - Australia/Currie
+        - Australia/Hobart
+        - Australia/Lindeman
+        - Australia/Melbourne
+        - Australia/NSW
+        - Australia/Queensland
+        - Australia/Sydney
+        - Australia/Tasmania
+        - Australia/Victoria
+        - Etc/GMT-10
+        - Pacific/Chuuk
+        - Pacific/Guam
+        - Pacific/Port_Moresby
+        - Pacific/Saipan
+        - Pacific/Truk
+        - Pacific/Yap
+        - AET
+        - Australia/LHI
+        - Australia/Lord_Howe
+        - Antarctica/Casey
+        - Asia/Magadan
+        - Asia/Sakhalin
+        - Asia/Srednekolymsk
+        - Etc/GMT-11
+        - Pacific/Bougainville
+        - Pacific/Efate
+        - Pacific/Guadalcanal
+        - Pacific/Kosrae
+        - Pacific/Norfolk
+        - Pacific/Noumea
+        - Pacific/Pohnpei
+        - Pacific/Ponape
+        - SST
+        - Antarctica/McMurdo
+        - Antarctica/South_Pole
+        - Asia/Anadyr
+        - Asia/Kamchatka
+        - Etc/GMT-12
+        - Kwajalein
+        - NZ
+        - Pacific/Auckland
+        - Pacific/Fiji
+        - Pacific/Funafuti
+        - Pacific/Kwajalein
+        - Pacific/Majuro
+        - Pacific/Nauru
+        - Pacific/Tarawa
+        - Pacific/Wake
+        - Pacific/Wallis
+        - NST
+        - NZ-CHAT
+        - Pacific/Chatham
+        - Etc/GMT-13
+        - Pacific/Apia
+        - Pacific/Enderbury
+        - Pacific/Fakaofo
+        - Pacific/Tongatapu
+        - MIT
+        - Etc/GMT-14
+        - Pacific/Kiritimati
+      row_module_id__mdl_name:
+        description: Module name
+        type: string
+      usr_image_id:
+        description: Picture
+        type: object
+      usr_minrows:
+        description: Min size of lists
+        type: integer
+      qualUsrLevel:
+        description: Level
+        type: array
+        items:
+          type: string
+          enum:
+          - '1'
+          - '2'
+          - '3'
+      row_module_id:
+        description: Module
+        type: string
+      usr_login:
+        description: Login
+        type: string
+      usr_country:
+        description: Country
+        type: string
+        enum:
+        - FR
+        - UK
+        - ES
+        - DE
+        - BE
+        - CH
+        - IE
+        - US
+        - CA
+      usr_title:
+        description: Title
+        type: string
+        enum:
+        - MR
+        - MRS
+        - MS
+      usr_logout:
+        description: Logout
+        type: string
+        example: yyyy-MM-dd HH:mm:ss
+      usr_home_id__viw_name:
+        description: Home page
+        type: string
+      usr_menu_defdomain_id:
+        description: Domain menu by default
+        type: string
+      usr_menu_defcollapsed:
+        description: Menu collapsed by default
+        type: boolean
+      usr_uuid:
+        description: UUID
+        type: string
+      usr_last_logon:
+        description: Last logon
+        type: string
+        example: yyyy-MM-dd HH:mm:ss
+      usr_first_name:
+        description: First name
+        type: string
+      usr_home_num:
+        description: Home phone
+        type: string
+      usr_email:
+        description: Email address
+        type: string
+      usr_active:
+        description: Active
+        type: string
+        enum:
+        - '0'
+        - '1'
+        - '2'
+        - '3'
+      usr_menu:
+        description: Menu visible
+        type: boolean
+      usr_zipcode:
+        description: Postal/ZIP code
+        type: string
+      usr_address1:
+        description: Address line 1
+        type: string
+      usr_address2:
+        description: Address line 2
+        type: string
+      usr_last_name:
+        description: Last name
+        type: string
+      usr_cell_num:
+        description: Mobile/cellular phone number
+        type: string
+      usr_menu_defdomain_id__obd_name:
+        description: Default opened domain
+        type: string
+      usr_city:
+        description: City
+        type: string
+      usr_lang_pref:
+        description: Preferred language
+        type: string
+        enum:
+        - ENU
+        - FRA
+      usr_lang:
+        description: Language
+        type: string
+        enum:
+        - ENU
+        - FRA
+      qualUsrTests:
+        description: Tests
+        type: array
+        items:
+          type: string
+          enum:
+          - UML
+          - JAVA
+          - JS
+          - SQL
+          - SIM_BASE
+          - SIM_CONCEPTION
+          - SIM_OPERATION
+          - SIM_INTEGRATION
+          - SIM_REX
+      usr_maxrows:
+        description: Max size of lists
+        type: integer
+      qualUsrTypedutilisateur:
+        description: qual usr typedutilisateur
+        type: string
+        enum:
+        - ADMIN
+        - CAND
+      row_id:
+        description: Unique technical row ID
+        type: string
+      usr_work_num:
+        description: Work phone number
+        type: string
+      usr_home_id:
+        description: Home page
+        type: string
+      usr_state:
+        description: State
+        type: string
+      usr_dateformat:
+        description: Date format
+        type: string
+        enum:
+        - YMD
+        - DMY
+        - MDY
+        - CHF
+  ArrayOfQualExam:
+    type: array
+    items:
+      $ref: '#/definitions/QualExam'
+  QualUserExam:
+    type: object
+    properties:
+      qualUsrexamDateLimite:
+        description: qual usrexam date limite
+        type: string
+        example: yyyy-MM-dd
+      qualUsrexamUsrId__usr_last_name:
+        description: Last name
+        type: string
+      qualUsrexamExamId:
+        description: Exam
+        type: string
+      qualUsrexamExamId__qualExamName:
+        description: Exam qual exam name
+        type: string
+      qualUsrexamUsrId__usr_login:
+        description: Login
+        type: string
+      qualUsrexamUsrId__usr_first_name:
+        description: First name
+        type: string
+      qualUsrexamExamId__qualExamPublic:
+        description: Exam qual exam public
+        type: boolean
+      qualUsrexamEtat:
+        description: qual usrexam etat
+        type: string
+        enum:
+        - TODO
+        - DONE
+        - SCORED
+      row_id:
+        description: Unique technical row ID
+        type: string
+      qualUsrexamId:
+        description: qual usrexam id
+        type: string
+      qualUsrexamUsrId:
+        description: Candidate|Candidates
+        type: string
+      qualUsrexamScore:
+        description: qual usrexam score
+        type: integer
+  PublicationResult:
+    type: object
+    properties:
+      mime:
+        description: MIME type
+        type: string
+      content:
+        description: Content (plain text or base64 encoded)
+        type: string
+  ArrayOfQualUser:
+    type: array
+    items:
+      $ref: '#/definitions/QualUser'
+  QualExUsr:
+    type: object
+    properties:
+      qualExusrImage:
+        description: Image
+        type: object
+      qualExusrSubmitted:
+        description: Submitted
+        type: boolean
+      qualExusrProgress:
+        description: qual exusr progress
+        type: integer
+      qualExusrCheck:
+        description: Check
+        type: string
+        enum:
+        - OK
+        - KO
+        - NA
+      qualExusrExId__qualExId:
+        description: Exercise Id
+        type: string
+      qualExusrUsrexamId:
+        description: User's exam|User's exams
+        type: string
+      qualExusrExId:
+        description: Exercise FK
+        type: string
+      qualExusrExId__qualExAnswerEnumeration:
+        description: Exercise FK Answer - Enumeration
+        type: string
+      qualExusrExId__qualExAnswerText:
+        description: Answser
+        type: string
+      qualExusrUsrexamId__qualUsrexamExamId:
+        description: User's exam|User's exams Exam
+        type: string
+      qualExusrUsrexamId__qualUsrexamExamId__qualExamName:
+        description: User's exam|User's exams Exam qual exam name
+        type: string
+      qualExusrExId__qualExRefenum:
+        description: Exercise FK Ref enum
+        type: string
+        enum:
+        - Simplicité - Conception-Niveau 1-125_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-213_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-215_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-217_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-221_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-225_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-227_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-209_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-233_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-187_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-193_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-195_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-197_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-229_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-201_REF_ENUM
+        - Simplicité - Conception-Niveau 1-177_REF_ENUM
+        - Simplicité - Conception-Niveau 1-175_REF_ENUM
+        - Simplicité - Conception-Niveau 1-127_REF_ENUM
+        - Simplicité - Conception-Niveau 1-129_REF_ENUM
+        - Simplicité - Conception-Niveau 1-135_REF_ENUM
+        - Simplicité - Conception-Niveau 1-137_REF_ENUM
+        - Simplicité - Conception-Niveau 1-139_REF_ENUM
+        - Simplicité - Conception-Niveau 1-141_REF_ENUM
+        - Simplicité - Conception-Niveau 1-147_REF_ENUM
+        - Simplicité - Conception-Niveau 1-157_REF_ENUM
+        - Simplicité - Conception-Niveau 1-159_REF_ENUM
+        - Simplicité - Conception-Niveau 1-165_REF_ENUM
+        - Simplicité - Conception-Niveau 1-167_REF_ENUM
+        - Simplicité - Conception-Niveau 1-145_REF_ENUM
+      qualExusrUsrexamId__qualUsrexamUsrId__usr_login:
+        description: Login
+        type: string
+      qualExusrUsrexamId__qualUsrexamDateLimite:
+        description: User's exam|User's exams qual usrexam date limite
+        type: string
+        example: yyyy-MM-dd
+      qualExusrAnswer:
+        description: Answer
+        type: string
+      qualExusrExId__qualExQuestion:
+        description: Question
+        type: string
+      qualExusrAnswerEnumeration:
+        description: Answer - Enumeration
+        type: string
+        enum:
+        - A
+        - B
+        - C
+        - SQL_QST_1_CHOICES_ENUM_0
+        - SQL_QST_1_CHOICES_ENUM_1
+      qualExusrExId__qualExType:
+        description: Type
+        type: string
+        enum:
+        - UML
+        - JAVA
+        - JS
+        - SQL
+        - SIM_BASE
+        - SIM_CONCEPTION
+        - SIM_OPERATION
+        - SIM_INTEGRATION
+        - SIM_REX
+      qualExusrUsrexamId__qualUsrexamUsrId:
+        description: User's exam|User's exams Candidate|Candidates
+        type: string
+      qualExusrUsrexamId__qualUsrexamId:
+        description: User's exam|User's exams qual usrexam id
+        type: string
+      row_id:
+        description: Unique technical row ID
+        type: string
+      qualExusrExId__qualExAnswerType:
+        description: Exercise FK Answer type
+        type: string
+        enum:
+        - TXT
+        - ENUM
+        - DIAG
+  ArrayOfQualExUsr:
+    type: array
+    items:
+      $ref: '#/definitions/QualExUsr'
+  ActionResult:
+    type: object
+    properties:
+      result:
+        description: Action result
+        type: string
+  ArrayOfQualUserExam:
+    type: array
+    items:
+      $ref: '#/definitions/QualUserExam'
+  TreeviewData:
+    type: object
+    properties:
+      item:
+        description: Object item with lists of linked objects' items
+        type: object
+  Error400:
+    type: object
+    properties:
+      error:
+        description: Error message
+        type: string
+      status:
+        description: Error status
+        type: integer
+        enum:
+        - 400
+  QualExamEx:
+    type: object
+    properties:
+      qualExamexExamId__qualExamName:
+        description: qual examex exam id qual exam name
+        type: string
+      qualExamexExId__qualExId:
+        description: qual examex ex id Id
+        type: string
+      qualExamexExId__qualExQuestion:
+        description: qual examex ex id Question
+        type: string
+      qualExamexExamId:
+        description: qual examex exam id
+        type: string
+      row_id:
+        description: Unique technical row ID
+        type: string
+      qualExamexExId:
+        description: qual examex ex id
+        type: string
+  Error401:
+    type: object
+    properties:
+      error:
+        description: Error message
+        type: string
+      status:
+        description: Error status
+        type: integer
+        enum:
+        - 401
+  Error500:
+    type: object
+    properties:
+      error:
+        description: Error message
+        type: string
+      status:
+        description: Error status
+        type: integer
+        enum:
+        - 500
+  QualExercise:
+    type: object
+    properties:
+      qualExDifficulty:
+        description: Difficulty
+        type: string
+        enum:
+        - '1'
+        - '2'
+        - '3'
+      qualExAnswerEnumeration:
+        description: Answer - Enumeration
+        type: string
+      qualExImage:
+        description: Image
+        type: object
+      qualExChoicesEnumeration:
+        description: Choices - Enumeration
+        type: string
+      qualExQuestion:
+        description: Question
+        type: string
+      qualExAnswerType:
+        description: Answer type
+        type: string
+        enum:
+        - TXT
+        - ENUM
+        - DIAG
+      qualExId:
+        description: Id
+        type: string
+      qualExType:
+        description: Type
+        type: string
+        enum:
+        - UML
+        - JAVA
+        - JS
+        - SQL
+        - SIM_BASE
+        - SIM_CONCEPTION
+        - SIM_OPERATION
+        - SIM_INTEGRATION
+        - SIM_REX
+      row_id:
+        description: Unique technical row ID
+        type: string
+      qualExAnswerText:
+        description: Answer
+        type: string
+      qualExRefenum:
+        description: Ref enum
+        type: string
+        enum:
+        - Simplicité - Conception-Niveau 1-125_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-213_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-215_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-217_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-221_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-225_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-227_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-209_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-233_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-187_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-193_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-195_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-197_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-229_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-201_REF_ENUM
+        - Simplicité - Conception-Niveau 1-177_REF_ENUM
+        - Simplicité - Conception-Niveau 1-175_REF_ENUM
+        - Simplicité - Conception-Niveau 1-127_REF_ENUM
+        - Simplicité - Conception-Niveau 1-129_REF_ENUM
+        - Simplicité - Conception-Niveau 1-135_REF_ENUM
+        - Simplicité - Conception-Niveau 1-137_REF_ENUM
+        - Simplicité - Conception-Niveau 1-139_REF_ENUM
+        - Simplicité - Conception-Niveau 1-141_REF_ENUM
+        - Simplicité - Conception-Niveau 1-147_REF_ENUM
+        - Simplicité - Conception-Niveau 1-157_REF_ENUM
+        - Simplicité - Conception-Niveau 1-159_REF_ENUM
+        - Simplicité - Conception-Niveau 1-165_REF_ENUM
+        - Simplicité - Conception-Niveau 1-167_REF_ENUM
+        - Simplicité - Conception-Niveau 1-145_REF_ENUM
+  Error403:
+    type: object
+    properties:
+      error:
+        description: Error message
+        type: string
+      status:
+        description: Error status
+        type: integer
+        enum:
+        - 403
+  QualExam:
+    type: object
+    properties:
+      qualExamName:
+        description: qual exam name
+        type: string
+      qualExamPublic:
+        description: qual exam public
+        type: boolean
+      qualExType:
+        description: Type
+        type: string
+        enum:
+        - UML
+        - JAVA
+        - JS
+        - SQL
+        - SIM_BASE
+        - SIM_CONCEPTION
+        - SIM_OPERATION
+        - SIM_INTEGRATION
+        - SIM_REX
+      row_id:
+        description: Unique technical row ID
+        type: string
+swagger: '2.0'
+info:
+  license:
+    name: Simplicite license
+    url: http://www.simplicitesoftware.com
+  contact:
+    name: Simplicite Software
+    url: http://www.simplicitesoftware.com
+    email: contact@simplicitesoftware.com
+  description: API for module Qualification
+  title: Qualification
+  version: 0.5.4
+tags:
+- name: QualExam
+  description: Exam
+- name: QualExamEx
+  description: Exam question
+- name: QualExercise
+  description: Exercise
+- name: QualExUsr
+  description: Test
+- name: QualUser
+  description: Candidate
+- name: QualUserExam
+  description: User's exam

@@ -1,0 +1,27 @@
+<template id="qual-candidatehome-template">
+	<div class="qual-flex-container">
+		<div class="qual-my-container">
+			{{#exams}}
+			<a id="{{id}}" data-action="qual-goto-exam" class="qual-card darkblue qual-{{complete-class}}" href="#">
+				<h3>{{name}}</h3>
+				<p class="small std-alter" >{{state}}</p>
+				<div id="add-doss" class="go-corner go-darkblue" href="#">
+					<div  class="go-arrow">
+	    				→
+	    			</div>
+				</div>
+			</a>
+			{{/exams}}
+			<a id="{{id}}" data-action="qual-goto-list-exams" class="qual-card darkblue" href="#">
+				<h3>Tous mes examens</h3>
+				<!--<p class="small std-alter" >{{state}}</p>-->
+				<div id="add-doss" class="go-corner go-darkblue" href="#">
+					<div  class="go-arrow">
+	    				→
+	    			</div>
+				</div>
+			</a>
+		</div>
+	</div>
+</template>
+<div id="qual-candidatehome"></div>

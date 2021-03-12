@@ -1,0 +1,275 @@
+.qual-flex-container{
+	
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	a:hover {
+		text-decoration: none;
+	}
+	
+	h3 {
+		color: #262626;
+		font-size: 17px;
+		line-height: 24px;
+		font-weight: 700;
+		margin-bottom: 4px;
+	}
+	
+	p {
+		font-size: 17px;
+		font-weight: 400;
+		line-height: 20px;
+		color: #666666;
+		&.small {
+			font-size: 14px;
+		}
+	}
+	
+}
+
+.qual-my-container {
+	display: flex;
+	align-items: center;
+	margin: 1em;
+	flex-wrap: wrap;
+	justify-content: center;
+	max-width: 60vw;
+	min-height: 80vh;
+}
+
+.go-corner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	width: 32px;
+	height: 32px;
+	//overflow: hidden;
+	top: 0;
+	right: 0;
+	border-radius: 0 4px 0 32px;
+}
+
+.go-arrow {
+	margin-top: -4px;
+	margin-right: -4px;
+	color: white;
+	font-family: courier, sans;
+}
+
+.qual-card {
+	display: block;
+	position: relative;
+	height: 12em;
+	width: 18em;
+	background-color: #f2f8f9;
+	border-radius: 4px;
+	padding: 32px 24px;
+	margin: 12px;
+	text-decoration: none;
+	z-index: 0;
+	overflow: hidden;
+	
+	&:before {
+		content: "";
+		position: absolute;
+		z-index: -2;
+		top: -16px;
+		right: -16px;
+		height: 32px;
+		width: 32px;
+		border-radius: 32px;
+		transform: scale(1);
+		transform-origin: 50% 50%;
+		transition: transform 0.45s ease-out;
+	}
+	&:hover:before {
+		transform: scale(21);
+	}
+	
+	&:hover {
+		p {
+			transition: all 0.3s ease-out;
+			color: rgba(255, 255, 255, 0.8);
+		}
+		h3 {
+			transition: all 0.3s ease-out;
+			color: #ffffff;
+		}
+	}
+	
+}
+
+// colors
+/*.randomColor(){
+  @randomColor: `Math.floor(Math.random()*16777215).toString(16)`;
+  @colorHex: e(@randomColor);
+  @color: ~"#@{colorHex}";
+}
+.qual-flex-container {
+  .randomColor();
+  background-color: @color;
+}*/
+@bg-darkblue: #007bff;
+@bg-darkblue-l: lighten(@bg-darkblue, 10%);
+@bg-darkblue-ll: lighten(@bg-darkblue-l, 10%);
+@bg-darkgreen: #70ad46;
+@bg-darkgreen-l: lighten(@bg-darkgreen, 10%);
+@bg-darkgreen-ll: lighten(@bg-darkgreen-l, 10%);
+@bg-darkorange: #ed7c31;
+@bg-darkorange-l: lighten(@bg-darkorange, 10%);
+@bg-darkorange-ll: lighten(@bg-darkorange-l, 10%);
+
+.darkblue {
+	&:before {
+		background: @bg-darkblue;
+	}
+	
+	/*&:hover{
+		.go-darkblue {
+			background: darken(@bg-darkblue, 100%);
+		}
+	}*/
+}
+
+.go-darkblue {
+	
+	background: @bg-darkblue;
+	/*&:hover {
+		background: darken(@bg-darkblue, 100%);
+	}*/
+	
+	&:before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		top: -16px;
+		right: -16px;
+		height: 32px;
+		width: 32px;
+		background:darken(@bg-darkblue, 100%);
+		border-radius: 32px;
+		transform: scale(1);
+		transform-origin: 50% 50%;
+		transition: transform 0.45s ease-out;
+	}
+/*	&:hover:before {
+		transform: scale(21);
+	}*/
+	
+}
+
+
+
+
+.darkblue-l {
+	&:before {
+		background: @bg-darkblue-l;
+	}
+}
+
+.go-darkblue-l {
+	background: @bg-darkblue-l;
+}
+
+.darkblue-ll {
+	&:before {
+		background: @bg-darkblue-ll;
+	}
+}
+
+.go-darkblue-ll {
+	background: @bg-darkblue-ll;
+}
+
+.darkgreen {
+	&:before {
+		background: @bg-darkgreen;
+	}
+}
+
+.go-darkgreen {
+	background: @bg-darkgreen;
+}
+
+.darkgreen-l {
+	&:before {
+		background: @bg-darkgreen-l;
+	}
+}
+
+.go-darkgreen-l {
+	background: @bg-darkgreen-l;
+}
+
+.darkgreen-ll {
+	&:before {
+		background: @bg-darkgreen-ll;
+	}
+}
+
+.go-darkgreen-ll {
+	background: @bg-darkgreen-ll;
+}
+
+.darkorange {
+	&:before {
+		background: @bg-darkorange;
+	}
+}
+
+.go-darkorange {
+	background: @bg-darkorange;
+}
+
+.darkorange-l {
+	&:before {
+		background: @bg-darkorange-l;
+	}
+}
+
+.go-darkorange-l {
+	background: @bg-darkorange-l;
+}
+
+
+/*
+
+.zoom{
+	transition: transform .5s;
+    padding: 2em 1em;
+}
+
+.zoom:hover {
+  -ms-transform: scale(1.5); 
+  -webkit-transform: scale(1.5); 
+  transform: scale(1.5); 
+}
+
+.flex-item{    
+	
+	border: 0.5em solid rgba(00,00,00,.25);
+    box-sizing: border-box;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+    padding: 4em;
+    height: 12em;
+    width: 18em;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+	
+	&:hover{
+		 cursor: pointer;
+	}
+}
+
+.flex-column{
+	display:flex;
+	flex-direction:column;
+}
+
+*/
