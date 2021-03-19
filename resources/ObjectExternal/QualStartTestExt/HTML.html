@@ -4,7 +4,10 @@
 			{{#exams}}
 			<a id="{{id}}" data-action="qual-goto-exam" class="qual-card darkblue qual-{{complete-class}}" href="#">
 				<h3>{{name}}</h3>
-				<p class="small std-alter" >{{state}}</p>
+				<p class="small std-alter" >
+					<span>État : {{state}}</span>
+					<br><span>Date limite : {{dateLimite}}</span>
+				</p>
 				<div id="add-doss" class="go-corner go-darkblue" href="#">
 					<div  class="go-arrow">
 	    				→

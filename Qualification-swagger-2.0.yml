@@ -2,7 +2,7 @@
 # / __(_)_ __  _ __| (_)__(_) |_ /_/
 # \__ \ | '  \| '_ \ | / _| |  _/ -_)
 # |___/_|_|_|_| .__/_|_\__|_|\__\___|
-#             |_| Module: Qualification 0.5.4
+#             |_| Module: Qualification 0.6
 paths:
   /rest/QualExercise:
     get:
@@ -111,35 +111,35 @@ paths:
         type: string
         required: false
         enum:
-        - Simplicité - Conception-Niveau 1-125_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-213_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-215_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-217_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-221_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-225_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-227_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-209_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-233_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-187_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-193_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-195_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-197_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-229_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-201_REF_ENUM
-        - Simplicité - Conception-Niveau 1-177_REF_ENUM
-        - Simplicité - Conception-Niveau 1-175_REF_ENUM
-        - Simplicité - Conception-Niveau 1-127_REF_ENUM
-        - Simplicité - Conception-Niveau 1-129_REF_ENUM
-        - Simplicité - Conception-Niveau 1-135_REF_ENUM
-        - Simplicité - Conception-Niveau 1-137_REF_ENUM
-        - Simplicité - Conception-Niveau 1-139_REF_ENUM
-        - Simplicité - Conception-Niveau 1-141_REF_ENUM
-        - Simplicité - Conception-Niveau 1-147_REF_ENUM
-        - Simplicité - Conception-Niveau 1-157_REF_ENUM
-        - Simplicité - Conception-Niveau 1-159_REF_ENUM
-        - Simplicité - Conception-Niveau 1-165_REF_ENUM
-        - Simplicité - Conception-Niveau 1-167_REF_ENUM
-        - Simplicité - Conception-Niveau 1-145_REF_ENUM
+        - Simplicité - Conception-Niveau 1-55_REF_ENUM
+        - Simplicité - Conception-Niveau 1-57_REF_ENUM
+        - Simplicité - Conception-Niveau 1-53_REF_ENUM
+        - Simplicité - Conception-Niveau 1-47_REF_ENUM
+        - Simplicité - Conception-Niveau 1-43_REF_ENUM
+        - Simplicité - Conception-Niveau 1-83_REF_ENUM
+        - Simplicité - Conception-Niveau 1-77_REF_ENUM
+        - Simplicité - Conception-Niveau 1-75_REF_ENUM
+        - Simplicité - Conception-Niveau 1-65_REF_ENUM
+        - Simplicité - Conception-Niveau 1-63_REF_ENUM
+        - Simplicité - Conception-Niveau 1-45_REF_ENUM
+        - Simplicité - Conception-Niveau 1-85_REF_ENUM
+        - Simplicité - Conception-Niveau 1-59_REF_ENUM
+        - Simplicité - Conception-Niveau 1-93_REF_ENUM
+        - Simplicité - Conception-Niveau 1-95_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-11_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-19_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-21_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-23_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-27_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
       tags:
       - QualExercise
   /rest/QualExUsr:
@@ -181,28 +181,151 @@ paths:
         type: boolean
         required: false
       - in: query
-        name: qualExusrExId
-        description: Search filter for Exercise FK
+        name: qualExusrUsrexamId
+        description: Search filter for User's exam|User's exams
         type: string
         required: false
       - in: query
-        name: qualExusrExId__qualExId
-        description: Search filter for Exercise Id
+        name: qualExusrUsrexamId__qualUsrexamId
+        description: Search filter for User's exam|User's exams qual usrexam id
         type: string
         required: false
       - in: query
-        name: qualExusrExId__qualExQuestion
-        description: Search filter for Question
+        name: qualExusrUsrexamId__qualUsrexamUsrId
+        description: Search filter for User's exam|User's exams Candidate|Candidates
         type: string
         required: false
       - in: query
-        name: qualExusrExId__qualExAnswerText
-        description: Search filter for Answser
+        name: qualExusrUsrexamId__qualUsrexamUsrId__usr_login
+        description: Search filter for Login
         type: string
         required: false
       - in: query
-        name: qualExusrExId__qualExType
-        description: Search filter for Type
+        name: qualExusrUsrexamId__qualUsrexamDateLimite
+        description: Search filter for User's exam|User's exams qual usrexam date
+          limite
+        type: string
+        required: false
+      - in: query
+        name: qualExusrUsrexamId__qualUsrexamExamId
+        description: Search filter for User's exam|User's exams Exam
+        type: string
+        required: false
+      - in: query
+        name: qualExusrUsrexamId__qualUsrexamExamId__qualExamName
+        description: Search filter for User's exam|User's exams Exam qual exam name
+        type: string
+        required: false
+      - in: query
+        name: qualExusrExamexId
+        description: Search filter for Exam question|Exam questions
+        type: string
+        required: false
+      - in: query
+        name: qualExusrExamexId__qualExamexExamId
+        description: Search filter for Exam question|Exam questions qual examex exam
+          id
+        type: string
+        required: false
+      - in: query
+        name: qualExusrExamexId__qualExamexExId
+        description: Search filter for Exam question|Exam questions qual examex ex
+          id
+        type: string
+        required: false
+      - in: query
+        name: qualExusrExamexId__qualExamexExId__qualExId
+        description: Search filter for Exam question|Exam questions qual examex ex
+          id Id
+        type: string
+        required: false
+      - in: query
+        name: qualExusrExamexId__qualExamexExId__qualExAnswerType
+        description: Search filter for Exam question|Exam questions qual examex ex
+          id Answer type
+        type: string
+        required: false
+        enum:
+        - TXT
+        - ENUM
+        - DIAG
+      - in: query
+        name: qualExusrExamexId__qualExamexExId__qualExQuestion
+        description: Search filter for Exam question|Exam questions qual examex ex
+          id Question
+        type: string
+        required: false
+      - in: query
+        name: qualExusrCheck
+        description: Search filter for Check
+        type: string
+        required: false
+        enum:
+        - OK
+        - KO
+        - NA
+      - in: query
+        name: qualExusrSubmitted
+        description: Search filter for Submitted
+        type: boolean
+        required: false
+      - in: query
+        name: qualExusrExamexId__qualExamexExId__qualExRefenum
+        description: Search filter for Exam question|Exam questions qual examex ex
+          id Ref enum
+        type: string
+        required: false
+        enum:
+        - Simplicité - Conception-Niveau 1-55_REF_ENUM
+        - Simplicité - Conception-Niveau 1-57_REF_ENUM
+        - Simplicité - Conception-Niveau 1-53_REF_ENUM
+        - Simplicité - Conception-Niveau 1-47_REF_ENUM
+        - Simplicité - Conception-Niveau 1-43_REF_ENUM
+        - Simplicité - Conception-Niveau 1-83_REF_ENUM
+        - Simplicité - Conception-Niveau 1-77_REF_ENUM
+        - Simplicité - Conception-Niveau 1-75_REF_ENUM
+        - Simplicité - Conception-Niveau 1-65_REF_ENUM
+        - Simplicité - Conception-Niveau 1-63_REF_ENUM
+        - Simplicité - Conception-Niveau 1-45_REF_ENUM
+        - Simplicité - Conception-Niveau 1-85_REF_ENUM
+        - Simplicité - Conception-Niveau 1-59_REF_ENUM
+        - Simplicité - Conception-Niveau 1-93_REF_ENUM
+        - Simplicité - Conception-Niveau 1-95_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-11_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-19_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-21_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-23_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-27_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
+      - in: query
+        name: qualExusrExamexId__qualExamexExId__qualExAnswerEnumeration
+        description: Search filter for Exam question|Exam questions qual examex ex
+          id Answer - Enumeration
+        type: string
+        required: false
+      - in: query
+        name: qualExusrExamexId__qualExamexExId__qualExAnswerText
+        description: Search filter for Exam question|Exam questions qual examex ex
+          id Answer
+        type: string
+        required: false
+      - in: query
+        name: qualExusrExamexId__qualExamexScore
+        description: Search filter for Exam question|Exam questions qual examex score
+        type: integer
+        required: false
+      - in: query
+        name: qualExusrExamexId__qualExamexExId__qualExType
+        description: Search filter for Exam question|Exam questions qual examex ex
+          id Type
         type: string
         required: false
         enum:
@@ -215,55 +338,6 @@ paths:
         - SIM_OPERATION
         - SIM_INTEGRATION
         - SIM_REX
-      - in: query
-        name: qualExusrExId__qualExRefenum
-        description: Search filter for Exercise FK Ref enum
-        type: string
-        required: false
-        enum:
-        - Simplicité - Conception-Niveau 1-125_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-213_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-215_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-217_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-221_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-225_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-227_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-209_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-233_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-187_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-193_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-195_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-197_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-229_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-201_REF_ENUM
-        - Simplicité - Conception-Niveau 1-177_REF_ENUM
-        - Simplicité - Conception-Niveau 1-175_REF_ENUM
-        - Simplicité - Conception-Niveau 1-127_REF_ENUM
-        - Simplicité - Conception-Niveau 1-129_REF_ENUM
-        - Simplicité - Conception-Niveau 1-135_REF_ENUM
-        - Simplicité - Conception-Niveau 1-137_REF_ENUM
-        - Simplicité - Conception-Niveau 1-139_REF_ENUM
-        - Simplicité - Conception-Niveau 1-141_REF_ENUM
-        - Simplicité - Conception-Niveau 1-147_REF_ENUM
-        - Simplicité - Conception-Niveau 1-157_REF_ENUM
-        - Simplicité - Conception-Niveau 1-159_REF_ENUM
-        - Simplicité - Conception-Niveau 1-165_REF_ENUM
-        - Simplicité - Conception-Niveau 1-167_REF_ENUM
-        - Simplicité - Conception-Niveau 1-145_REF_ENUM
-      - in: query
-        name: qualExusrExId__qualExAnswerType
-        description: Search filter for Exercise FK Answer type
-        type: string
-        required: false
-        enum:
-        - TXT
-        - ENUM
-        - DIAG
-      - in: query
-        name: qualExusrExId__qualExAnswerEnumeration
-        description: Search filter for Exercise FK Answer - Enumeration
-        type: string
-        required: false
       - in: query
         name: qualExusrAnswer
         description: Search filter for Answer
@@ -286,59 +360,9 @@ paths:
         - SQL_QST_1_CHOICES_ENUM_0
         - SQL_QST_1_CHOICES_ENUM_1
       - in: query
-        name: qualExusrCheck
-        description: Search filter for Check
-        type: string
-        required: false
-        enum:
-        - OK
-        - KO
-        - NA
-      - in: query
-        name: qualExusrSubmitted
-        description: Search filter for Submitted
-        type: boolean
-        required: false
-      - in: query
         name: qualExusrProgress
         description: Search filter for qual exusr progress
         type: integer
-        required: false
-      - in: query
-        name: qualExusrUsrexamId
-        description: Search filter for User's exam|User's exams
-        type: string
-        required: false
-      - in: query
-        name: qualExusrUsrexamId__qualUsrexamId
-        description: Search filter for User's exam|User's exams qual usrexam id
-        type: string
-        required: false
-      - in: query
-        name: qualExusrUsrexamId__qualUsrexamUsrId
-        description: Search filter for User's exam|User's exams Candidate|Candidates
-        type: string
-        required: false
-      - in: query
-        name: qualExusrUsrexamId__qualUsrexamUsrId__usr_login
-        description: Search filter for Login
-        type: string
-        required: false
-      - in: query
-        name: qualExusrUsrexamId__qualUsrexamExamId
-        description: Search filter for User's exam|User's exams Exam
-        type: string
-        required: false
-      - in: query
-        name: qualExusrUsrexamId__qualUsrexamDateLimite
-        description: Search filter for User's exam|User's exams qual usrexam date
-          limite
-        type: string
-        required: false
-      - in: query
-        name: qualExusrUsrexamId__qualUsrexamExamId__qualExamName
-        description: Search filter for User's exam|User's exams Exam qual exam name
-        type: string
         required: false
       tags:
       - QualExUsr
@@ -2607,6 +2631,80 @@ paths:
         description: Search filter for qual examex ex id Question
         type: string
         required: false
+      - in: query
+        name: qualExamexScore
+        description: Search filter for qual examex score
+        type: integer
+        required: false
+      - in: query
+        name: qualExamexExId__qualExAnswerText
+        description: Search filter for qual examex ex id Answer
+        type: string
+        required: false
+      - in: query
+        name: qualExamexExId__qualExType
+        description: Search filter for qual examex ex id Type
+        type: string
+        required: false
+        enum:
+        - UML
+        - JAVA
+        - JS
+        - SQL
+        - SIM_BASE
+        - SIM_CONCEPTION
+        - SIM_OPERATION
+        - SIM_INTEGRATION
+        - SIM_REX
+      - in: query
+        name: qualExamexExId__qualExRefenum
+        description: Search filter for qual examex ex id Ref enum
+        type: string
+        required: false
+        enum:
+        - Simplicité - Conception-Niveau 1-55_REF_ENUM
+        - Simplicité - Conception-Niveau 1-57_REF_ENUM
+        - Simplicité - Conception-Niveau 1-53_REF_ENUM
+        - Simplicité - Conception-Niveau 1-47_REF_ENUM
+        - Simplicité - Conception-Niveau 1-43_REF_ENUM
+        - Simplicité - Conception-Niveau 1-83_REF_ENUM
+        - Simplicité - Conception-Niveau 1-77_REF_ENUM
+        - Simplicité - Conception-Niveau 1-75_REF_ENUM
+        - Simplicité - Conception-Niveau 1-65_REF_ENUM
+        - Simplicité - Conception-Niveau 1-63_REF_ENUM
+        - Simplicité - Conception-Niveau 1-45_REF_ENUM
+        - Simplicité - Conception-Niveau 1-85_REF_ENUM
+        - Simplicité - Conception-Niveau 1-59_REF_ENUM
+        - Simplicité - Conception-Niveau 1-93_REF_ENUM
+        - Simplicité - Conception-Niveau 1-95_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-11_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-19_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-21_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-23_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-27_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
+      - in: query
+        name: qualExamexExId__qualExAnswerType
+        description: Search filter for qual examex ex id Answer type
+        type: string
+        required: false
+        enum:
+        - TXT
+        - ENUM
+        - DIAG
+      - in: query
+        name: qualExamexExId__qualExAnswerEnumeration
+        description: Search filter for qual examex ex id Answer - Enumeration
+        type: string
+        required: false
       tags:
       - QualExamEx
 securityDefinitions:
@@ -3502,9 +3600,6 @@ definitions:
       qualExusrSubmitted:
         description: Submitted
         type: boolean
-      qualExusrProgress:
-        description: qual exusr progress
-        type: integer
       qualExusrCheck:
         description: Check
         type: string
@@ -3512,72 +3607,11 @@ definitions:
         - OK
         - KO
         - NA
-      qualExusrExId__qualExId:
-        description: Exercise Id
-        type: string
-      qualExusrUsrexamId:
-        description: User's exam|User's exams
-        type: string
-      qualExusrExId:
-        description: Exercise FK
-        type: string
-      qualExusrExId__qualExAnswerEnumeration:
-        description: Exercise FK Answer - Enumeration
-        type: string
-      qualExusrExId__qualExAnswerText:
-        description: Answser
-        type: string
-      qualExusrUsrexamId__qualUsrexamExamId:
-        description: User's exam|User's exams Exam
-        type: string
-      qualExusrUsrexamId__qualUsrexamExamId__qualExamName:
-        description: User's exam|User's exams Exam qual exam name
-        type: string
-      qualExusrExId__qualExRefenum:
-        description: Exercise FK Ref enum
-        type: string
-        enum:
-        - Simplicité - Conception-Niveau 1-125_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-213_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-215_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-217_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-221_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-225_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-227_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-209_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-233_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-187_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-193_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-195_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-197_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-229_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-201_REF_ENUM
-        - Simplicité - Conception-Niveau 1-177_REF_ENUM
-        - Simplicité - Conception-Niveau 1-175_REF_ENUM
-        - Simplicité - Conception-Niveau 1-127_REF_ENUM
-        - Simplicité - Conception-Niveau 1-129_REF_ENUM
-        - Simplicité - Conception-Niveau 1-135_REF_ENUM
-        - Simplicité - Conception-Niveau 1-137_REF_ENUM
-        - Simplicité - Conception-Niveau 1-139_REF_ENUM
-        - Simplicité - Conception-Niveau 1-141_REF_ENUM
-        - Simplicité - Conception-Niveau 1-147_REF_ENUM
-        - Simplicité - Conception-Niveau 1-157_REF_ENUM
-        - Simplicité - Conception-Niveau 1-159_REF_ENUM
-        - Simplicité - Conception-Niveau 1-165_REF_ENUM
-        - Simplicité - Conception-Niveau 1-167_REF_ENUM
-        - Simplicité - Conception-Niveau 1-145_REF_ENUM
       qualExusrUsrexamId__qualUsrexamUsrId__usr_login:
         description: Login
         type: string
-      qualExusrUsrexamId__qualUsrexamDateLimite:
-        description: User's exam|User's exams qual usrexam date limite
-        type: string
-        example: yyyy-MM-dd
       qualExusrAnswer:
         description: Answer
-        type: string
-      qualExusrExId__qualExQuestion:
-        description: Question
         type: string
       qualExusrAnswerEnumeration:
         description: Answer - Enumeration
@@ -3588,8 +3622,85 @@ definitions:
         - C
         - SQL_QST_1_CHOICES_ENUM_0
         - SQL_QST_1_CHOICES_ENUM_1
-      qualExusrExId__qualExType:
-        description: Type
+      qualExusrExamexId__qualExamexExId__qualExRefenum:
+        description: Exam question|Exam questions qual examex ex id Ref enum
+        type: string
+        enum:
+        - Simplicité - Conception-Niveau 1-55_REF_ENUM
+        - Simplicité - Conception-Niveau 1-57_REF_ENUM
+        - Simplicité - Conception-Niveau 1-53_REF_ENUM
+        - Simplicité - Conception-Niveau 1-47_REF_ENUM
+        - Simplicité - Conception-Niveau 1-43_REF_ENUM
+        - Simplicité - Conception-Niveau 1-83_REF_ENUM
+        - Simplicité - Conception-Niveau 1-77_REF_ENUM
+        - Simplicité - Conception-Niveau 1-75_REF_ENUM
+        - Simplicité - Conception-Niveau 1-65_REF_ENUM
+        - Simplicité - Conception-Niveau 1-63_REF_ENUM
+        - Simplicité - Conception-Niveau 1-45_REF_ENUM
+        - Simplicité - Conception-Niveau 1-85_REF_ENUM
+        - Simplicité - Conception-Niveau 1-59_REF_ENUM
+        - Simplicité - Conception-Niveau 1-93_REF_ENUM
+        - Simplicité - Conception-Niveau 1-95_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-11_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-19_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-21_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-23_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-27_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
+      qualExusrExamexId__qualExamexExId:
+        description: Exam question|Exam questions qual examex ex id
+        type: string
+      qualExusrExamexId__qualExamexExId__qualExAnswerText:
+        description: Exam question|Exam questions qual examex ex id Answer
+        type: string
+      qualExusrExamexId:
+        description: Exam question|Exam questions
+        type: string
+      qualExusrExamexId__qualExamexExId__qualExId:
+        description: Exam question|Exam questions qual examex ex id Id
+        type: string
+      qualExusrExamexId__qualExamexExId__qualExAnswerEnumeration:
+        description: Exam question|Exam questions qual examex ex id Answer - Enumeration
+        type: string
+      qualExusrProgress:
+        description: qual exusr progress
+        type: integer
+      qualExusrUsrexamId:
+        description: User's exam|User's exams
+        type: string
+      qualExusrExamexId__qualExamexExId__qualExAnswerType:
+        description: Exam question|Exam questions qual examex ex id Answer type
+        type: string
+        enum:
+        - TXT
+        - ENUM
+        - DIAG
+      qualExusrUsrexamId__qualUsrexamExamId:
+        description: User's exam|User's exams Exam
+        type: string
+      qualExusrExamexId__qualExamexExamId:
+        description: Exam question|Exam questions qual examex exam id
+        type: string
+      qualExusrUsrexamId__qualUsrexamExamId__qualExamName:
+        description: User's exam|User's exams Exam qual exam name
+        type: string
+      qualExusrUsrexamId__qualUsrexamDateLimite:
+        description: User's exam|User's exams qual usrexam date limite
+        type: string
+        example: yyyy-MM-dd
+      qualExusrUsrexamId__qualUsrexamUsrId:
+        description: User's exam|User's exams Candidate|Candidates
+        type: string
+      qualExusrExamexId__qualExamexExId__qualExType:
+        description: Exam question|Exam questions qual examex ex id Type
         type: string
         enum:
         - UML
@@ -3601,22 +3712,18 @@ definitions:
         - SIM_OPERATION
         - SIM_INTEGRATION
         - SIM_REX
-      qualExusrUsrexamId__qualUsrexamUsrId:
-        description: User's exam|User's exams Candidate|Candidates
-        type: string
       qualExusrUsrexamId__qualUsrexamId:
         description: User's exam|User's exams qual usrexam id
         type: string
+      qualExusrExamexId__qualExamexExId__qualExQuestion:
+        description: Exam question|Exam questions qual examex ex id Question
+        type: string
+      qualExusrExamexId__qualExamexScore:
+        description: Exam question|Exam questions qual examex score
+        type: integer
       row_id:
         description: Unique technical row ID
         type: string
-      qualExusrExId__qualExAnswerType:
-        description: Exercise FK Answer type
-        type: string
-        enum:
-        - TXT
-        - ENUM
-        - DIAG
   ArrayOfQualExUsr:
     type: array
     items:
@@ -3651,6 +3758,9 @@ definitions:
   QualExamEx:
     type: object
     properties:
+      qualExamexExId__qualExAnswerText:
+        description: qual examex ex id Answer
+        type: string
       qualExamexExamId__qualExamName:
         description: qual examex exam id qual exam name
         type: string
@@ -3660,12 +3770,71 @@ definitions:
       qualExamexExId__qualExQuestion:
         description: qual examex ex id Question
         type: string
+      qualExamexExId__qualExRefenum:
+        description: qual examex ex id Ref enum
+        type: string
+        enum:
+        - Simplicité - Conception-Niveau 1-55_REF_ENUM
+        - Simplicité - Conception-Niveau 1-57_REF_ENUM
+        - Simplicité - Conception-Niveau 1-53_REF_ENUM
+        - Simplicité - Conception-Niveau 1-47_REF_ENUM
+        - Simplicité - Conception-Niveau 1-43_REF_ENUM
+        - Simplicité - Conception-Niveau 1-83_REF_ENUM
+        - Simplicité - Conception-Niveau 1-77_REF_ENUM
+        - Simplicité - Conception-Niveau 1-75_REF_ENUM
+        - Simplicité - Conception-Niveau 1-65_REF_ENUM
+        - Simplicité - Conception-Niveau 1-63_REF_ENUM
+        - Simplicité - Conception-Niveau 1-45_REF_ENUM
+        - Simplicité - Conception-Niveau 1-85_REF_ENUM
+        - Simplicité - Conception-Niveau 1-59_REF_ENUM
+        - Simplicité - Conception-Niveau 1-93_REF_ENUM
+        - Simplicité - Conception-Niveau 1-95_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-11_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-19_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-21_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-23_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-27_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
+      qualExamexExId__qualExAnswerType:
+        description: qual examex ex id Answer type
+        type: string
+        enum:
+        - TXT
+        - ENUM
+        - DIAG
+      qualExamexExId__qualExAnswerEnumeration:
+        description: qual examex ex id Answer - Enumeration
+        type: string
+      qualExamexScore:
+        description: qual examex score
+        type: integer
       qualExamexExamId:
         description: qual examex exam id
         type: string
       row_id:
         description: Unique technical row ID
         type: string
+      qualExamexExId__qualExType:
+        description: qual examex ex id Type
+        type: string
+        enum:
+        - UML
+        - JAVA
+        - JS
+        - SQL
+        - SIM_BASE
+        - SIM_CONCEPTION
+        - SIM_OPERATION
+        - SIM_INTEGRATION
+        - SIM_REX
       qualExamexExId:
         description: qual examex ex id
         type: string
@@ -3746,35 +3915,35 @@ definitions:
         description: Ref enum
         type: string
         enum:
-        - Simplicité - Conception-Niveau 1-125_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-213_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-215_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-217_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-221_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-225_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-227_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-209_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-233_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-187_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-193_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-195_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-197_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-229_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-201_REF_ENUM
-        - Simplicité - Conception-Niveau 1-177_REF_ENUM
-        - Simplicité - Conception-Niveau 1-175_REF_ENUM
-        - Simplicité - Conception-Niveau 1-127_REF_ENUM
-        - Simplicité - Conception-Niveau 1-129_REF_ENUM
-        - Simplicité - Conception-Niveau 1-135_REF_ENUM
-        - Simplicité - Conception-Niveau 1-137_REF_ENUM
-        - Simplicité - Conception-Niveau 1-139_REF_ENUM
-        - Simplicité - Conception-Niveau 1-141_REF_ENUM
-        - Simplicité - Conception-Niveau 1-147_REF_ENUM
-        - Simplicité - Conception-Niveau 1-157_REF_ENUM
-        - Simplicité - Conception-Niveau 1-159_REF_ENUM
-        - Simplicité - Conception-Niveau 1-165_REF_ENUM
-        - Simplicité - Conception-Niveau 1-167_REF_ENUM
-        - Simplicité - Conception-Niveau 1-145_REF_ENUM
+        - Simplicité - Conception-Niveau 1-55_REF_ENUM
+        - Simplicité - Conception-Niveau 1-57_REF_ENUM
+        - Simplicité - Conception-Niveau 1-53_REF_ENUM
+        - Simplicité - Conception-Niveau 1-47_REF_ENUM
+        - Simplicité - Conception-Niveau 1-43_REF_ENUM
+        - Simplicité - Conception-Niveau 1-83_REF_ENUM
+        - Simplicité - Conception-Niveau 1-77_REF_ENUM
+        - Simplicité - Conception-Niveau 1-75_REF_ENUM
+        - Simplicité - Conception-Niveau 1-65_REF_ENUM
+        - Simplicité - Conception-Niveau 1-63_REF_ENUM
+        - Simplicité - Conception-Niveau 1-45_REF_ENUM
+        - Simplicité - Conception-Niveau 1-85_REF_ENUM
+        - Simplicité - Conception-Niveau 1-59_REF_ENUM
+        - Simplicité - Conception-Niveau 1-93_REF_ENUM
+        - Simplicité - Conception-Niveau 1-95_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-11_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-19_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-21_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-23_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-27_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
   Error403:
     type: object
     properties:
@@ -3822,7 +3991,7 @@ info:
     email: contact@simplicitesoftware.com
   description: API for module Qualification
   title: Qualification
-  version: 0.5.4
+  version: '0.6'
 tags:
 - name: QualExam
   description: Exam

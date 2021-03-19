@@ -69,7 +69,8 @@ public class QualUserExam extends ObjectDB {
 		for(String[] row : rslts){
 			exExam.setValues(row, false);
 			try{
-				createTestElement(exExam.getFieldValue("qualExamexExId"));
+				//createTestElement(exExam.getFieldValue("qualExamexExId"));
+				createTestElement(exExam.getRowId());
 			}
 			catch(Exception e){
 				AppLog.error(getClass(), "postCreate", "Error creating test element", e, getGrant());
@@ -85,23 +86,30 @@ public class QualUserExam extends ObjectDB {
 		
 		Grant g = getGrant();
 		
-		int total = Integer.parseInt(g.simpleQuery("select count(*) from qual_ex_usr where qual_exusr_usrexam_id = '"+testId+"'"));
-		int ok = Integer.parseInt(g.simpleQuery("select count(*) from qual_ex_usr where qual_exusr_check = 'OK' and qual_exusr_usrexam_id = '"+testId+"'"));
+		String ok = "select sum(qual_examex_score) from qual_ex_usr q join qual_exam_ex qex on q.QUAL_EXUSR_EXAMEX_ID = qex.row_id where qual_exusr_usrexam_id = '"+testId+"' and QUAL_EXUSR_CHECK='OK';";
+		AppLog.info(ok, g);
+		String total = "select sum(qual_examex_score) from qual_ex_usr q join qual_exam_ex qex on q.QUAL_EXUSR_EXAMEX_ID = qex.row_id where qual_exusr_usrexam_id = '"+testId+"';";
+		AppLog.info(total, g);
+		int totalScore = Integer.parseInt("".equals(g.simpleQuery(total)) ? "0" : g.simpleQuery(total));
+		int okScore = Integer.parseInt("".equals(g.simpleQuery(ok)) ? "0" : g.simpleQuery(ok));
 
-		return total > 0 ? (ok*20)/total : 0;
+		return totalScore > 0 ? (okScore*100)/totalScore : 0;
 		
 	}
 	
 	
 	public static boolean isExamOver(String endDate){
-		return LocalDate.parse(Tool.getCurrentDate()).isAfter(LocalDate.parse(endDate));
+		if(!"".equals(endDate)){
+			return LocalDate.parse(Tool.getCurrentDate()).isAfter(LocalDate.parse(endDate));
+		}
+			return true;
 	}
 	
 	private void createTestElement(String exId) throws Exception{
 		
 			ObjectDB test = getGrant().getTmpObject("QualExUsr");
 			test.setFieldValue("qualExusrUsrexamId", getRowId());
-			test.setFieldValue("qualExusrExId", exId);
+			test.setFieldValue("qualExusrExamexId", exId);
 			BusinessObjectTool bot = new BusinessObjectTool(test);
 			bot.validateAndCreate();
 			

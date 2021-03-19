@@ -129,7 +129,7 @@ public class QualExercise extends ObjectDB {
 			/*
 			Original list : 
 				Object : QualExUsr
-				Objectfield = qualExRefenum / set : fll_objfield_id
+				Objectfield = qualExamexExId.qualExRefenum / set : fll_objfield_id
 				Code in Ref list of values / set : fll_code_id
 				
 			Linked list :

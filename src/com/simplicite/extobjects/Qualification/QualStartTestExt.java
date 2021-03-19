@@ -50,6 +50,7 @@ public class QualStartTestExt extends ExternalObject {
             	examData.put("id", exam.getRowId());
             	examData.put("name", exam.getFieldValue("qualUsrexamExamId.qualExamName"));
             	examData.put("state", exam.getFieldDisplayValue("qualUsrexamEtat"));
+            	examData.put("dateLimite", exam.getFieldDisplayValue("qualUsrexamDateLimite"));
             	examData.put("complete-class", "TODO".equals(exam.getFieldValue("qualUsrexamEtat")) ? "qual-incomplete" : "qual-complete");
             	exams.put(examData);
             }

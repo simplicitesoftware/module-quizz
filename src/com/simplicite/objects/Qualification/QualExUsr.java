@@ -17,10 +17,6 @@ public class QualExUsr extends ObjectDB {
 		Grant g = getGrant();
 		
 		if(isCandidate(g)){
-			for(ObjectField f : getFieldArea("QualExUsr-2").getFields()){
-				f.setVisibility(ObjectField.VIS_FORBIDDEN);
-			}
-			getField("qualExAnswerText").setVisibility(ObjectField.VIS_FORBIDDEN);
 			String searchSpec = "t.row_id in (select row_id from qual_ex_usr ans join qual_user_exam ex on ans.QUAL_EXUSR_USREXAM_ID = ex.row_id where QUAL_USREXAM_USR_ID = '"+g.getUserId()+"')";
 			setSearchSpec(searchSpec);
 		}
@@ -36,6 +32,10 @@ public class QualExUsr extends ObjectDB {
 			for(ObjectField f : getFieldArea("QualExUsr-1").getFields()){
 				f.setVisibility(ObjectField.VIS_HIDDEN);
 			}
+			for(ObjectField f : getFieldArea("QualExUsr-2").getFields()){
+				f.setVisibility(ObjectField.VIS_FORBIDDEN);
+			}
+			getField("qualExusrExamexId.qualExamexExId.qualExAnswerText").setVisibility(ObjectField.VIS_FORBIDDEN);
 		}
 	}
 	
@@ -43,7 +43,7 @@ public class QualExUsr extends ObjectDB {
 	public boolean isUpdateEnable(String[] row) {
 		
 		boolean notSubmitted = "0".equals(getFieldValue("qualExusrSubmitted", row));
-		boolean notOver = !QualUserExam.isExamOver(getFieldValue("qualUsrexamDateLimite", row));
+		boolean notOver = !QualUserExam.isExamOver(getFieldValue("qualExusrUsrexamId.qualUsrexamDateLimite", row));
 		
 		return isCandidate(getGrant()) ? (notSubmitted && notOver) : true;
 		
@@ -58,6 +58,12 @@ public class QualExUsr extends ObjectDB {
 		for(ObjectField f : getFieldArea("QualExUsr-3").getFields()){
 			f.setUpdatable("0".equals(getFieldValue("qualExusrSubmitted")));
 		}
+		
+		for(ObjectField f : getFieldArea("QualExUsr-2").getFields()){
+			f.setVisibility(ObjectField.VIS_FORBIDDEN);
+		}
+		getField("qualExusrExamexId.qualExamexExId.qualExAnswerText").setVisibility(ObjectField.VIS_FORBIDDEN);
+		
 		for(ObjectField of : getFieldArea("QualExUsr-4").getFields()){
 			of.setUpdatable(false);
 		}	
@@ -77,7 +83,7 @@ public class QualExUsr extends ObjectDB {
 		
 		if("QUAL_SUBMITANSWER".equals(action)){
 			boolean notSubmitted = "0".equals(getFieldValue("qualExusrSubmitted", row));
-			boolean notOver = !QualUserExam.isExamOver(getFieldValue("qualUsrexamDateLimite", row));
+			boolean notOver = !QualUserExam.isExamOver(getFieldValue("qualExusrUsrexamId.qualUsrexamDateLimite", row));
 			return notSubmitted && notOver;
 		}
 		return true;
@@ -86,9 +92,9 @@ public class QualExUsr extends ObjectDB {
 	public String submitAnswer(){
 		
 		//if type enum, check answer with correct answer in ex definition
-		if("ENUM".equals(getFieldValue("qualExusrExId.qualExAnswerType"))){
+		if("ENUM".equals(getFieldValue("qualExusrExamexId.qualExamexExId.qualExAnswerType"))){
 			
-			String correctAnswer = getFieldValue("qualExusrExId.qualExAnswerEnumeration").replaceAll("(^\\h*)|(\\h*$)|\\s", "");
+			String correctAnswer = getFieldValue("qualExusrExamexId.qualExamexExId.qualExAnswerEnumeration").replaceAll("(^\\h*)|(\\h*$)|\\s", "");
 			String submittedAnswer = getFieldDisplayValue("qualExusrAnswerEnumeration").replaceAll("(^\\h*)|(\\h*$)|\\s", "");
 			setFieldValue("qualExusrCheck",correctAnswer.equals(submittedAnswer) ? "OK" : "KO");
 		}
