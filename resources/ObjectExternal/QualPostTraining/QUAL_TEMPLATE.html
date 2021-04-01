@@ -1,0 +1,28 @@
+  <div>
+    <flow-form
+      ref="flowform"
+      v-on:complete="onComplete"
+      v-bind:questions="questions"
+      v-bind:language="language"
+      v-bind:standalone="true"
+    >
+    	
+    <template v-slot:complete>
+        <p v-if="submitted && isValid">
+    	<span class="fh2">Vous avez terminé !</span>
+		<span class="f-section-text">
+			Merci d\'avoir pris le temps de répondre à nos questions &#x1F64F;
+		</span>
+        </p>
+        <p>
+    	<span v-if="!isValid" class="f-section-text">
+        	Vous n\'avez pas réussi à compléter le questionnaire, merci de nous communiquer votre problème sur notre forum <a href="https://community.simplicite.io/">community.simplicite.io</a>
+    	</span>
+        </p>
+      </template>
+      <template v-slot:completeButton>
+        <div class="f-submit">
+        </div>
+		</template>
+	 </flow-form>
+  </div>

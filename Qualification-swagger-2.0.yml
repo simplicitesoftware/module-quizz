@@ -2,7 +2,7 @@
 # / __(_)_ __  _ __| (_)__(_) |_ /_/
 # \__ \ | '  \| '_ \ | / _| |  _/ -_)
 # |___/_|_|_|_| .__/_|_\__|_|\__\___|
-#             |_| Module: Qualification 0.6
+#             |_| Module: Qualification 0.7
 paths:
   /rest/QualExercise:
     get:
@@ -49,7 +49,7 @@ paths:
         required: false
       - in: query
         name: qualExType
-        description: Search filter for Type
+        description: Search filter for Type d'exercice
         type: string
         required: false
         enum:
@@ -64,12 +64,12 @@ paths:
         - SIM_REX
       - in: query
         name: qualExQuestion
-        description: Search filter for Question
+        description: Search filter for Énoncé
         type: string
         required: false
       - in: query
         name: qualExAnswerType
-        description: Search filter for Answer type
+        description: Search filter for Type de réponse
         type: string
         required: false
         enum:
@@ -78,17 +78,17 @@ paths:
         - DIAG
       - in: query
         name: qualExAnswerText
-        description: Search filter for Answer
+        description: Search filter for Réponse
         type: string
         required: false
       - in: query
         name: qualExImage
-        description: Search filter for Image
+        description: Search filter for Diagramme
         type: string
         required: false
       - in: query
         name: qualExDifficulty
-        description: Search filter for Difficulty
+        description: Search filter for Difficulté
         type: string
         required: false
         enum:
@@ -97,49 +97,49 @@ paths:
         - '3'
       - in: query
         name: qualExChoicesEnumeration
-        description: Search filter for Choices - Enumeration
+        description: 'Search filter for Choix possibles (séparés par: @@@)'
         type: string
         required: false
       - in: query
         name: qualExAnswerEnumeration
-        description: Search filter for Answer - Enumeration
+        description: Search filter for Réponse
         type: string
         required: false
       - in: query
         name: qualExRefenum
-        description: Search filter for Ref enum
+        description: Search filter for qual ex refenum
         type: string
         required: false
         enum:
         - Simplicité - Conception-Niveau 1-55_REF_ENUM
-        - Simplicité - Conception-Niveau 1-57_REF_ENUM
         - Simplicité - Conception-Niveau 1-53_REF_ENUM
         - Simplicité - Conception-Niveau 1-47_REF_ENUM
-        - Simplicité - Conception-Niveau 1-43_REF_ENUM
         - Simplicité - Conception-Niveau 1-83_REF_ENUM
+        - Simplicité - Conception-Niveau 1-59_REF_ENUM
         - Simplicité - Conception-Niveau 1-77_REF_ENUM
+        - Simplicité - Conception-Niveau 1-45_REF_ENUM
         - Simplicité - Conception-Niveau 1-75_REF_ENUM
         - Simplicité - Conception-Niveau 1-65_REF_ENUM
         - Simplicité - Conception-Niveau 1-63_REF_ENUM
-        - Simplicité - Conception-Niveau 1-45_REF_ENUM
+        - Simplicité - Conception-Niveau 1-43_REF_ENUM
+        - Simplicité - Conception-Niveau 1-57_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
         - Simplicité - Conception-Niveau 1-85_REF_ENUM
-        - Simplicité - Conception-Niveau 1-59_REF_ENUM
         - Simplicité - Conception-Niveau 1-93_REF_ENUM
         - Simplicité - Conception-Niveau 1-95_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-11_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-19_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-21_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-23_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-27_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
       tags:
       - QualExercise
   /rest/QualExUsr:
@@ -182,17 +182,18 @@ paths:
         required: false
       - in: query
         name: qualExusrUsrexamId
-        description: Search filter for User's exam|User's exams
+        description: Search filter for Examen de l'utilisateur|Examens de l'utilisateur
         type: string
         required: false
       - in: query
         name: qualExusrUsrexamId__qualUsrexamId
-        description: Search filter for User's exam|User's exams qual usrexam id
+        description: Search filter for Identifiant de l'examen
         type: string
         required: false
       - in: query
         name: qualExusrUsrexamId__qualUsrexamUsrId
-        description: Search filter for User's exam|User's exams Candidate|Candidates
+        description: Search filter for Candidat|Candidats Examen de l'utilisateur|Examens
+          de l'utilisateur
         type: string
         required: false
       - in: query
@@ -202,47 +203,43 @@ paths:
         required: false
       - in: query
         name: qualExusrUsrexamId__qualUsrexamDateLimite
-        description: Search filter for User's exam|User's exams qual usrexam date
-          limite
+        description: Search filter for Date limite
         type: string
         required: false
       - in: query
         name: qualExusrUsrexamId__qualUsrexamExamId
-        description: Search filter for User's exam|User's exams Exam
+        description: Search filter for Examen Examen de l'utilisateur|Examens de l'utilisateur
         type: string
         required: false
       - in: query
         name: qualExusrUsrexamId__qualUsrexamExamId__qualExamName
-        description: Search filter for User's exam|User's exams Exam qual exam name
+        description: Search filter for Nom de l'examen
         type: string
         required: false
       - in: query
         name: qualExusrExamexId
-        description: Search filter for Exam question|Exam questions
+        description: Search filter for Question de l'examen|Questions de l'examen
         type: string
         required: false
       - in: query
         name: qualExusrExamexId__qualExamexExamId
-        description: Search filter for Exam question|Exam questions qual examex exam
-          id
+        description: Search filter for Exam id Question de l'examen|Questions de l'examen
         type: string
         required: false
       - in: query
         name: qualExusrExamexId__qualExamexExId
-        description: Search filter for Exam question|Exam questions qual examex ex
-          id
+        description: Search filter for ID Exercice Question de l'examen|Questions
+          de l'examen
         type: string
         required: false
       - in: query
         name: qualExusrExamexId__qualExamexExId__qualExId
-        description: Search filter for Exam question|Exam questions qual examex ex
-          id Id
+        description: Search filter for ID Question
         type: string
         required: false
       - in: query
         name: qualExusrExamexId__qualExamexExId__qualExAnswerType
-        description: Search filter for Exam question|Exam questions qual examex ex
-          id Answer type
+        description: Search filter for Type de réponse
         type: string
         required: false
         enum:
@@ -251,8 +248,7 @@ paths:
         - DIAG
       - in: query
         name: qualExusrExamexId__qualExamexExId__qualExQuestion
-        description: Search filter for Exam question|Exam questions qual examex ex
-          id Question
+        description: Search filter for Énoncé
         type: string
         required: false
       - in: query
@@ -266,66 +262,63 @@ paths:
         - NA
       - in: query
         name: qualExusrSubmitted
-        description: Search filter for Submitted
+        description: Search filter for Réponse enregistrée
         type: boolean
         required: false
       - in: query
         name: qualExusrExamexId__qualExamexExId__qualExRefenum
-        description: Search filter for Exam question|Exam questions qual examex ex
-          id Ref enum
+        description: Search filter for qual ex refenum ID Exercice Question de l'examen|Questions
+          de l'examen
         type: string
         required: false
         enum:
         - Simplicité - Conception-Niveau 1-55_REF_ENUM
-        - Simplicité - Conception-Niveau 1-57_REF_ENUM
         - Simplicité - Conception-Niveau 1-53_REF_ENUM
         - Simplicité - Conception-Niveau 1-47_REF_ENUM
-        - Simplicité - Conception-Niveau 1-43_REF_ENUM
         - Simplicité - Conception-Niveau 1-83_REF_ENUM
+        - Simplicité - Conception-Niveau 1-59_REF_ENUM
         - Simplicité - Conception-Niveau 1-77_REF_ENUM
+        - Simplicité - Conception-Niveau 1-45_REF_ENUM
         - Simplicité - Conception-Niveau 1-75_REF_ENUM
         - Simplicité - Conception-Niveau 1-65_REF_ENUM
         - Simplicité - Conception-Niveau 1-63_REF_ENUM
-        - Simplicité - Conception-Niveau 1-45_REF_ENUM
+        - Simplicité - Conception-Niveau 1-43_REF_ENUM
+        - Simplicité - Conception-Niveau 1-57_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
         - Simplicité - Conception-Niveau 1-85_REF_ENUM
-        - Simplicité - Conception-Niveau 1-59_REF_ENUM
         - Simplicité - Conception-Niveau 1-93_REF_ENUM
         - Simplicité - Conception-Niveau 1-95_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-11_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-19_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-21_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-23_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-27_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
       - in: query
         name: qualExusrExamexId__qualExamexExId__qualExAnswerEnumeration
-        description: Search filter for Exam question|Exam questions qual examex ex
-          id Answer - Enumeration
+        description: Search filter for Réponse - QCM
         type: string
         required: false
       - in: query
         name: qualExusrExamexId__qualExamexExId__qualExAnswerText
-        description: Search filter for Exam question|Exam questions qual examex ex
-          id Answer
+        description: Search filter for Réponse - Texte
         type: string
         required: false
       - in: query
         name: qualExusrExamexId__qualExamexScore
-        description: Search filter for Exam question|Exam questions qual examex score
+        description: Search filter for Score
         type: integer
         required: false
       - in: query
         name: qualExusrExamexId__qualExamexExId__qualExType
-        description: Search filter for Exam question|Exam questions qual examex ex
-          id Type
+        description: Search filter for Type d'exercice
         type: string
         required: false
         enum:
@@ -340,28 +333,28 @@ paths:
         - SIM_REX
       - in: query
         name: qualExusrAnswer
-        description: Search filter for Answer
+        description: Search filter for Réponse
         type: string
         required: false
       - in: query
         name: qualExusrImage
-        description: Search filter for Image
+        description: Search filter for Réponse
         type: string
         required: false
       - in: query
         name: qualExusrAnswerEnumeration
-        description: Search filter for Answer - Enumeration
+        description: Search filter for Réponse
         type: string
         required: false
         enum:
         - A
         - B
         - C
-        - SQL_QST_1_CHOICES_ENUM_0
         - SQL_QST_1_CHOICES_ENUM_1
+        - SQL_QST_1_CHOICES_ENUM_0
       - in: query
         name: qualExusrProgress
-        description: Search filter for qual exusr progress
+        description: Search filter for Avancement
         type: integer
         required: false
       tags:
@@ -1224,12 +1217,12 @@ paths:
         required: false
       - in: query
         name: qualUsrexamId
-        description: Search filter for qual usrexam id
+        description: Search filter for Id
         type: string
         required: false
       - in: query
         name: qualUsrexamUsrId
-        description: Search filter for Candidate|Candidates
+        description: Search filter for Candidat|Candidats
         type: string
         required: false
       - in: query
@@ -1249,32 +1242,32 @@ paths:
         required: false
       - in: query
         name: qualUsrexamExamId
-        description: Search filter for Exam
+        description: Search filter for Examen
         type: string
         required: false
       - in: query
         name: qualUsrexamExamId__qualExamName
-        description: Search filter for Exam qual exam name
+        description: Search filter for Examen
         type: string
         required: false
       - in: query
         name: qualUsrexamExamId__qualExamPublic
-        description: Search filter for Exam qual exam public
+        description: Search filter for Public
         type: boolean
         required: false
       - in: query
         name: qualUsrexamScore
-        description: Search filter for qual usrexam score
+        description: Search filter for Score
         type: integer
         required: false
       - in: query
         name: qualUsrexamDateLimite
-        description: Search filter for qual usrexam date limite
+        description: Search filter for Date limite
         type: string
         required: false
       - in: query
         name: qualUsrexamEtat
-        description: Search filter for qual usrexam etat
+        description: Search filter for État
         type: string
         required: false
         enum:
@@ -2129,17 +2122,17 @@ paths:
         - Pacific/Kiritimati
       - in: query
         name: usr_minrows
-        description: Search filter for Min size of lists
+        description: Search filter for Taille minimale des listes
         type: integer
         required: false
       - in: query
         name: usr_maxrows
-        description: Search filter for Max size of lists
+        description: Search filter for Taille maximale des listes
         type: integer
         required: false
       - in: query
         name: qualUsrTests
-        description: Search filter for Tests
+        description: Search filter for Sujets
         type: string
         required: false
         enum:
@@ -2191,12 +2184,12 @@ paths:
         required: false
       - in: query
         name: usr_home_num
-        description: Search filter for Home phone
+        description: Search filter for Tél. domicile
         type: string
         required: false
       - in: query
         name: qualUsrLevel
-        description: Search filter for Level
+        description: Search filter for Niveau
         type: string
         required: false
         enum:
@@ -2210,7 +2203,7 @@ paths:
         required: false
       - in: query
         name: usr_active
-        description: Search filter for Active
+        description: Search filter for Actif
         type: string
         required: false
         enum:
@@ -2220,12 +2213,12 @@ paths:
         - '3'
       - in: query
         name: usr_home_id
-        description: Search filter for Home page
+        description: Search filter for Page d'accueil
         type: string
         required: false
       - in: query
         name: usr_home_id__viw_name
-        description: Search filter for Home page
+        description: Search filter for Page d'accueil
         type: string
         required: false
       - in: query
@@ -2270,12 +2263,13 @@ paths:
         - CA
       - in: query
         name: qualUsrTypedutilisateur
-        description: Search filter for qual usr typedutilisateur
+        description: Search filter for Type d'utilisateur
         type: string
         required: false
         enum:
         - ADMIN
         - CAND
+        - GEN
       - in: query
         name: row_module_id
         description: Search filter for Module
@@ -2287,23 +2281,28 @@ paths:
         type: string
         required: false
       - in: query
+        name: qualUsrToken
+        description: Search filter for Token
+        type: string
+        required: false
+      - in: query
         name: usr_menu
         description: Search filter for Menu visible
         type: boolean
         required: false
       - in: query
         name: usr_menu_defcollapsed
-        description: Search filter for Menu collapsed by default
+        description: Search filter for Menu ouvert par défaut
         type: boolean
         required: false
       - in: query
         name: usr_menu_defdomain_id
-        description: Search filter for Domain menu by default
+        description: Search filter for Domain ouvert par défaut
         type: string
         required: false
       - in: query
         name: usr_menu_defdomain_id__obd_name
-        description: Search filter for Default opened domain
+        description: Search filter for Domaine ouvert par défaut
         type: string
         required: false
       - in: query
@@ -2313,12 +2312,12 @@ paths:
         required: false
       - in: query
         name: usr_last_logon
-        description: Search filter for Last logon
+        description: Search filter for Dernière connexion
         type: string
         required: false
       - in: query
         name: usr_dateformat
-        description: Search filter for Date format
+        description: Search filter for Format de date
         type: string
         required: false
         enum:
@@ -2381,17 +2380,17 @@ paths:
         required: false
       - in: query
         name: qualExamName
-        description: Search filter for qual exam name
+        description: Search filter for Nom
         type: string
         required: false
       - in: query
         name: qualExamPublic
-        description: Search filter for qual exam public
+        description: Search filter for Public
         type: boolean
         required: false
       - in: query
         name: qualExType
-        description: Search filter for Type
+        description: Search filter for Type d'exercice
         type: string
         required: false
         enum:
@@ -2608,42 +2607,42 @@ paths:
         required: false
       - in: query
         name: qualExamexExamId
-        description: Search filter for qual examex exam id
+        description: Search filter for Exam id
         type: string
         required: false
       - in: query
         name: qualExamexExamId__qualExamName
-        description: Search filter for qual examex exam id qual exam name
+        description: Search filter for Nom de l'examen
         type: string
         required: false
       - in: query
         name: qualExamexExId
-        description: Search filter for qual examex ex id
+        description: Search filter for ID Exercice
         type: string
         required: false
       - in: query
         name: qualExamexExId__qualExId
-        description: Search filter for qual examex ex id Id
+        description: Search filter for Identifiant
         type: string
         required: false
       - in: query
         name: qualExamexExId__qualExQuestion
-        description: Search filter for qual examex ex id Question
+        description: Search filter for Énoncé
         type: string
         required: false
       - in: query
         name: qualExamexScore
-        description: Search filter for qual examex score
+        description: Search filter for Score
         type: integer
         required: false
       - in: query
         name: qualExamexExId__qualExAnswerText
-        description: Search filter for qual examex ex id Answer
+        description: Search filter for Réponse ID Exercice
         type: string
         required: false
       - in: query
         name: qualExamexExId__qualExType
-        description: Search filter for qual examex ex id Type
+        description: Search filter for Type d'exercice ID Exercice
         type: string
         required: false
         enum:
@@ -2658,42 +2657,42 @@ paths:
         - SIM_REX
       - in: query
         name: qualExamexExId__qualExRefenum
-        description: Search filter for qual examex ex id Ref enum
+        description: Search filter for qual ex refenum ID Exercice
         type: string
         required: false
         enum:
         - Simplicité - Conception-Niveau 1-55_REF_ENUM
-        - Simplicité - Conception-Niveau 1-57_REF_ENUM
         - Simplicité - Conception-Niveau 1-53_REF_ENUM
         - Simplicité - Conception-Niveau 1-47_REF_ENUM
-        - Simplicité - Conception-Niveau 1-43_REF_ENUM
         - Simplicité - Conception-Niveau 1-83_REF_ENUM
+        - Simplicité - Conception-Niveau 1-59_REF_ENUM
         - Simplicité - Conception-Niveau 1-77_REF_ENUM
+        - Simplicité - Conception-Niveau 1-45_REF_ENUM
         - Simplicité - Conception-Niveau 1-75_REF_ENUM
         - Simplicité - Conception-Niveau 1-65_REF_ENUM
         - Simplicité - Conception-Niveau 1-63_REF_ENUM
-        - Simplicité - Conception-Niveau 1-45_REF_ENUM
+        - Simplicité - Conception-Niveau 1-43_REF_ENUM
+        - Simplicité - Conception-Niveau 1-57_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
         - Simplicité - Conception-Niveau 1-85_REF_ENUM
-        - Simplicité - Conception-Niveau 1-59_REF_ENUM
         - Simplicité - Conception-Niveau 1-93_REF_ENUM
         - Simplicité - Conception-Niveau 1-95_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-11_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-19_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-21_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-23_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-27_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
       - in: query
         name: qualExamexExId__qualExAnswerType
-        description: Search filter for qual examex ex id Answer type
+        description: Search filter for Type de réponse ID Exercice
         type: string
         required: false
         enum:
@@ -2702,7 +2701,12 @@ paths:
         - DIAG
       - in: query
         name: qualExamexExId__qualExAnswerEnumeration
-        description: Search filter for qual examex ex id Answer - Enumeration
+        description: Search filter for Réponse ID Exercice
+        type: string
+        required: false
+      - in: query
+        name: qualExamexExId__qualExChoicesEnumeration
+        description: 'Search filter for Choix possibles (séparés par: @@@) ID Exercice'
         type: string
         required: false
       tags:
@@ -3376,10 +3380,10 @@ definitions:
         description: Picture
         type: object
       usr_minrows:
-        description: Min size of lists
+        description: Taille minimale des listes
         type: integer
       qualUsrLevel:
-        description: Level
+        description: Niveau
         type: array
         items:
           type: string
@@ -3418,32 +3422,35 @@ definitions:
         type: string
         example: yyyy-MM-dd HH:mm:ss
       usr_home_id__viw_name:
-        description: Home page
+        description: Page d'accueil
         type: string
       usr_menu_defdomain_id:
-        description: Domain menu by default
+        description: Domain ouvert par défaut
         type: string
       usr_menu_defcollapsed:
-        description: Menu collapsed by default
+        description: Menu ouvert par défaut
         type: boolean
       usr_uuid:
         description: UUID
         type: string
+      qualUsrToken:
+        description: Token
+        type: string
       usr_last_logon:
-        description: Last logon
+        description: Dernière connexion
         type: string
         example: yyyy-MM-dd HH:mm:ss
       usr_first_name:
         description: First name
         type: string
       usr_home_num:
-        description: Home phone
+        description: Tél. domicile
         type: string
       usr_email:
         description: Email address
         type: string
       usr_active:
-        description: Active
+        description: Actif
         type: string
         enum:
         - '0'
@@ -3469,7 +3476,7 @@ definitions:
         description: Mobile/cellular phone number
         type: string
       usr_menu_defdomain_id__obd_name:
-        description: Default opened domain
+        description: Domaine ouvert par défaut
         type: string
       usr_city:
         description: City
@@ -3487,7 +3494,7 @@ definitions:
         - ENU
         - FRA
       qualUsrTests:
-        description: Tests
+        description: Sujets
         type: array
         items:
           type: string
@@ -3502,14 +3509,15 @@ definitions:
           - SIM_INTEGRATION
           - SIM_REX
       usr_maxrows:
-        description: Max size of lists
+        description: Taille maximale des listes
         type: integer
       qualUsrTypedutilisateur:
-        description: qual usr typedutilisateur
+        description: Type d'utilisateur
         type: string
         enum:
         - ADMIN
         - CAND
+        - GEN
       row_id:
         description: Unique technical row ID
         type: string
@@ -3517,13 +3525,13 @@ definitions:
         description: Work phone number
         type: string
       usr_home_id:
-        description: Home page
+        description: Page d'accueil
         type: string
       usr_state:
         description: State
         type: string
       usr_dateformat:
-        description: Date format
+        description: Format de date
         type: string
         enum:
         - YMD
@@ -3538,17 +3546,17 @@ definitions:
     type: object
     properties:
       qualUsrexamDateLimite:
-        description: qual usrexam date limite
+        description: Date limite
         type: string
         example: yyyy-MM-dd
       qualUsrexamUsrId__usr_last_name:
         description: Last name
         type: string
       qualUsrexamExamId:
-        description: Exam
+        description: Examen
         type: string
       qualUsrexamExamId__qualExamName:
-        description: Exam qual exam name
+        description: Examen
         type: string
       qualUsrexamUsrId__usr_login:
         description: Login
@@ -3557,10 +3565,10 @@ definitions:
         description: First name
         type: string
       qualUsrexamExamId__qualExamPublic:
-        description: Exam qual exam public
+        description: Public
         type: boolean
       qualUsrexamEtat:
-        description: qual usrexam etat
+        description: État
         type: string
         enum:
         - TODO
@@ -3570,13 +3578,13 @@ definitions:
         description: Unique technical row ID
         type: string
       qualUsrexamId:
-        description: qual usrexam id
+        description: Id
         type: string
       qualUsrexamUsrId:
-        description: Candidate|Candidates
+        description: Candidat|Candidats
         type: string
       qualUsrexamScore:
-        description: qual usrexam score
+        description: Score
         type: integer
   PublicationResult:
     type: object
@@ -3595,10 +3603,10 @@ definitions:
     type: object
     properties:
       qualExusrImage:
-        description: Image
+        description: Réponse
         type: object
       qualExusrSubmitted:
-        description: Submitted
+        description: Réponse enregistrée
         type: boolean
       qualExusrCheck:
         description: Check
@@ -3611,96 +3619,97 @@ definitions:
         description: Login
         type: string
       qualExusrAnswer:
-        description: Answer
+        description: Réponse
         type: string
       qualExusrAnswerEnumeration:
-        description: Answer - Enumeration
+        description: Réponse
         type: string
         enum:
         - A
         - B
         - C
-        - SQL_QST_1_CHOICES_ENUM_0
         - SQL_QST_1_CHOICES_ENUM_1
+        - SQL_QST_1_CHOICES_ENUM_0
       qualExusrExamexId__qualExamexExId__qualExRefenum:
-        description: Exam question|Exam questions qual examex ex id Ref enum
+        description: qual ex refenum ID Exercice Question de l'examen|Questions de
+          l'examen
         type: string
         enum:
         - Simplicité - Conception-Niveau 1-55_REF_ENUM
-        - Simplicité - Conception-Niveau 1-57_REF_ENUM
         - Simplicité - Conception-Niveau 1-53_REF_ENUM
         - Simplicité - Conception-Niveau 1-47_REF_ENUM
-        - Simplicité - Conception-Niveau 1-43_REF_ENUM
         - Simplicité - Conception-Niveau 1-83_REF_ENUM
+        - Simplicité - Conception-Niveau 1-59_REF_ENUM
         - Simplicité - Conception-Niveau 1-77_REF_ENUM
+        - Simplicité - Conception-Niveau 1-45_REF_ENUM
         - Simplicité - Conception-Niveau 1-75_REF_ENUM
         - Simplicité - Conception-Niveau 1-65_REF_ENUM
         - Simplicité - Conception-Niveau 1-63_REF_ENUM
-        - Simplicité - Conception-Niveau 1-45_REF_ENUM
+        - Simplicité - Conception-Niveau 1-43_REF_ENUM
+        - Simplicité - Conception-Niveau 1-57_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
         - Simplicité - Conception-Niveau 1-85_REF_ENUM
-        - Simplicité - Conception-Niveau 1-59_REF_ENUM
         - Simplicité - Conception-Niveau 1-93_REF_ENUM
         - Simplicité - Conception-Niveau 1-95_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-11_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-19_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-21_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-23_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-27_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
       qualExusrExamexId__qualExamexExId:
-        description: Exam question|Exam questions qual examex ex id
+        description: ID Exercice Question de l'examen|Questions de l'examen
         type: string
       qualExusrExamexId__qualExamexExId__qualExAnswerText:
-        description: Exam question|Exam questions qual examex ex id Answer
+        description: Réponse - Texte
         type: string
       qualExusrExamexId:
-        description: Exam question|Exam questions
+        description: Question de l'examen|Questions de l'examen
         type: string
       qualExusrExamexId__qualExamexExId__qualExId:
-        description: Exam question|Exam questions qual examex ex id Id
+        description: ID Question
         type: string
       qualExusrExamexId__qualExamexExId__qualExAnswerEnumeration:
-        description: Exam question|Exam questions qual examex ex id Answer - Enumeration
+        description: Réponse - QCM
         type: string
       qualExusrProgress:
-        description: qual exusr progress
+        description: Avancement
         type: integer
       qualExusrUsrexamId:
-        description: User's exam|User's exams
+        description: Examen de l'utilisateur|Examens de l'utilisateur
         type: string
       qualExusrExamexId__qualExamexExId__qualExAnswerType:
-        description: Exam question|Exam questions qual examex ex id Answer type
+        description: Type de réponse
         type: string
         enum:
         - TXT
         - ENUM
         - DIAG
       qualExusrUsrexamId__qualUsrexamExamId:
-        description: User's exam|User's exams Exam
+        description: Examen Examen de l'utilisateur|Examens de l'utilisateur
         type: string
       qualExusrExamexId__qualExamexExamId:
-        description: Exam question|Exam questions qual examex exam id
+        description: Exam id Question de l'examen|Questions de l'examen
         type: string
       qualExusrUsrexamId__qualUsrexamExamId__qualExamName:
-        description: User's exam|User's exams Exam qual exam name
+        description: Nom de l'examen
         type: string
       qualExusrUsrexamId__qualUsrexamDateLimite:
-        description: User's exam|User's exams qual usrexam date limite
+        description: Date limite
         type: string
         example: yyyy-MM-dd
       qualExusrUsrexamId__qualUsrexamUsrId:
-        description: User's exam|User's exams Candidate|Candidates
+        description: Candidat|Candidats Examen de l'utilisateur|Examens de l'utilisateur
         type: string
       qualExusrExamexId__qualExamexExId__qualExType:
-        description: Exam question|Exam questions qual examex ex id Type
+        description: Type d'exercice
         type: string
         enum:
         - UML
@@ -3713,13 +3722,13 @@ definitions:
         - SIM_INTEGRATION
         - SIM_REX
       qualExusrUsrexamId__qualUsrexamId:
-        description: User's exam|User's exams qual usrexam id
+        description: Identifiant de l'examen
         type: string
       qualExusrExamexId__qualExamexExId__qualExQuestion:
-        description: Exam question|Exam questions qual examex ex id Question
+        description: Énoncé
         type: string
       qualExusrExamexId__qualExamexScore:
-        description: Exam question|Exam questions qual examex score
+        description: Score
         type: integer
       row_id:
         description: Unique technical row ID
@@ -3759,71 +3768,77 @@ definitions:
     type: object
     properties:
       qualExamexExId__qualExAnswerText:
-        description: qual examex ex id Answer
-        type: string
-      qualExamexExamId__qualExamName:
-        description: qual examex exam id qual exam name
-        type: string
-      qualExamexExId__qualExId:
-        description: qual examex ex id Id
+        description: Réponse ID Exercice
         type: string
       qualExamexExId__qualExQuestion:
-        description: qual examex ex id Question
+        description: Énoncé
         type: string
       qualExamexExId__qualExRefenum:
-        description: qual examex ex id Ref enum
+        description: qual ex refenum ID Exercice
         type: string
         enum:
         - Simplicité - Conception-Niveau 1-55_REF_ENUM
-        - Simplicité - Conception-Niveau 1-57_REF_ENUM
         - Simplicité - Conception-Niveau 1-53_REF_ENUM
         - Simplicité - Conception-Niveau 1-47_REF_ENUM
-        - Simplicité - Conception-Niveau 1-43_REF_ENUM
         - Simplicité - Conception-Niveau 1-83_REF_ENUM
+        - Simplicité - Conception-Niveau 1-59_REF_ENUM
         - Simplicité - Conception-Niveau 1-77_REF_ENUM
+        - Simplicité - Conception-Niveau 1-45_REF_ENUM
         - Simplicité - Conception-Niveau 1-75_REF_ENUM
         - Simplicité - Conception-Niveau 1-65_REF_ENUM
         - Simplicité - Conception-Niveau 1-63_REF_ENUM
-        - Simplicité - Conception-Niveau 1-45_REF_ENUM
+        - Simplicité - Conception-Niveau 1-43_REF_ENUM
+        - Simplicité - Conception-Niveau 1-57_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
         - Simplicité - Conception-Niveau 1-85_REF_ENUM
-        - Simplicité - Conception-Niveau 1-59_REF_ENUM
         - Simplicité - Conception-Niveau 1-93_REF_ENUM
         - Simplicité - Conception-Niveau 1-95_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-11_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-19_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-21_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-23_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-27_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
+      qualExamexExamId:
+        description: Exam id
+        type: string
+      qualExamexExId:
+        description: ID Exercice
+        type: string
+      qualExamexExId__qualExChoicesEnumeration:
+        description: 'Choix possibles (séparés par: @@@) ID Exercice'
+        type: string
+      qualExamexExamId__qualExamName:
+        description: Nom de l'examen
+        type: string
+      qualExamexExId__qualExId:
+        description: Identifiant
+        type: string
       qualExamexExId__qualExAnswerType:
-        description: qual examex ex id Answer type
+        description: Type de réponse ID Exercice
         type: string
         enum:
         - TXT
         - ENUM
         - DIAG
       qualExamexExId__qualExAnswerEnumeration:
-        description: qual examex ex id Answer - Enumeration
+        description: Réponse ID Exercice
         type: string
       qualExamexScore:
-        description: qual examex score
+        description: Score
         type: integer
-      qualExamexExamId:
-        description: qual examex exam id
-        type: string
       row_id:
         description: Unique technical row ID
         type: string
       qualExamexExId__qualExType:
-        description: qual examex ex id Type
+        description: Type d'exercice ID Exercice
         type: string
         enum:
         - UML
@@ -3835,9 +3850,6 @@ definitions:
         - SIM_OPERATION
         - SIM_INTEGRATION
         - SIM_REX
-      qualExamexExId:
-        description: qual examex ex id
-        type: string
   Error401:
     type: object
     properties:
@@ -3864,26 +3876,26 @@ definitions:
     type: object
     properties:
       qualExDifficulty:
-        description: Difficulty
+        description: Difficulté
         type: string
         enum:
         - '1'
         - '2'
         - '3'
       qualExAnswerEnumeration:
-        description: Answer - Enumeration
+        description: Réponse
         type: string
       qualExImage:
-        description: Image
+        description: Diagramme
         type: object
       qualExChoicesEnumeration:
-        description: Choices - Enumeration
+        description: 'Choix possibles (séparés par: @@@)'
         type: string
       qualExQuestion:
-        description: Question
+        description: Énoncé
         type: string
       qualExAnswerType:
-        description: Answer type
+        description: Type de réponse
         type: string
         enum:
         - TXT
@@ -3893,7 +3905,7 @@ definitions:
         description: Id
         type: string
       qualExType:
-        description: Type
+        description: Type d'exercice
         type: string
         enum:
         - UML
@@ -3909,41 +3921,41 @@ definitions:
         description: Unique technical row ID
         type: string
       qualExAnswerText:
-        description: Answer
+        description: Réponse
         type: string
       qualExRefenum:
-        description: Ref enum
+        description: qual ex refenum
         type: string
         enum:
         - Simplicité - Conception-Niveau 1-55_REF_ENUM
-        - Simplicité - Conception-Niveau 1-57_REF_ENUM
         - Simplicité - Conception-Niveau 1-53_REF_ENUM
         - Simplicité - Conception-Niveau 1-47_REF_ENUM
-        - Simplicité - Conception-Niveau 1-43_REF_ENUM
         - Simplicité - Conception-Niveau 1-83_REF_ENUM
+        - Simplicité - Conception-Niveau 1-59_REF_ENUM
         - Simplicité - Conception-Niveau 1-77_REF_ENUM
+        - Simplicité - Conception-Niveau 1-45_REF_ENUM
         - Simplicité - Conception-Niveau 1-75_REF_ENUM
         - Simplicité - Conception-Niveau 1-65_REF_ENUM
         - Simplicité - Conception-Niveau 1-63_REF_ENUM
-        - Simplicité - Conception-Niveau 1-45_REF_ENUM
+        - Simplicité - Conception-Niveau 1-43_REF_ENUM
+        - Simplicité - Conception-Niveau 1-57_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
         - Simplicité - Conception-Niveau 1-85_REF_ENUM
-        - Simplicité - Conception-Niveau 1-59_REF_ENUM
         - Simplicité - Conception-Niveau 1-93_REF_ENUM
         - Simplicité - Conception-Niveau 1-95_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-11_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-19_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-21_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-23_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-27_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
   Error403:
     type: object
     properties:
@@ -3959,13 +3971,13 @@ definitions:
     type: object
     properties:
       qualExamName:
-        description: qual exam name
+        description: Nom
         type: string
       qualExamPublic:
-        description: qual exam public
+        description: Public
         type: boolean
       qualExType:
-        description: Type
+        description: Type d'exercice
         type: string
         enum:
         - UML
@@ -3991,17 +4003,17 @@ info:
     email: contact@simplicitesoftware.com
   description: API for module Qualification
   title: Qualification
-  version: '0.6'
+  version: '0.7'
 tags:
 - name: QualExam
-  description: Exam
+  description: Examen
 - name: QualExamEx
-  description: Exam question
+  description: Question de l'examen
 - name: QualExercise
-  description: Exercise
+  description: Énoncé
 - name: QualExUsr
   description: Test
 - name: QualUser
-  description: Candidate
+  description: Candidat
 - name: QualUserExam
-  description: User's exam
+  description: Examen de l'utilisateur

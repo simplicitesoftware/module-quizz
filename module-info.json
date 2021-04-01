@@ -1,9 +1,9 @@
 {
-    "date": "2021-03-19 09:28:23",
+    "date": "2021-04-01 11:55:42",
     "name": "Qualification",
     "format": "xml",
     "files": ["Qualification.xml"],
     "repository": {},
-    "version": "0.6",
-    "platform": "5.0.30"
+    "version": "0.7",
+    "platform": "5.0.34"
 }

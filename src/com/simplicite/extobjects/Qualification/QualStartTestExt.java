@@ -20,8 +20,6 @@ public class QualStartTestExt extends ExternalObject {
 	public Object display(Parameters params) {
 		try {
 			
-			setDecoration(false);
-			
 			Grant g = getGrant();
 			String sql = "select row_id from qual_ex_usr ans join qual_user_exam ex on ans.QUAL_EXUSR_USREXAM_ID = ex.row_id where QUAL_USREXAM_USR_ID = '"+g.getUserId()+"'";
 			

@@ -52,13 +52,14 @@
 | _Ref. `qualExamexExamId.qualExamName`_                       | _char(100)_                              |          |           |          | -                                                                                |
 | `qualExamexExId` link to **`QualExercise`**                  | id                                       | yes*     | yes       |          | -                                                                                |
 | _Ref. `qualExamexExId.qualExId`_                             | _char(100)_                              |          |           |          | -                                                                                |
-| _Ref. `qualExamexExId.qualExQuestion`_                       | _html(10000)_                            |          |           |          | -                                                                                |
+| _Ref. `qualExamexExId.qualExQuestion`_                       | _text(10000)_                            |          |           |          | -                                                                                |
 | `qualExamexScore`                                            | int(100)                                 | yes      | yes       |          | -                                                                                |
 | _Ref. `qualExamexExId.qualExAnswerText`_                     | _text(10000)_                            |          |           |          | -                                                                                |
 | _Ref. `qualExamexExId.qualExType`_                           | _enum(20) using `QUALEXTYPE` list_       |          |           |          | -                                                                                |
 | _Ref. `qualExamexExId.qualExRefenum`_                        | _enum(100) using `QUAL_REF_ENUM_CHOICES` list_ |          |           |          | -                                                                                |
 | _Ref. `qualExamexExId.qualExAnswerType`_                     | _enum(100) using `QUALEXANWSERTYPE` list_ |          |           |          | -                                                                                |
 | _Ref. `qualExamexExId.qualExAnswerEnumeration`_              | _char(200)_                              |          |           |          | -                                                                                |
+| _Ref. `qualExamexExId.qualExChoicesEnumeration`_             | _text(10000)_                            |          |           |          | -                                                                                |
 
 ### Lists
 
@@ -118,7 +119,7 @@ Exercise
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | `qualExId`                                                   | char(100)                                | yes*     |           |          | -                                                                                |
 | `qualExType`                                                 | enum(20) using `QUALEXTYPE` list         | yes      | yes       |          | -                                                                                |
-| `qualExQuestion`                                             | html(10000)                              | yes      | yes       |          | -                                                                                |
+| `qualExQuestion`                                             | text(10000)                              | yes      | yes       |          | -                                                                                |
 | `qualExAnswerType`                                           | enum(100) using `QUALEXANWSERTYPE` list  | yes      | yes       |          | -                                                                                |
 | `qualExAnswerText`                                           | text(10000)                              |          | yes       |          | -                                                                                |
 | `qualExImage`                                                | document                                 |          | yes       |          | -                                                                                |
@@ -199,7 +200,7 @@ Exercise
 | _Ref. `qualExusrExamexId.qualExamexExId`_                    | _id_                                     |          |           |          | -                                                                                |
 | _Ref. `qualExamexExId.qualExId`_                             | _char(100)_                              |          |           |          | -                                                                                |
 | _Ref. `qualExamexExId.qualExAnswerType`_                     | _enum(100) using `QUALEXANWSERTYPE` list_ |          |           |          | -                                                                                |
-| _Ref. `qualExamexExId.qualExQuestion`_                       | _html(10000)_                            |          |           |          | -                                                                                |
+| _Ref. `qualExamexExId.qualExQuestion`_                       | _text(10000)_                            |          |           |          | -                                                                                |
 | `qualExusrCheck`                                             | enum(100) using `QUALEXUSRCHECK` list    |          |           |          | -                                                                                |
 | `qualExusrSubmitted`                                         | boolean                                  |          |           |          | -                                                                                |
 | _Ref. `qualExamexExId.qualExRefenum`_                        | _enum(100) using `QUAL_REF_ENUM_CHOICES` list_ |          |           |          | -                                                                                |
@@ -285,6 +286,7 @@ Exercise
 | `qualUsrTests`                                               | multi(100) using `QUALEXTYPE` list       |          | yes       |          | -                                                                                |
 | `qualUsrLevel`                                               | multi(100) using `QUALEXDIFFICULTY` list |          | yes       |          | -                                                                                |
 | `qualUsrTypedutilisateur`                                    | enum(100) using `QUALUSRTYPEDUTILISATEUR` list | yes      | yes       |          | -                                                                                |
+| `qualUsrToken`                                               | char(100)                                |          |           |          | -                                                                                |
 
 ### Lists
 
@@ -305,6 +307,7 @@ Exercise
 * `QUALUSRTYPEDUTILISATEUR`
     - `ADMIN` Administrateur
     - `CAND` Candidat
+    - `GEN` Générique
 
 ### Custom actions
 
@@ -340,6 +343,12 @@ Exercise
 
 `QualEndTestExt` external object definition
 -------------------------------------------
+
+
+
+
+`QualPostTraining` external object definition
+---------------------------------------------
 
 
 

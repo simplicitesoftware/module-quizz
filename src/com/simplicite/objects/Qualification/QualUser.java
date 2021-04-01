@@ -28,6 +28,9 @@ public class QualUser extends User {
     public List<String> preValidate() {
     	List<String> msgs = new ArrayList<>();
     	
+    	if("".equals(getFieldValue("qualUsrToken")))
+    		setFieldValue("qualUsrToken", Tool.randomUUID());
+    		
 		getField("qualUsrTests").setRequired(isCandidate());
     	
     	return msgs;
