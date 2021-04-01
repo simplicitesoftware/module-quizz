@@ -92,10 +92,10 @@ var QualPostTraining = QualPostTraining || (function($) {
 								required: true
 						    })
 						}
-						else if(input[i].type == "END_QST"){
+						else if(input[i].type == "QST_BREAK"){
 							tmp = new FlowForm.QuestionModel({
-					            title: 'Bravo! Vous avez terminé le questionnaire "'+examTitle+'".',
-					            content: "Vous allez maintenant répondre au questionnaire : "+input[i].nextExamTitle,
+					            title: 'Vous allez répondre au questionnaire "'+examTitle+'".',
+					            content: exams[k].examDescription,
 					            type: FlowForm.QuestionType.SectionBreak,
 			        		});
 						}

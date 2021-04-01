@@ -2403,6 +2403,11 @@ paths:
         - SIM_OPERATION
         - SIM_INTEGRATION
         - SIM_REX
+      - in: query
+        name: qualExamDescription
+        description: Search filter for Description
+        type: string
+        required: false
       tags:
       - QualExam
   /rest/QualUser/{row_id}:
@@ -3972,6 +3977,9 @@ definitions:
     properties:
       qualExamName:
         description: Nom
+        type: string
+      qualExamDescription:
+        description: Description
         type: string
       qualExamPublic:
         description: Public

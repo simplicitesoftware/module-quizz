@@ -1259,6 +1259,9 @@ components:
         qualExamName:
           description: Nom
           type: string
+        qualExamDescription:
+          description: Description
+          type: string
         qualExamPublic:
           description: Public
           type: boolean
@@ -4000,6 +4003,12 @@ paths:
         in: query
         name: qualExType
         description: Search filter for Type d'exercice
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: qualExamDescription
+        description: Search filter for Description
         required: false
       tags:
       - QualExam

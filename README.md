@@ -25,6 +25,7 @@
 | `qualExamName`                                               | char(100)                                | yes*     | yes       |          | -                                                                                |
 | `qualExamPublic`                                             | boolean                                  |          | yes       |          | -                                                                                |
 | `qualExType`                                                 | enum(20) using `QUALEXTYPE` list         | yes      | yes       |          | -                                                                                |
+| `qualExamDescription`                                        | text(100)                                |          | yes       |          | -                                                                                |
 
 ### Lists
 

@@ -52,34 +52,50 @@ public class QualPostTraining extends ExternalObject {
 			
 			JSONArray exams = new JSONArray();
 			for(String exType : userExam.split(";")){
+				
 				examId = g.simpleQuery("select row_id from qual_exam where qual_ex_type = '"+exType+"'");
-				String examName = g.simpleQuery("select qual_exam_name from qual_exam where row_id = '"+examId+"'");
-				JSONObject exam = new JSONObject();
-				JSONArray qsts = new JSONArray();
-				if(!"".equals(examId)){
-					examEx.setFieldFilter("qualExamexExamId", examId);
+				
+				ObjectDB examObj = g.getTmpObject("QualExam");
+				
+				if(examObj.select(examId)){
 					
-					for(String[] row : examEx.search()){
+					String examName = examObj.getFieldValue("qualExamName");
+					String examDescription = examObj.getFieldValue("qualExamDescription");
+					
+					JSONObject exam = new JSONObject();
+					JSONArray qsts = new JSONArray();
+					if(!"".equals(examId)){
+						examEx.setFieldFilter("qualExamexExamId", examId);
 						
-						examEx.setValues(row);
-						JSONObject qst = new JSONObject();
-						qst.put("examTitle", examEx.getFieldValue("qualExamexExamId.qualExamName"));
-						qst.put("title", examEx.getFieldValue("qualExamexExId.qualExQuestion"));
-						qst.put("type", examEx.getFieldValue("qualExamexExId.qualExAnswerType"));
-						qst.put("enum", examEx.getFieldValue("qualExamexExId.qualExChoicesEnumeration"));
-						qst.put("id", examEx.getFieldValue("qualExamexExId.qualExId"));
-						qsts.put(qst);
+						JSONObject start = new JSONObject();
+						start.put("type", "QST_BREAK");
+						qsts.put(start);
+						
+						for(String[] row : examEx.search()){
+							
+							examEx.setValues(row);
+							JSONObject qst = new JSONObject();
+							qst.put("examTitle", examEx.getFieldValue("qualExamexExamId.qualExamName"));
+							qst.put("title", examEx.getFieldValue("qualExamexExId.qualExQuestion"));
+							qst.put("type", examEx.getFieldValue("qualExamexExId.qualExAnswerType"));
+							qst.put("enum", examEx.getFieldValue("qualExamexExId.qualExChoicesEnumeration"));
+							qst.put("id", examEx.getFieldValue("qualExamexExId.qualExId"));
+							qsts.put(qst);
+							
+						}
+						
+						JSONObject end = new JSONObject();
+						end.put("type", "END_QST");
+						qsts.put(end);
+						
+						exam.put("questions", qsts);
+						exam.put("examTitle", examName);
+						exam.put("examDescription", examDescription);
 						
 					}
+					exams.put(exam);
 					
-					JSONObject end = new JSONObject();
-					end.put("type", "END_QST");
-					qsts.put(end);
-					
-					exam.put("questions", qsts);
-					exam.put("examTitle", examName);
 				}
-				exams.put(exam);
 			}
 						
 			String template = HTMLTool.getResourceHTMLContent(this, "QUAL_TEMPLATE");
