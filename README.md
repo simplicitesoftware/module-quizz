@@ -25,7 +25,7 @@
 | `qualExamName`                                               | char(100)                                | yes*     | yes       |          | -                                                                                |
 | `qualExamPublic`                                             | boolean                                  |          | yes       |          | -                                                                                |
 | `qualExType`                                                 | enum(20) using `QUALEXTYPE` list         | yes      | yes       |          | -                                                                                |
-| `qualExamDescription`                                        | text(100)                                |          | yes       |          | -                                                                                |
+| `qualExamDescription`                                        | text(3000)                               |          | yes       |          | -                                                                                |
 
 ### Lists
 
@@ -203,7 +203,7 @@ Exercise
 | _Ref. `qualExamexExId.qualExAnswerType`_                     | _enum(100) using `QUALEXANWSERTYPE` list_ |          |           |          | -                                                                                |
 | _Ref. `qualExamexExId.qualExQuestion`_                       | _text(10000)_                            |          |           |          | -                                                                                |
 | `qualExusrCheck`                                             | enum(100) using `QUALEXUSRCHECK` list    |          |           |          | -                                                                                |
-| `qualExusrSubmitted`                                         | boolean                                  |          |           |          | -                                                                                |
+| `qualExusrSubmitted`                                         | boolean                                  |          | yes       |          | -                                                                                |
 | _Ref. `qualExamexExId.qualExRefenum`_                        | _enum(100) using `QUAL_REF_ENUM_CHOICES` list_ |          |           |          | -                                                                                |
 | _Ref. `qualExamexExId.qualExAnswerEnumeration`_              | _char(200)_                              |          |           |          | -                                                                                |
 | _Ref. `qualExamexExId.qualExAnswerText`_                     | _text(10000)_                            |          |           |          | -                                                                                |

@@ -60,7 +60,7 @@ public class QualExUsr extends ObjectDB {
 		}
 		
 		for(ObjectField f : getFieldArea("QualExUsr-2").getFields()){
-			f.setVisibility(ObjectField.VIS_FORBIDDEN);
+			f.setVisibility(ObjectField.VIS_HIDDEN);
 		}
 		getField("qualExusrExamexId.qualExamexExId.qualExAnswerText").setVisibility(ObjectField.VIS_FORBIDDEN);
 		

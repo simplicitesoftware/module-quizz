@@ -32,26 +32,11 @@ public class QualPostTraining extends ExternalObject {
 			examEx.resetFilters();
 			
 			String examId = "";
-			String userExam = "";
-			boolean generic = false;
+			boolean generic = "GEN".equals(g.simpleQuery("select qual_usr_typedutilisateur from m_user where row_id = "+userId));
 			
-			if("".equals(userId)){
-				//USER TOKEN IS UNKNOWN - HANDLE
-			}
-			else{
-				if("GEN".equals(g.simpleQuery("select qual_usr_typedutilisateur from m_user where row_id = "+userId))){
-					//CHECK IF USER IS GENERIC -> IF SO, QST IS GENERATED AUTOMATICALLY
-					userExam = g.simpleQuery("select qual_usr_tests from m_user where row_id = "+userId);
-					generic = true;
-				}
-				else{
-					//IF USER ISN'T GENERIC TESTS W
-					userExam = g.simpleQuery("select qual_usr_tests from m_user where row_id = "+userId);
-				}
-			}
-			
+			String userExams = g.simpleQuery("select qual_usr_tests from m_user where row_id = "+userId);
 			JSONArray exams = new JSONArray();
-			for(String exType : userExam.split(";")){
+			for(String exType : userExams.split(";")){
 				
 				examId = g.simpleQuery("select row_id from qual_exam where qual_ex_type = '"+exType+"'");
 				
@@ -64,12 +49,16 @@ public class QualPostTraining extends ExternalObject {
 					
 					JSONObject exam = new JSONObject();
 					JSONArray qsts = new JSONArray();
+					JSONObject answers = new JSONObject();
+					//JSONArray answers = new JSONArray();
 					if(!"".equals(examId)){
 						examEx.setFieldFilter("qualExamexExamId", examId);
 						
-						JSONObject start = new JSONObject();
-						start.put("type", "QST_BREAK");
-						qsts.put(start);
+						if(!generic){
+							JSONObject start = new JSONObject();
+							start.put("type", "QST_BREAK");
+							qsts.put(start);
+						}
 						
 						for(String[] row : examEx.search()){
 							
@@ -82,27 +71,37 @@ public class QualPostTraining extends ExternalObject {
 							qst.put("id", examEx.getFieldValue("qualExamexExId.qualExId"));
 							qsts.put(qst);
 							
+							//JSONObject answer = new JSONObject();
+							//answer.put(examEx.getFieldValue("qualExamexExId.qualExId"), examEx.getFieldValue("qualExamexExId.qualExAnswerEnumeration"));
+							answers.put(examEx.getFieldValue("qualExamexExId.qualExId"), examEx.getFieldValue("qualExamexExId.qualExAnswerEnumeration"));
+							//answers.put(answer);
+							
 						}
 						
-						JSONObject end = new JSONObject();
-						end.put("type", "END_QST");
-						qsts.put(end);
+						/*if(!generic){
+							JSONObject end = new JSONObject();
+							end.put("type", "QST_BREAK");
+							qsts.put(end);
+						}*/
+						
+						exam.put("answers", answers);
 						
 						exam.put("questions", qsts);
 						exam.put("examTitle", examName);
+						exam.put("examId", examId);
 						exam.put("examDescription", examDescription);
 						
 					}
 					exams.put(exam);
 					
 				}
+				
 			}
 						
 			String template = HTMLTool.getResourceHTMLContent(this, "QUAL_TEMPLATE");
 			JSONObject renderParams = params.toJSONObject().put("pub", pub).put("exams", exams);
 			
 			renderParams.put("generic", generic);
-			renderParams.put("examId", examId);
 			renderParams.put("userId", userId);
 			
 			String render = getName() + ".render(" + renderParams.toString() +",'"+template.replaceAll("(\\r|\\n|\\r\\n)+", "\\\\n")+ "');";

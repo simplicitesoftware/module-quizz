@@ -2,7 +2,7 @@
 # / __(_)_ __  _ __| (_)__(_) |_ /_/
 # \__ \ | '  \| '_ \ | / _| |  _/ -_)
 # |___/_|_|_|_| .__/_|_\__|_|\__\___|
-#             |_| Module: Qualification 0.7
+#             |_| Module: Qualification 0.8
 paths:
   /rest/QualExercise:
     get:
@@ -111,35 +111,35 @@ paths:
         type: string
         required: false
         enum:
-        - Simplicité - Conception-Niveau 1-55_REF_ENUM
-        - Simplicité - Conception-Niveau 1-53_REF_ENUM
-        - Simplicité - Conception-Niveau 1-47_REF_ENUM
-        - Simplicité - Conception-Niveau 1-83_REF_ENUM
-        - Simplicité - Conception-Niveau 1-59_REF_ENUM
-        - Simplicité - Conception-Niveau 1-77_REF_ENUM
-        - Simplicité - Conception-Niveau 1-45_REF_ENUM
-        - Simplicité - Conception-Niveau 1-75_REF_ENUM
-        - Simplicité - Conception-Niveau 1-65_REF_ENUM
-        - Simplicité - Conception-Niveau 1-63_REF_ENUM
-        - Simplicité - Conception-Niveau 1-43_REF_ENUM
-        - Simplicité - Conception-Niveau 1-57_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
-        - Simplicité - Conception-Niveau 1-85_REF_ENUM
-        - Simplicité - Conception-Niveau 1-93_REF_ENUM
-        - Simplicité - Conception-Niveau 1-95_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-11_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-19_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-21_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-23_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-27_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
+        - Simplicité - Conception-Niveau 1-95_REF_ENUM
+        - Simplicité - Conception-Niveau 1-43_REF_ENUM
+        - Simplicité - Conception-Niveau 1-45_REF_ENUM
+        - Simplicité - Conception-Niveau 1-47_REF_ENUM
+        - Simplicité - Conception-Niveau 1-53_REF_ENUM
+        - Simplicité - Conception-Niveau 1-55_REF_ENUM
+        - Simplicité - Conception-Niveau 1-57_REF_ENUM
+        - Simplicité - Conception-Niveau 1-93_REF_ENUM
+        - Simplicité - Conception-Niveau 1-59_REF_ENUM
+        - Simplicité - Conception-Niveau 1-63_REF_ENUM
+        - Simplicité - Conception-Niveau 1-65_REF_ENUM
+        - Simplicité - Conception-Niveau 1-75_REF_ENUM
+        - Simplicité - Conception-Niveau 1-77_REF_ENUM
+        - Simplicité - Conception-Niveau 1-83_REF_ENUM
+        - Simplicité - Conception-Niveau 1-85_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
       tags:
       - QualExercise
   /rest/QualExUsr:
@@ -272,35 +272,35 @@ paths:
         type: string
         required: false
         enum:
-        - Simplicité - Conception-Niveau 1-55_REF_ENUM
-        - Simplicité - Conception-Niveau 1-53_REF_ENUM
-        - Simplicité - Conception-Niveau 1-47_REF_ENUM
-        - Simplicité - Conception-Niveau 1-83_REF_ENUM
-        - Simplicité - Conception-Niveau 1-59_REF_ENUM
-        - Simplicité - Conception-Niveau 1-77_REF_ENUM
-        - Simplicité - Conception-Niveau 1-45_REF_ENUM
-        - Simplicité - Conception-Niveau 1-75_REF_ENUM
-        - Simplicité - Conception-Niveau 1-65_REF_ENUM
-        - Simplicité - Conception-Niveau 1-63_REF_ENUM
-        - Simplicité - Conception-Niveau 1-43_REF_ENUM
-        - Simplicité - Conception-Niveau 1-57_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
-        - Simplicité - Conception-Niveau 1-85_REF_ENUM
-        - Simplicité - Conception-Niveau 1-93_REF_ENUM
-        - Simplicité - Conception-Niveau 1-95_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-11_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-19_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-21_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-23_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-27_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
+        - Simplicité - Conception-Niveau 1-95_REF_ENUM
+        - Simplicité - Conception-Niveau 1-43_REF_ENUM
+        - Simplicité - Conception-Niveau 1-45_REF_ENUM
+        - Simplicité - Conception-Niveau 1-47_REF_ENUM
+        - Simplicité - Conception-Niveau 1-53_REF_ENUM
+        - Simplicité - Conception-Niveau 1-55_REF_ENUM
+        - Simplicité - Conception-Niveau 1-57_REF_ENUM
+        - Simplicité - Conception-Niveau 1-93_REF_ENUM
+        - Simplicité - Conception-Niveau 1-59_REF_ENUM
+        - Simplicité - Conception-Niveau 1-63_REF_ENUM
+        - Simplicité - Conception-Niveau 1-65_REF_ENUM
+        - Simplicité - Conception-Niveau 1-75_REF_ENUM
+        - Simplicité - Conception-Niveau 1-77_REF_ENUM
+        - Simplicité - Conception-Niveau 1-83_REF_ENUM
+        - Simplicité - Conception-Niveau 1-85_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
       - in: query
         name: qualExusrExamexId__qualExamexExId__qualExAnswerEnumeration
         description: Search filter for Réponse - QCM
@@ -350,8 +350,8 @@ paths:
         - A
         - B
         - C
-        - SQL_QST_1_CHOICES_ENUM_1
         - SQL_QST_1_CHOICES_ENUM_0
+        - SQL_QST_1_CHOICES_ENUM_1
       - in: query
         name: qualExusrProgress
         description: Search filter for Avancement
@@ -2666,33 +2666,33 @@ paths:
         type: string
         required: false
         enum:
-        - Simplicité - Conception-Niveau 1-55_REF_ENUM
-        - Simplicité - Conception-Niveau 1-53_REF_ENUM
-        - Simplicité - Conception-Niveau 1-47_REF_ENUM
-        - Simplicité - Conception-Niveau 1-83_REF_ENUM
-        - Simplicité - Conception-Niveau 1-59_REF_ENUM
-        - Simplicité - Conception-Niveau 1-77_REF_ENUM
-        - Simplicité - Conception-Niveau 1-45_REF_ENUM
-        - Simplicité - Conception-Niveau 1-75_REF_ENUM
-        - Simplicité - Conception-Niveau 1-65_REF_ENUM
-        - Simplicité - Conception-Niveau 1-63_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-11_REF_ENUM
+        - Simplicité - Conception-Niveau 1-95_REF_ENUM
         - Simplicité - Conception-Niveau 1-43_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-19_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
+        - Simplicité - Conception-Niveau 1-93_REF_ENUM
+        - Simplicité - Conception-Niveau 1-75_REF_ENUM
+        - Simplicité - Conception-Niveau 1-47_REF_ENUM
+        - Simplicité - Conception-Niveau 1-53_REF_ENUM
+        - Simplicité - Conception-Niveau 1-55_REF_ENUM
         - Simplicité - Conception-Niveau 1-57_REF_ENUM
+        - Simplicité - Conception-Niveau 1-85_REF_ENUM
+        - Simplicité - Conception-Niveau 1-59_REF_ENUM
+        - Simplicité - Conception-Niveau 1-63_REF_ENUM
+        - Simplicité - Conception-Niveau 1-65_REF_ENUM
+        - Simplicité - Conception-Niveau 1-77_REF_ENUM
+        - Simplicité - Conception-Niveau 1-83_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-21_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
-        - Simplicité - Conception-Niveau 1-85_REF_ENUM
-        - Simplicité - Conception-Niveau 1-93_REF_ENUM
-        - Simplicité - Conception-Niveau 1-95_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-11_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-19_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-21_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-23_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-27_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
+        - Simplicité - Conception-Niveau 1-45_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-23_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-27_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
       - in: query
@@ -3633,42 +3633,42 @@ definitions:
         - A
         - B
         - C
-        - SQL_QST_1_CHOICES_ENUM_1
         - SQL_QST_1_CHOICES_ENUM_0
+        - SQL_QST_1_CHOICES_ENUM_1
       qualExusrExamexId__qualExamexExId__qualExRefenum:
         description: qual ex refenum ID Exercice Question de l'examen|Questions de
           l'examen
         type: string
         enum:
-        - Simplicité - Conception-Niveau 1-55_REF_ENUM
-        - Simplicité - Conception-Niveau 1-53_REF_ENUM
-        - Simplicité - Conception-Niveau 1-47_REF_ENUM
-        - Simplicité - Conception-Niveau 1-83_REF_ENUM
-        - Simplicité - Conception-Niveau 1-59_REF_ENUM
-        - Simplicité - Conception-Niveau 1-77_REF_ENUM
-        - Simplicité - Conception-Niveau 1-45_REF_ENUM
-        - Simplicité - Conception-Niveau 1-75_REF_ENUM
-        - Simplicité - Conception-Niveau 1-65_REF_ENUM
-        - Simplicité - Conception-Niveau 1-63_REF_ENUM
-        - Simplicité - Conception-Niveau 1-43_REF_ENUM
-        - Simplicité - Conception-Niveau 1-57_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
-        - Simplicité - Conception-Niveau 1-85_REF_ENUM
-        - Simplicité - Conception-Niveau 1-93_REF_ENUM
-        - Simplicité - Conception-Niveau 1-95_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-11_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-19_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-21_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-23_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-27_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
+        - Simplicité - Conception-Niveau 1-95_REF_ENUM
+        - Simplicité - Conception-Niveau 1-43_REF_ENUM
+        - Simplicité - Conception-Niveau 1-45_REF_ENUM
+        - Simplicité - Conception-Niveau 1-47_REF_ENUM
+        - Simplicité - Conception-Niveau 1-53_REF_ENUM
+        - Simplicité - Conception-Niveau 1-55_REF_ENUM
+        - Simplicité - Conception-Niveau 1-57_REF_ENUM
+        - Simplicité - Conception-Niveau 1-93_REF_ENUM
+        - Simplicité - Conception-Niveau 1-59_REF_ENUM
+        - Simplicité - Conception-Niveau 1-63_REF_ENUM
+        - Simplicité - Conception-Niveau 1-65_REF_ENUM
+        - Simplicité - Conception-Niveau 1-75_REF_ENUM
+        - Simplicité - Conception-Niveau 1-77_REF_ENUM
+        - Simplicité - Conception-Niveau 1-83_REF_ENUM
+        - Simplicité - Conception-Niveau 1-85_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
       qualExusrExamexId__qualExamexExId:
         description: ID Exercice Question de l'examen|Questions de l'examen
         type: string
@@ -3782,33 +3782,33 @@ definitions:
         description: qual ex refenum ID Exercice
         type: string
         enum:
-        - Simplicité - Conception-Niveau 1-55_REF_ENUM
-        - Simplicité - Conception-Niveau 1-53_REF_ENUM
-        - Simplicité - Conception-Niveau 1-47_REF_ENUM
-        - Simplicité - Conception-Niveau 1-83_REF_ENUM
-        - Simplicité - Conception-Niveau 1-59_REF_ENUM
-        - Simplicité - Conception-Niveau 1-77_REF_ENUM
-        - Simplicité - Conception-Niveau 1-45_REF_ENUM
-        - Simplicité - Conception-Niveau 1-75_REF_ENUM
-        - Simplicité - Conception-Niveau 1-65_REF_ENUM
-        - Simplicité - Conception-Niveau 1-63_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-11_REF_ENUM
+        - Simplicité - Conception-Niveau 1-95_REF_ENUM
         - Simplicité - Conception-Niveau 1-43_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-19_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
+        - Simplicité - Conception-Niveau 1-93_REF_ENUM
+        - Simplicité - Conception-Niveau 1-75_REF_ENUM
+        - Simplicité - Conception-Niveau 1-47_REF_ENUM
+        - Simplicité - Conception-Niveau 1-53_REF_ENUM
+        - Simplicité - Conception-Niveau 1-55_REF_ENUM
         - Simplicité - Conception-Niveau 1-57_REF_ENUM
+        - Simplicité - Conception-Niveau 1-85_REF_ENUM
+        - Simplicité - Conception-Niveau 1-59_REF_ENUM
+        - Simplicité - Conception-Niveau 1-63_REF_ENUM
+        - Simplicité - Conception-Niveau 1-65_REF_ENUM
+        - Simplicité - Conception-Niveau 1-77_REF_ENUM
+        - Simplicité - Conception-Niveau 1-83_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-21_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
-        - Simplicité - Conception-Niveau 1-85_REF_ENUM
-        - Simplicité - Conception-Niveau 1-93_REF_ENUM
-        - Simplicité - Conception-Niveau 1-95_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-11_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-19_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-21_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-23_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-27_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
+        - Simplicité - Conception-Niveau 1-45_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
         - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-23_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-27_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
       qualExamexExamId:
@@ -3932,35 +3932,35 @@ definitions:
         description: qual ex refenum
         type: string
         enum:
-        - Simplicité - Conception-Niveau 1-55_REF_ENUM
-        - Simplicité - Conception-Niveau 1-53_REF_ENUM
-        - Simplicité - Conception-Niveau 1-47_REF_ENUM
-        - Simplicité - Conception-Niveau 1-83_REF_ENUM
-        - Simplicité - Conception-Niveau 1-59_REF_ENUM
-        - Simplicité - Conception-Niveau 1-77_REF_ENUM
-        - Simplicité - Conception-Niveau 1-45_REF_ENUM
-        - Simplicité - Conception-Niveau 1-75_REF_ENUM
-        - Simplicité - Conception-Niveau 1-65_REF_ENUM
-        - Simplicité - Conception-Niveau 1-63_REF_ENUM
-        - Simplicité - Conception-Niveau 1-43_REF_ENUM
-        - Simplicité - Conception-Niveau 1-57_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
-        - Simplicité - Conception-Niveau 1-85_REF_ENUM
-        - Simplicité - Conception-Niveau 1-93_REF_ENUM
-        - Simplicité - Conception-Niveau 1-95_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-11_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-19_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-21_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-23_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-15_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-27_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
-        - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
-        - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-3_REF_ENUM
         - Simplicité - Notions de base-Niveau 1-7_REF_ENUM
+        - Simplicité - Notions de base-Niveau 1-9_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-105_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-111_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-113_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-115_REF_ENUM
+        - Simplicité - Conception-Niveau 1-95_REF_ENUM
+        - Simplicité - Conception-Niveau 1-43_REF_ENUM
+        - Simplicité - Conception-Niveau 1-45_REF_ENUM
+        - Simplicité - Conception-Niveau 1-47_REF_ENUM
+        - Simplicité - Conception-Niveau 1-53_REF_ENUM
+        - Simplicité - Conception-Niveau 1-55_REF_ENUM
+        - Simplicité - Conception-Niveau 1-57_REF_ENUM
+        - Simplicité - Conception-Niveau 1-93_REF_ENUM
+        - Simplicité - Conception-Niveau 1-59_REF_ENUM
+        - Simplicité - Conception-Niveau 1-63_REF_ENUM
+        - Simplicité - Conception-Niveau 1-65_REF_ENUM
+        - Simplicité - Conception-Niveau 1-75_REF_ENUM
+        - Simplicité - Conception-Niveau 1-77_REF_ENUM
+        - Simplicité - Conception-Niveau 1-83_REF_ENUM
+        - Simplicité - Conception-Niveau 1-85_REF_ENUM
+        - Simplicité - Retour Formation-Niveau 1-119_REF_ENUM
   Error403:
     type: object
     properties:
@@ -4011,7 +4011,7 @@ info:
     email: contact@simplicitesoftware.com
   description: API for module Qualification
   title: Qualification
-  version: '0.7'
+  version: '0.8'
 tags:
 - name: QualExam
   description: Examen
