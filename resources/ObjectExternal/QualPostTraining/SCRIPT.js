@@ -53,9 +53,9 @@ var QualPostTraining = QualPostTraining || (function($) {
 					start = new FlowForm.QuestionModel({
 			            id: 'start',
 			            tagline:"Bonjour "+String.fromCodePoint("0x1F44B"),
-			            title: "Bienvenue sur notre portail de questionnaires Simplicité.",
-		            	subtitle: "Vous allez ici répondre à un certain nombre de questions nous permettant d'évaluer votre niveau de compréhension de la Plateforme.",
-		            	description:"Veillez cliquer sur 'suivant' ou \n Appuyez sur la touche ENTRÉE pour commencer.",
+			            title: "Bienvenue sur le portail de questionnaires Simplicité.",
+		            	subtitle: "Vous allez ici répondre à un certain nombre de questions nous permettant d'évaluer votre niveau de compréhension de la plateforme. Les réponses à vos questions étant enregistrées à la fin du questionnaire, veuillez le compléter dans son intégralité afin de ne pas perdre votre progression.",
+		            	description:"Lorsque vous êtes prêts, cliquez sur 'suivant' ou Appuyez sur la touche ENTRÉE pour commencer.",
 			            type: FlowForm.QuestionType.SectionBreak,
 			            required: true,
 	        		});
@@ -147,7 +147,9 @@ var QualPostTraining = QualPostTraining || (function($) {
 			      onComplete(completed, questionList) {
 			        // This method is called whenever the "completed" status is changed.
 			        this.completed = completed
-			        
+			        if(this.generic){
+			        	this.onQuizSubmit();
+			        }
 			      },
 			      
 			      onQuizSubmit() {

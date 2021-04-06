@@ -24,9 +24,9 @@ public class QualPostTraining extends ExternalObject {
 			setDecoration(!pub);
 			
 			String token = params.getParameter("token");
-			
+			AppLog.info(getClass(), "token", token, getGrant());
 			String userId = g.simpleQuery("select row_id from m_user where qual_usr_token = '"+token+"'");
-			
+			AppLog.info(getClass(), "userId", userId, getGrant());
 			ObjectDB examEx = g.getTmpObject("QualExamEx");
 			examEx.resetValues();
 			examEx.resetFilters();

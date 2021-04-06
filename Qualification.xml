@@ -5,7 +5,7 @@
 	<action>upsert</action>
 	<data>
 		<mdl_name>Qualification</mdl_name>
-		<mdl_version>0.8</mdl_version>
+		<mdl_version>0.9</mdl_version>
 		<mdl_prefix>qual</mdl_prefix>
 		<mdl_url/>
 		<mdl_lastupd>2021-03-04 16:20:55</mdl_lastupd>

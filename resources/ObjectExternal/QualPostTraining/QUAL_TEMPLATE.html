@@ -47,7 +47,7 @@
          </div>
       </template>
       
-      <div v-if="submitted && scored">
+      <div v-if="submitted && scored && !generic">
       	<span class="fh2">Votre score :</span>
       	<div  v-for="scoreEl in scores">
       		<p>{{ scoreEl.examTitle }} : <b>{{ scoreEl.score }}%</b> de bonnes réponses</p>
