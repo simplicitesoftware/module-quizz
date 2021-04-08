@@ -5,7 +5,7 @@
 	<action>upsert</action>
 	<data>
 		<mdl_name>Qualification</mdl_name>
-		<mdl_version>0.9</mdl_version>
+		<mdl_version>0.10</mdl_version>
 		<mdl_prefix>qual</mdl_prefix>
 		<mdl_url/>
 		<mdl_lastupd>2021-03-04 16:20:55</mdl_lastupd>
@@ -17,7 +17,7 @@
 	<action>upsert</action>
 	<data>
 		<sys_code>DIRECT_URL</sys_code>
-		<sys_value><![CDATA[https://qualification5.dev.simplicite.io/ui]]></sys_value>
+		<sys_value><![CDATA[https://qualification5.dev.simplicite.io]]></sys_value>
 		<sys_value2/>
 		<sys_type/>
 		<sys_desc/>
@@ -2337,7 +2337,7 @@
 	<data>
 		<fld_name>qualUsrLevel</fld_name>
 		<fld_dbname>qual_usr_level</fld_dbname>
-		<fld_visible>3</fld_visible>
+		<fld_visible>0</fld_visible>
 		<fld_updatable>1</fld_updatable>
 		<fld_required>0</fld_required>
 		<fld_fonctid>0</fld_fonctid>
@@ -4387,7 +4387,7 @@
 		<obf_field_id.fld_name>qualExusrCheck</obf_field_id.fld_name>
 		<obf_field_id.fld_type>7</obf_field_id.fld_type>
 		<obf_order>150</obf_order>
-		<obf_group_by/>
+		<obf_group_by>1</obf_group_by>
 		<obf_dfault_order/>
 		<obf_input/>
 		<obf_ref_field_id.fld_name/>
@@ -5320,7 +5320,7 @@
 		<act_confirm_expr/>
 		<act_confirm_ui/>
 		<act_plus>0</act_plus>
-		<act_comment/>
+		<act_comment><![CDATA[07/04/2021 Replaced by 'send notif']]></act_comment>
 		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
 		<act_exec>BCK</act_exec>
 		<act_count/>
@@ -6528,7 +6528,7 @@
 		<tsl_typeAction>A</tsl_typeAction>
 		<tsl_id.act_name>QualGenerateTests</tsl_id.act_name>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Générer les tests</tsl_value>
+		<tsl_value>Notifier</tsl_value>
 		<tsl_simplehelp/>
 		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
 	</data>

@@ -2,7 +2,7 @@
 # / __(_)_ __  _ __| (_)__(_) |_ /_/
 # \__ \ | '  \| '_ \ | / _| |  _/ -_)
 # |___/_|_|_|_| .__/_|_\__|_|\__\___|
-#             |_| Module: Qualification 0.9
+#             |_| Module: Qualification 0.10
 paths:
   /rest/QualExercise:
     get:
@@ -4011,7 +4011,7 @@ info:
     email: contact@simplicitesoftware.com
   description: API for module Qualification
   title: Qualification
-  version: '0.9'
+  version: '0.10'
 tags:
 - name: QualExam
   description: Examen

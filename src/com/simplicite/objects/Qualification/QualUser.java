@@ -116,11 +116,11 @@ public class QualUser extends User {
 
 		String c = HTMLTool.getResourceHTMLContent(this, "QUAL_USR_NOTIF");
 
-        c = c.replace("[NOM]", getFieldValue("usr_last_name"));
+        /*c = c.replace("[NOM]", getFieldValue("usr_last_name"));
         c = c.replace("[PRENOM]", getFieldValue("usr_first_name"));
         c = c.replace("[LOGIN]", getFieldValue("usr_login"));
-        c = c.replace("[PWD]", pwd);
-        c = c.replace("[URL]", url);
+        c = c.replace("[PWD]", pwd);*/
+        c = c.replace("[URL]", url + "/ext/QualPostTraining?token="+getFieldValue("qualUsrToken"));
 		
 		m.setBody(c);
 		m.send();		
@@ -174,7 +174,15 @@ public class QualUser extends User {
         }
     }
 	
+	public String generateTests(){
+		//Notify
+		sendMailNotif("");
+		
+		return Message.formatSimpleInfo("Utilisateur notifié");
+		
+	}
 	
+	/*Replaced to simply notify user
 	public String generateTests(){
 		
 		Grant g = getGrant();
@@ -214,7 +222,7 @@ public class QualUser extends User {
 		}
 		
 		return Message.formatSimpleInfo("Test created");
-	}
+	}*/
 	
 	
 	

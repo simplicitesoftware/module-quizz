@@ -93,10 +93,7 @@ public class QualExUsr extends ObjectDB {
 		
 		//if type enum, check answer with correct answer in ex definition
 		if("ENUM".equals(getFieldValue("qualExusrExamexId.qualExamexExId.qualExAnswerType"))){
-			
-			String correctAnswer = getFieldValue("qualExusrExamexId.qualExamexExId.qualExAnswerEnumeration").replaceAll("(^\\h*)|(\\h*$)|\\s", "");
-			String submittedAnswer = getFieldDisplayValue("qualExusrAnswerEnumeration").replaceAll("(^\\h*)|(\\h*$)|\\s", "");
-			setFieldValue("qualExusrCheck",correctAnswer.equals(submittedAnswer) ? "OK" : "KO");
+			setFieldValue("qualExusrCheck", checkAnswer());
 		}
 		
 		setFieldValue("qualExusrSubmitted", "1");
@@ -106,6 +103,36 @@ public class QualExUsr extends ObjectDB {
 
 	}
 	
+	@Override
+	public List<String> preValidate() {
+		List<String> msgs = new ArrayList<>();
+		
+		if(!isNew()){
+			if("ENUM".equals(getFieldValue("qualExusrExamexId.qualExamexExId.qualExAnswerType"))){
+				setFieldValue("qualExusrCheck", checkAnswer());
+			}
+		}		
+		
+		return msgs;
+	}
+	
+	public String checkAnswer(){
+		
+		String correctAnswer = getFieldValue("qualExusrExamexId.qualExamexExId.qualExAnswerEnumeration").replaceAll("(^\\h*)|(\\h*$)|\\s", "");
+		String submittedAnswerEnum = getFieldDisplayValue("qualExusrAnswerEnumeration").replaceAll("(^\\h*)|(\\h*$)|\\s", "");
+		String submittedAnswerTxt = getFieldValue("qualExusrAnswer").replaceAll("(^\\h*)|(\\h*$)|\\s", "");
+		if(!"".equals(submittedAnswerEnum)){
+			return correctAnswer.equals(submittedAnswerEnum) ? "OK" : "KO";
+		}
+		else if(!"".equals(submittedAnswerTxt)){
+			return correctAnswer.equals(submittedAnswerTxt) ? "OK" : "KO";
+		}
+		else{
+			return "KO";
+		}
+		
+	
+	}
 	
 	public static boolean isCandidate(Grant g){
 		return QualTool.isCandidate(g);

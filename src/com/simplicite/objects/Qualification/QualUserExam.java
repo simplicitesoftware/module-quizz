@@ -41,10 +41,23 @@ public class QualUserExam extends ObjectDB {
 			setFieldValue("qualUsrexamId", id);
 		}
 		
-		if("DONE".equals(getFieldValue("qualUsrexamEtat")) || isExamOver(getFieldValue("qualUsrexamDateLimite"))){
-			setFieldValue("qualUsrexamScore", calculateScore(getRowId()));
-			setFieldValue("qualUsrexamEtat", "SCORED");
+		if(!isNew()){
+			if("DONE".equals(getFieldValue("qualUsrexamEtat")) || isExamOver(getFieldValue("qualUsrexamDateLimite"))){
+				AppLog.info(getClass(), "preValidate", "EXAM IS OVER", getGrant());
+				/*
+				double score = calculateScore(getRowId());
+				setFieldValue("qualUsrexamScore", score);
+				setFieldValue("qualUsrexamEtat", "SCORED");
+				*/
+			}
+			
+			if("DONE".equals(getField("qualUsrexamEtat").getOldValue()) && "SCORED".equals(getField("qualUsrexamEtat").getValue())){
+				double score = calculateScore(getRowId());
+				setFieldValue("qualUsrexamScore", score);
+				setFieldValue("qualUsrexamEtat", "SCORED");
+			}
 		}
+		
 		
 		
 		return msgs;
@@ -102,7 +115,7 @@ public class QualUserExam extends ObjectDB {
 		if(!"".equals(endDate)){
 			return LocalDate.parse(Tool.getCurrentDate()).isAfter(LocalDate.parse(endDate));
 		}
-			return true;
+			return false;
 	}
 	
 	private void createTestElement(String exId) throws Exception{

@@ -312,7 +312,7 @@ Exercise
 
 ### Custom actions
 
-* `QualGenerateTests`: 
+* `QualGenerateTests`: 07/04/2021 Replaced by 'send notif'
 
 `QualUserExam` business object definition
 -----------------------------------------

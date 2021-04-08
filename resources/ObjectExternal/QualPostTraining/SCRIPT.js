@@ -44,7 +44,9 @@ var QualPostTraining = QualPostTraining || (function($) {
 					start = new FlowForm.QuestionModel({
 			            id: 'start',
 			            title: "Bonjour "+String.fromCodePoint("0x1F44B"),
-			            content: "Vous avez suivi une formation sur la plateforme Simplicité et nous aimerions avoir votre avis sur celle-ci. Ces quelques questions on pour but d'améliorer notre processus de formation. Bien entendu, il n'y a pas de bonnes ou de mauvaises réponses "+String.fromCodePoint(0x1F642)+" D'avance merci pour votre temps !",
+			            subtitle:"Vous avez suivi une formation sur la plateforme Simplicité et nous aimerions avoir votre avis sur celle-ci. Ces quelques questions on pour but d'améliorer notre processus de formation. Bien entendu, il n'y a pas de bonnes ou de mauvaises réponses "+String.fromCodePoint(0x1F642),
+			            description:"D'avance merci pour votre temps !",
+			            inline:true,
 			            type: FlowForm.QuestionType.SectionBreak,
 			            required: true,
 	        		});
@@ -177,7 +179,6 @@ var QualPostTraining = QualPostTraining || (function($) {
 			      },
 			      
 			      calculateScore(exam, qsts){
-			      	console.log("scoring");
 			      	score = 0;
 			      	total = qsts.length;
 			      	qsts.forEach(qst =>{
@@ -187,33 +188,43 @@ var QualPostTraining = QualPostTraining || (function($) {
 			            }
 			      	});
 			      	score = Math.round((score / total)*100);
-			      	return {"examTitle": exam.examTitle, "score": score};
+			      	return {"examId": exam.examId, "examTitle": exam.examTitle, "score": score};
 			      	//each exam has a specific score;
 			      },
 			
 			      store(exam, qsts){
+			      	console.log("storing " + exam.examId);
 		    		var usrExObj = app.getBusinessObject("QualUserExam");
+		    		var usrExObjIds = [];
 			      	usrExObj.resetFilters();
 					usrExObj.getForCreate(function () {
 						usrExObj.item.qualUsrexamUsrId = params.userId;
 						usrExObj.item.qualUsrexamExamId = exam.examId;
 						usrExObj.create(function(){
 							//callback of creation -> answer items should have been created
+							//usrExObjIds.push({"examId": exam.examId, "usrExObjId":usrExObj.getRowId()});
+							usrExObjIds.push(usrExObj.getRowId());
 							qsts.forEach(function(qst, index){
 								if (qst.type !== FlowForm.QuestionType.SectionBreak) {
 									if(qst.examId == exam.examId){
-										let submittedAnswer = qst.answer;
+										let submittedValue = qst.answer;
 										var usrAnswerObj = app.getBusinessObject("QualExUsr");
 										usrAnswerObj.resetFilters();
 										usrAnswerObj.search(function(){
 											usrAnswerObj.getForUpdate(function(){
 												usrAnswerObj.item.qualExusrSubmitted = true;
-												usrAnswerObj.item.qualExusrAnswer = submittedAnswer;
+												usrAnswerObj.item.qualExusrAnswer = submittedValue;
 												usrAnswerObj.update(function(){
 													if(index === qsts.length - 1){
+														usrExObjIds.forEach(id => {
+															usrExObj.getForUpdate(function(){
+																usrExObj.item.qualUsrexamEtat = "DONE";
+																usrExObj.update();
+															},id);
+														});
 													}
 												});
-											}, usrAnswerObj.list[0].row_id)
+											}, usrAnswerObj.list[0].row_id);
 										}, 
 										{
 											qualExusrUsrexamId:usrExObj.getRowId(),
@@ -224,6 +235,7 @@ var QualPostTraining = QualPostTraining || (function($) {
 							})
 						}, usrExObj.item);
 					});
+					
 			      },
 			      
 			      
