@@ -10,7 +10,7 @@ var QualPostTraining = QualPostTraining || (function($) {
 		
 		try {
 			if (typeof Vue === 'undefined') throw 'Vue.js not available';
-
+			
 			if (!params.pub) $('#demovuejsfrontend').css('min-height', '1000px');
 
 			/*app = app || (params.pub
@@ -24,6 +24,9 @@ var QualPostTraining = QualPostTraining || (function($) {
 			let tmp;
 			let unknown = false;
 			let generic = params.generic;
+			
+			let exObjRowId = "";
+			let usrExObjIds = [];
 			
 			if("" == exams){
 				unknown = true;
@@ -46,7 +49,6 @@ var QualPostTraining = QualPostTraining || (function($) {
 			            title: "Bonjour "+String.fromCodePoint("0x1F44B"),
 			            subtitle:"Vous avez suivi une formation sur la plateforme Simplicité et nous aimerions avoir votre avis sur celle-ci. Ces quelques questions on pour but d'améliorer notre processus de formation. Bien entendu, il n'y a pas de bonnes ou de mauvaises réponses "+String.fromCodePoint(0x1F642),
 			            description:"D'avance merci pour votre temps !",
-			            inline:true,
 			            type: FlowForm.QuestionType.SectionBreak,
 			            required: true,
 	        		});
@@ -133,6 +135,7 @@ var QualPostTraining = QualPostTraining || (function($) {
 				template:qualTemplate,
 				data: function() {
 					return {
+						loading:false,
 						scored: false,
 						submitted: false,
 						completed: false,
@@ -146,6 +149,44 @@ var QualPostTraining = QualPostTraining || (function($) {
 				
 				methods: {
 				
+				 onAnswer(qA) {
+				 	let id = qA.id;
+				 	
+					if(qA.type == FlowForm.QuestionType.SectionBreak && qA.id.includes("exam")){
+						//create exam in back
+						var usrExObj = app.getBusinessObject("QualUserExam");
+						usrExObj.resetFilters();
+						usrExObj.getForCreate(function () {
+							usrExObj.item.qualUsrexamUsrId = params.userId;
+							usrExObj.item.qualUsrexamExamId = qA.examId;
+							usrExObj.create(function(){
+								exObjRowId = usrExObj.getRowId();
+								usrExObjIds.push(exObjRowId);
+							}, usrExObj.item);
+							
+						});
+					}
+					
+					if(qA.type !== FlowForm.QuestionType.SectionBreak){
+						//question answered -> set value in back
+						let submittedValue = qA.answer;
+						var usrAnswerObj = app.getBusinessObject("QualExUsr");
+						usrAnswerObj.resetFilters();
+						usrAnswerObj.search(function(){
+							usrAnswerObj.getForUpdate(function(){
+								usrAnswerObj.item.qualExusrSubmitted = true;
+								usrAnswerObj.item.qualExusrAnswer = submittedValue;
+								usrAnswerObj.update();
+							}, usrAnswerObj.list[0].row_id);
+						}, 
+						{
+							qualExusrUsrexamId:exObjRowId,
+							qualExusrExamexId__qualExamexExId__qualExId:qA.id
+						});
+						
+					}
+				},
+					
 			      onComplete(completed, questionList) {
 			        // This method is called whenever the "completed" status is changed.
 			        this.completed = completed
@@ -161,6 +202,7 @@ var QualPostTraining = QualPostTraining || (function($) {
 			        
 			        this.submitted = true
 			        if(!unknown){
+			        	this.validateExams();
 			        	exams.forEach(exam => {
 			        		examQuestions = [];
 			        		this.questions.forEach(qst => {
@@ -172,7 +214,7 @@ var QualPostTraining = QualPostTraining || (function($) {
 			        			let examScore = this.calculateScore(exam, examQuestions);
 								this.scores.push(examScore);
 			        		}
-			        		this.store(exam, examQuestions);
+			        		//this.store(exam, examQuestions);
 			        	})
 			        	this.scored = true;
 			        }
@@ -192,8 +234,29 @@ var QualPostTraining = QualPostTraining || (function($) {
 			      	//each exam has a specific score;
 			      },
 			
+				validateExams(){
+					this.loading = true;
+			      	//set ended for all exams
+		    		var obj = app.getBusinessObject("QualUserExam");
+	    			obj.resetFilters();
+			      	usrExObjIds.forEach(id => {
+						obj.getForUpdate(function(){
+							obj.item.qualUsrexamEtat = "DONE";
+							obj.update();
+						},id);
+					});
+					
+					//display "wait" section
+					setTimeout(() => {
+						this.loading = false;
+					}, 1000)
+					
+				},
+				
 			      store(exam, qsts){
-			      	console.log("storing " + exam.examId);
+			      	
+			      	this.loading = true;
+			      	/*console.log("storing " + exam.examId);
 		    		var usrExObj = app.getBusinessObject("QualUserExam");
 		    		var usrExObjIds = [];
 			      	usrExObj.resetFilters();
@@ -202,7 +265,6 @@ var QualPostTraining = QualPostTraining || (function($) {
 						usrExObj.item.qualUsrexamExamId = exam.examId;
 						usrExObj.create(function(){
 							//callback of creation -> answer items should have been created
-							//usrExObjIds.push({"examId": exam.examId, "usrExObjId":usrExObj.getRowId()});
 							usrExObjIds.push(usrExObj.getRowId());
 							qsts.forEach(function(qst, index){
 								if (qst.type !== FlowForm.QuestionType.SectionBreak) {
@@ -216,6 +278,7 @@ var QualPostTraining = QualPostTraining || (function($) {
 												usrAnswerObj.item.qualExusrAnswer = submittedValue;
 												usrAnswerObj.update(function(){
 													if(index === qsts.length - 1){
+														
 														usrExObjIds.forEach(id => {
 															usrExObj.getForUpdate(function(){
 																usrExObj.item.qualUsrexamEtat = "DONE";
@@ -234,7 +297,12 @@ var QualPostTraining = QualPostTraining || (function($) {
 								}
 							})
 						}, usrExObj.item);
-					});
+					});*/
+					
+					//display "wait" section
+					setTimeout(() => {
+						this.loading = false;
+					}, 1000)
 					
 			      },
 			      

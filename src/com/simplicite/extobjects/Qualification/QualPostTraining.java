@@ -24,9 +24,7 @@ public class QualPostTraining extends ExternalObject {
 			setDecoration(!pub);
 			
 			String token = params.getParameter("token");
-			AppLog.info(getClass(), "token", token, getGrant());
 			String userId = g.simpleQuery("select row_id from m_user where qual_usr_token = '"+token+"'");
-			AppLog.info(getClass(), "userId", userId, getGrant());
 			ObjectDB examEx = g.getTmpObject("QualExamEx");
 			examEx.resetValues();
 			examEx.resetFilters();
@@ -34,11 +32,20 @@ public class QualPostTraining extends ExternalObject {
 			String examId = "";
 			boolean generic = "GEN".equals(g.simpleQuery("select qual_usr_typedutilisateur from m_user where row_id = "+userId));
 			
-			String userExams = g.simpleQuery("select qual_usr_tests from m_user where row_id = "+userId);
+			//String userExams = g.simpleQuery("select qual_usr_tests from m_user where row_id = "+userId);
 			JSONArray exams = new JSONArray();
-			for(String exType : userExams.split(";")){
+			
+			
+			List<String[]> userExams = g.query("select qual_usrexam_exam_id from qual_usr_exam_subjects where qual_usrexam_usr_id = "+userId);
+			
+			for(String[] userExamId : userExams){
+				examId = userExamId[0];
 				
-				examId = g.simpleQuery("select row_id from qual_exam where qual_ex_type = '"+exType+"'");
+			//}
+						
+		//	for(String exType : userExams.split(";")){
+				
+		//		examId = g.simpleQuery("select row_id from qual_exam where qual_ex_type = '"+exType+"'");
 				
 				ObjectDB examObj = g.getTmpObject("QualExam");
 				

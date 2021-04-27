@@ -30,8 +30,9 @@ public class QualUser extends User {
     	
     	if("".equals(getFieldValue("qualUsrToken")))
     		setFieldValue("qualUsrToken", Tool.randomUUID());
-    		
-		getField("qualUsrTests").setRequired(isCandidate());
+    	
+    	if("".equals(getFieldValue("qualUsrUrlQuest")))
+    		setFieldValue("qualUsrUrlQuest", "https://qualification5.dev.simplicite.io/ext/QualPostTraining?token="+getFieldValue("qualUsrToken"));
     	
     	return msgs;
     }
@@ -50,7 +51,7 @@ public class QualUser extends User {
     /*
 	Email is sent to candidate after it is registered 
 	*/
-    @Override
+   /* @Override
     public String postUpdate() {
     	
     	ObjectField active = getField("usr_active");
@@ -66,7 +67,7 @@ public class QualUser extends User {
     	}
     	
     	return null;
-    }
+    }*/
     
     private void generateCandidateTests(ObjectDB user){
     	
@@ -111,6 +112,9 @@ public class QualUser extends User {
 		
 		m.addRcpt(getFieldValue("usr_email"));
 		m.setSubject("[Simplicité] Questionnaire post-formation");
+		
+	/*	List<String> bcc = new ArrayList<String>(Arrays.asList("awheeler@simplicite.fr", "trepolt@simplicite.fr", "cyrille.de-benque@capgemini.com"));
+		m.addBcc(bcc);*/
 		
         String url = g.getSystemParam("DIRECT_URL");
 

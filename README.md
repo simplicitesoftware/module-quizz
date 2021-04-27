@@ -91,6 +91,8 @@
     - `Simplicité - Conception-Niveau 1-93_REF_ENUM` 
     - `Simplicité - Conception-Niveau 1-95_REF_ENUM` 
     - `Simplicité - Notions de base-Niveau 1-11_REF_ENUM` 
+    - `Simplicité - Notions de base-Niveau 1-125_REF_ENUM` 
+    - `Simplicité - Notions de base-Niveau 1-131_REF_ENUM` 
     - `Simplicité - Notions de base-Niveau 1-15_REF_ENUM` 
     - `Simplicité - Notions de base-Niveau 1-19_REF_ENUM` 
     - `Simplicité - Notions de base-Niveau 1-21_REF_ENUM` 
@@ -166,6 +168,8 @@ Exercise
     - `Simplicité - Conception-Niveau 1-93_REF_ENUM` 
     - `Simplicité - Conception-Niveau 1-95_REF_ENUM` 
     - `Simplicité - Notions de base-Niveau 1-11_REF_ENUM` 
+    - `Simplicité - Notions de base-Niveau 1-125_REF_ENUM` 
+    - `Simplicité - Notions de base-Niveau 1-131_REF_ENUM` 
     - `Simplicité - Notions de base-Niveau 1-15_REF_ENUM` 
     - `Simplicité - Notions de base-Niveau 1-19_REF_ENUM` 
     - `Simplicité - Notions de base-Niveau 1-21_REF_ENUM` 
@@ -241,6 +245,8 @@ Exercise
     - `Simplicité - Conception-Niveau 1-93_REF_ENUM` 
     - `Simplicité - Conception-Niveau 1-95_REF_ENUM` 
     - `Simplicité - Notions de base-Niveau 1-11_REF_ENUM` 
+    - `Simplicité - Notions de base-Niveau 1-125_REF_ENUM` 
+    - `Simplicité - Notions de base-Niveau 1-131_REF_ENUM` 
     - `Simplicité - Notions de base-Niveau 1-15_REF_ENUM` 
     - `Simplicité - Notions de base-Niveau 1-19_REF_ENUM` 
     - `Simplicité - Notions de base-Niveau 1-21_REF_ENUM` 
@@ -288,6 +294,7 @@ Exercise
 | `qualUsrLevel`                                               | multi(100) using `QUALEXDIFFICULTY` list |          | yes       |          | -                                                                                |
 | `qualUsrTypedutilisateur`                                    | enum(100) using `QUALUSRTYPEDUTILISATEUR` list | yes      | yes       |          | -                                                                                |
 | `qualUsrToken`                                               | char(100)                                |          |           |          | -                                                                                |
+| `qualUsrUrlQuest`                                            | url(400)                                 |          | yes       |          | -                                                                                |
 
 ### Lists
 
@@ -341,6 +348,20 @@ Exercise
     - `TODO` À faire
     - `DONE` Terminé
     - `SCORED` Noté
+
+`QualUsrExamSubjects` business object definition
+------------------------------------------------
+
+
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
+| ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
+| `qualUsrexamUsrId` link to **`QualUser`**                    | id                                       | yes*     | yes       |          | -                                                                                |
+| _Ref. `qualUsrexamUsrId.usr_login`_                          | _regexp(100)_                            |          |           | yes      | _Login_                                                                          |
+| `qualUsrexamExamId` link to **`QualExam`**                   | id                                       | yes*     | yes       |          | -                                                                                |
+| _Ref. `qualUsrexamExamId.qualExamName`_                      | _char(100)_                              |          |           |          | -                                                                                |
 
 `QualEndTestExt` external object definition
 -------------------------------------------
