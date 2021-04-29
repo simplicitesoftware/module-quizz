@@ -1,4 +1,4 @@
-var QualPostTraining = QualPostTraining || (function($) {
+var QualPostCertif = QualPostCertif || (function() {
 	var app, prd, data = { list: null, item: null };
 
 	/**
@@ -43,27 +43,14 @@ var QualPostTraining = QualPostTraining || (function($) {
 			}
 			else{
 				
-				if(generic){
-					start = new FlowForm.QuestionModel({
-			            id: 'start',
-			            title: "Bonjour "+String.fromCodePoint("0x1F44B"),
-			            subtitle:"Vous avez suivi une formation sur la plateforme Simplicité et nous aimerions avoir votre avis sur celle-ci. Ces quelques questions on pour but d'améliorer notre processus de formation. Bien entendu, il n'y a pas de bonnes ou de mauvaises réponses "+String.fromCodePoint(0x1F642),
-			            description:"D'avance merci pour votre temps !",
-			            type: FlowForm.QuestionType.SectionBreak,
-			            required: true,
-	        		});
-				}
-				else{
-					start = new FlowForm.QuestionModel({
-			            id: 'start',
-			            tagline:"Bonjour "+String.fromCodePoint("0x1F44B"),
-			            title: "Bienvenue sur le portail de questionnaires Simplicité.",
-		            	subtitle: "Vous allez ici répondre à un certain nombre de questions nous permettant d'évaluer votre niveau de compréhension de la plateforme.",
-		            	description:"Lorsque vous êtes prêts, cliquez sur 'suivant' ou Appuyez sur la touche ENTRÉE pour commencer.",
-			            type: FlowForm.QuestionType.SectionBreak,
-			            required: true,
-	        		});
-				}
+				start = new FlowForm.QuestionModel({
+		            id: 'start',
+		            tagline:"Bonjour "+String.fromCodePoint("0x1F44B"),
+		            title: "Bienvenue sur le portail d'évaluation post-certification Simplicité.",
+	            	description:"Lorsque vous êtes prêts, cliquez sur 'suivant' ou Appuyez sur la touche ENTRÉE pour commencer.",
+		            type: FlowForm.QuestionType.SectionBreak,
+		            required: true,
+        		});
         	
 				output.push(start);
 				
@@ -143,7 +130,8 @@ var QualPostTraining = QualPostTraining || (function($) {
 						questions: output,
 						isValid: !unknown,
 						generic:params.generic,
-						scores:[]
+						scores:[],
+						totalScores : {},
 					}
 				},
 				
@@ -202,7 +190,7 @@ var QualPostTraining = QualPostTraining || (function($) {
 			        
 			        this.submitted = true
 			        if(!unknown){
-			        	this.validateExams();
+			        	this.validateExams(this.validateCbk);
 			        	exams.forEach(exam => {
 			        		examQuestions = [];
 			        		this.questions.forEach(qst => {
@@ -211,38 +199,53 @@ var QualPostTraining = QualPostTraining || (function($) {
 			        			}
 			        		});
 			        		if(!generic){
-			        			let examScore = this.calculateScore(exam, examQuestions);
-								this.scores.push(examScore);
+			        			/*let examScore = this.calculateScore(exam, examQuestions);
+								this.scores.push(examScore);*/
 			        		}
-			        		//this.store(exam, examQuestions);
 			        	})
-			        	this.scored = true;
 			        }
 			      },
 			      
 			      calculateScore(exam, qsts){
-			      	score = 0;
+			    	let score = 0;
 			      	total = qsts.length;
 			      	qsts.forEach(qst =>{
 			      		let answer = qst.answer;
-			      		if (answer == exam.answers[qst.id]) {
-			              score++
+			      		let correctAnswer = exam.answers[qst.id];
+			      		if (answer > correctAnswer) {
+			              score = score + correctAnswer;
+			            }
+			            else if(answer <= correctAnswer){
+			            	score = score + answer;
 			            }
 			      	});
-			      	score = Math.round((score / total)*100);
-			      	return {"examId": exam.examId, "examTitle": exam.examTitle, "score": score};
+			      	//score = Math.round((score / total)*100);
+			      	return {"examId": exam.examId, "examTitle": exam.examTitle, "score": score, "total":total};
 			      	//each exam has a specific score;
 			      },
 			
-				validateExams(){
+				validateExams(validateCbk){
 					this.loading = true;
+					let examScores = [];
 			      	//set ended for all exams
 		    		var obj = app.getBusinessObject("QualUserExam");
 	    			obj.resetFilters();
-			      	usrExObjIds.forEach(id => {
+			      	usrExObjIds.forEach(function(id, index) {
 						obj.getForUpdate(function(){
 							obj.item.qualUsrexamEtat = "DONE";
-							obj.update();
+							obj.update(function(){
+								//add score to json
+								examScores.push({
+									"examId": id, 
+									"examTitle": obj.item.qualUsrexamExamId__qualExamName, 
+									"score": obj.item.qualUsrexamScore, 
+									"total":obj.item.qualUsrexamTotalPoints
+								});
+								if(index === usrExObjIds.length - 1){
+									//all exams have been score, display score 
+									validateCbk(examScores);
+								}
+							});
 						},id);
 					});
 					
@@ -253,59 +256,27 @@ var QualPostTraining = QualPostTraining || (function($) {
 					
 				},
 				
-			      store(exam, qsts){
-			      	
-			      	this.loading = true;
-			      	/*console.log("storing " + exam.examId);
-		    		var usrExObj = app.getBusinessObject("QualUserExam");
-		    		var usrExObjIds = [];
-			      	usrExObj.resetFilters();
-					usrExObj.getForCreate(function () {
-						usrExObj.item.qualUsrexamUsrId = params.userId;
-						usrExObj.item.qualUsrexamExamId = exam.examId;
-						usrExObj.create(function(){
-							//callback of creation -> answer items should have been created
-							usrExObjIds.push(usrExObj.getRowId());
-							qsts.forEach(function(qst, index){
-								if (qst.type !== FlowForm.QuestionType.SectionBreak) {
-									if(qst.examId == exam.examId){
-										let submittedValue = qst.answer;
-										var usrAnswerObj = app.getBusinessObject("QualExUsr");
-										usrAnswerObj.resetFilters();
-										usrAnswerObj.search(function(){
-											usrAnswerObj.getForUpdate(function(){
-												usrAnswerObj.item.qualExusrSubmitted = true;
-												usrAnswerObj.item.qualExusrAnswer = submittedValue;
-												usrAnswerObj.update(function(){
-													if(index === qsts.length - 1){
-														
-														usrExObjIds.forEach(id => {
-															usrExObj.getForUpdate(function(){
-																usrExObj.item.qualUsrexamEtat = "DONE";
-																usrExObj.update();
-															},id);
-														});
-													}
-												});
-											}, usrAnswerObj.list[0].row_id);
-										}, 
-										{
-											qualExusrUsrexamId:usrExObj.getRowId(),
-											qualExusrExamexId__qualExamexExId__qualExId:qst.id
-										});
-									}
-								}
-							})
-						}, usrExObj.item);
-					});*/
+				validateCbk(usrScores){
 					
-					//display "wait" section
-					setTimeout(() => {
-						this.loading = false;
-					}, 1000)
+					let testTotal = 0;
+					let userTotal = 0;
 					
-			      },
-			      
+					usrScores.forEach(elt =>{
+						testTotal += elt.total;
+						userTotal += elt.score;
+					})
+					
+					this.totalScores = {
+						"userScoreTotal":userTotal,
+						"testScoreTotal":testTotal,
+					};
+					
+					console.log(this.totalScores);
+					
+					this.scores = usrScores;
+					this.scored = true;
+				}
+				
 			      
 			    },
 			    

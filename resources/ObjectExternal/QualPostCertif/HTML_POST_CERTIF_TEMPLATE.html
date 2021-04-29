@@ -1,0 +1,64 @@
+<div>
+   <flow-form
+      ref="flowform"
+      v-on:complete="onComplete"
+      v-on:answer="onAnswer"
+      v-bind:questions="questions"
+      v-bind:language="language"
+      v-bind:standalone="true"
+     >
+      <template v-slot:complete>
+         <p v-if="isValid && generic">
+            <span class="fh2">Vous avez terminé !</span>
+            <span class="f-section-text">
+            Merci d\'avoir pris le temps de répondre à nos questions &#x1F64F;
+            </span>
+         </p>
+         <p v-if="!submitted && isValid && !generic">
+            <span class="fh2">Vous avez terminé !</span>
+            <span class="f-section-text">
+            Vous pouvez modifier vos réponses ou cliquer sur \'Calculer le score\' pour afficher le score du candidat.
+            </span>
+         </p>
+         <p>
+            <span v-if="!isValid" class="f-section-text">
+            Vous n\'avez pas réussi à compléter le questionnaire, merci de nous communiquer votre problème sur notre forum <a href="https://community.simplicite.io/">community.simplicite.io</a>
+            </span>
+         </p>
+      </template>
+      <template v-slot:completeButton>
+         <div class="f-submit" v-if="!submitted && isValid && !generic">
+            <button
+               class="o-btn-action"
+               ref="button"
+               type="submit"
+               href="#"
+               v-on:click.prevent="onQuizSubmit()"
+               aria-label="Press to submit">
+            <span>Calculer mon score</span>
+            </button>
+            <a 
+               class="f-enter-desc"
+               href="#"
+               v-on:click.prevent="onQuizSubmit()"
+               >
+            </a>
+         </div>
+         <div class="f-submit" v-else>
+         </div>
+      </template>
+      
+      <div v-if="submitted && scored && !generic">
+      	<div v-if="loading">
+          <span class="fh2">Veuillez patienter...</span>
+        </div>
+        <div v-else>
+        	<span class="fh2">Le score du candidat : {{ totalScores.userScoreTotal }} / {{ totalScores.testScoreTotal }} </span>
+        	<p>Détail : </p>
+	      	<div  v-for="scoreEl in scores">
+	      		<p>{{ scoreEl.examTitle }} : <b>{{ scoreEl.score }} / {{ scoreEl.total }}</b></p>
+	      	</div>
+        </div>
+      </div>
+   </flow-form>
+</div>

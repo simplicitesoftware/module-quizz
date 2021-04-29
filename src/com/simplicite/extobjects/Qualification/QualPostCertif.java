@@ -6,17 +6,17 @@ import com.simplicite.util.tools.*;
 import org.json.*;
 import com.simplicite.webapp.web.*;
 /**
- * External object QualPostTraining
+ * External object QualPostCertif
  */
-public class QualPostTraining extends ExternalObject {
+public class QualPostCertif extends ExternalObject {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Display method
 	 * @param params Request parameters
-	*/
+	 */
 	@Override
-	public String display(Parameters params) {
+	public Object display(Parameters params) {
 		try {
 			Grant g = getGrant();
 					
@@ -105,7 +105,7 @@ public class QualPostTraining extends ExternalObject {
 				
 			}
 						
-			String template = HTMLTool.getResourceHTMLContent(this, "QUAL_POST_TRAINING_TEMPLATE");
+			String template = HTMLTool.getResourceHTMLContent(this, "HTML_POST_CERTIF_TEMPLATE");
 			JSONObject renderParams = params.toJSONObject().put("pub", pub).put("exams", exams);
 			
 			renderParams.put("generic", generic);
@@ -132,5 +132,5 @@ public class QualPostTraining extends ExternalObject {
 			AppLog.error(getClass(), "display", null, e, getGrant());
 			return e.getMessage();
 		}
-	} 
+	}
 }
