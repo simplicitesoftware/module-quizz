@@ -72,7 +72,7 @@ var QualPostCertif = QualPostCertif || (function() {
 								id: input[i].id,
 								title: input[i].title,
 								helpTextShow: false,
-								type: FlowForm.QuestionType.MultipleChoice,
+								type: FlowForm.QuestionType.Dropdown,
 								required: true,
 								multiple: false,
 								options: choices,

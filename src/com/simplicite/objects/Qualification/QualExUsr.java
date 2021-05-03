@@ -56,7 +56,7 @@ public class QualExUsr extends ObjectDB {
 		
 		getFieldArea("QualExUsr-1").setVisible(!isCandidate(g));
 		for(ObjectField f : getFieldArea("QualExUsr-3").getFields()){
-			f.setUpdatable("0".equals(getFieldValue("qualExusrSubmitted")));
+			f.setUpdatable(isUpdateEnable(getValues()));
 		}
 		
 		for(ObjectField f : getFieldArea("QualExUsr-2").getFields()){

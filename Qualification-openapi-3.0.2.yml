@@ -16,6 +16,15 @@ components:
           type: integer
           enum:
           - 404
+    QualCertif:
+      type: object
+      properties:
+        row_id:
+          description: Unique technical row ID
+          type: string
+        qualCertNom:
+          description: Nom
+          type: string
     ArrayOfQualExamEx:
       type: array
       items:
@@ -834,10 +843,10 @@ components:
           - DMY
           - MDY
           - CHF
-    ArrayOfQualExam:
+    ArrayOfQualCertif:
       type: array
       items:
-        $ref: '#/components/schemas/QualExam'
+        $ref: '#/components/schemas/QualCertif'
     QualUserExam:
       type: object
       properties:
@@ -898,6 +907,104 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/QualUser'
+    QualCertUsr:
+      type: object
+      properties:
+        qualCertusrUsrId:
+          description: ID Utilisateur
+          type: string
+        qualCertusrCertId__qualCertNom:
+          description: Nom de la certification
+          type: string
+        qualCertusrUsrId__usr_last_name:
+          description: Last name
+          type: string
+        qualCertusrCertId:
+          description: ID Certification
+          type: string
+        qualCertusrUsrId__usr_login:
+          description: Login
+          type: string
+        row_id:
+          description: Unique technical row ID
+          type: string
+        qualCertusrUsrId__usr_first_name:
+          description: First name
+          type: string
+    ArrayOfQualExUsr:
+      type: array
+      items:
+        $ref: '#/components/schemas/QualExUsr'
+    ArrayOfQualUserExam:
+      type: array
+      items:
+        $ref: '#/components/schemas/QualUserExam'
+    Error400:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 400
+    QualUsrExamSubjects:
+      type: object
+      properties:
+        qualUsrexamExamId:
+          description: Examen
+          type: string
+        qualUsrexamExamId__qualExamName:
+          description: Nom Examen
+          type: string
+        qualUsrexamUsrId__usr_login:
+          description: Login
+          type: string
+        row_id:
+          description: Unique technical row ID
+          type: string
+        qualUsrexamUsrId:
+          description: Candidat|Candidats
+          type: string
+    Error401:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 401
+    Error500:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 500
+    Error403:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 403
+    ArrayOfQualExam:
+      type: array
+      items:
+        $ref: '#/components/schemas/QualExam'
     QualExUsr:
       type: object
       properties:
@@ -1143,37 +1250,22 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/QualUsrExamSubjects'
-    ArrayOfQualExUsr:
-      type: array
-      items:
-        $ref: '#/components/schemas/QualExUsr'
     ActionResult:
       type: object
       properties:
         result:
           description: Action result
           type: string
-    ArrayOfQualUserExam:
+    ArrayOfQualCertUsr:
       type: array
       items:
-        $ref: '#/components/schemas/QualUserExam'
+        $ref: '#/components/schemas/QualCertUsr'
     TreeviewData:
       type: object
       properties:
         item:
           description: Object item with lists of linked objects' items
           type: object
-    Error400:
-      type: object
-      properties:
-        error:
-          description: Error message
-          type: string
-        status:
-          description: Error status
-          type: integer
-          enum:
-          - 400
     QualExamEx:
       type: object
       properties:
@@ -1367,46 +1459,6 @@ components:
           - SIM_CERTIF_INSTAL_EXP
           - SIM_CERTIF_BEHAVE
           - SIM_CERTIF_HOOKS
-    QualUsrExamSubjects:
-      type: object
-      properties:
-        qualUsrexamExamId:
-          description: Examen
-          type: string
-        qualUsrexamExamId__qualExamName:
-          description: Nom Examen
-          type: string
-        qualUsrexamUsrId__usr_login:
-          description: Login
-          type: string
-        row_id:
-          description: Unique technical row ID
-          type: string
-        qualUsrexamUsrId:
-          description: Candidat|Candidats
-          type: string
-    Error401:
-      type: object
-      properties:
-        error:
-          description: Error message
-          type: string
-        status:
-          description: Error status
-          type: integer
-          enum:
-          - 401
-    Error500:
-      type: object
-      properties:
-        error:
-          description: Error message
-          type: string
-        status:
-          description: Error status
-          type: integer
-          enum:
-          - 500
     QualExercise:
       type: object
       properties:
@@ -1598,17 +1650,6 @@ components:
           - Certification - Paramétrage-Niveau 1-223_REF_ENUM
           - Certification - Paramétrage-Niveau 1-225_REF_ENUM
           - Certification - Paramétrage-Niveau 1-227_REF_ENUM
-    Error403:
-      type: object
-      properties:
-        error:
-          description: Error message
-          type: string
-        status:
-          description: Error status
-          type: integer
-          enum:
-          - 403
     QualExam:
       type: object
       properties:
@@ -1617,6 +1658,9 @@ components:
           type: string
         qualExamDescription:
           description: Description
+          type: string
+        qualExamCertId:
+          description: Certification|Certifications
           type: string
         qualExamPublic:
           description: Public
@@ -1641,6 +1685,9 @@ components:
           - SIM_CERTIF_INSTAL_EXP
           - SIM_CERTIF_BEHAVE
           - SIM_CERTIF_HOOKS
+        qualExamCertId__qualCertNom:
+          description: Nom de la certification
+          type: string
         row_id:
           description: Unique technical row ID
           type: string
@@ -2302,6 +2349,201 @@ paths:
         required: false
       tags:
       - session
+  /rest/QualCertif/{row_id}:
+    post:
+      summary: Create a new QualCertifbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QualCertif'
+      operationId: obj-qualcertif-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QualCertif'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - QualCertif
+    get:
+      summary: Get a QualCertif business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-qualcertif-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QualCertif'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - QualCertif
+    delete:
+      summary: Delete a QualCertif business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-qualcertif-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - QualCertif
+    put:
+      summary: Update a QualCertifbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QualCertif'
+      operationId: obj-qualcertif-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QualCertif'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - QualCertif
   /logout:
     get:
       summary: Logout (revoke bearer token)
@@ -2557,6 +2799,201 @@ paths:
         required: true
       tags:
       - QualExam
+  /rest/QualCertUsr/{row_id}:
+    post:
+      summary: Create a new QualCertUsrbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QualCertUsr'
+      operationId: obj-qualcertusr-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QualCertUsr'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - QualCertUsr
+    get:
+      summary: Get a QualCertUsr business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-qualcertusr-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QualCertUsr'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - QualCertUsr
+    delete:
+      summary: Delete a QualCertUsr business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-qualcertusr-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - QualCertUsr
+    put:
+      summary: Update a QualCertUsrbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QualCertUsr'
+      operationId: obj-qualcertusr-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QualCertUsr'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - QualCertUsr
   /rest/QualExUsr/{row_id}:
     post:
       summary: Create a new QualExUsrbusiness object record
@@ -2891,6 +3328,89 @@ paths:
         required: false
       tags:
       - session
+  /rest/QualCertUsr:
+    get:
+      summary: Search QualCertUsr business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-qualcertusr-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfQualCertUsr'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: qualCertusrCertId
+        description: Search filter for ID Certification
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: qualCertusrCertId__qualCertNom
+        description: Search filter for Nom de la certification
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: qualCertusrUsrId
+        description: Search filter for ID Utilisateur
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: qualCertusrUsrId__usr_login
+        description: Search filter for Login
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: qualCertusrUsrId__usr_first_name
+        description: Search filter for First name
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: qualCertusrUsrId__usr_last_name
+        description: Search filter for Last name
+        required: false
+      tags:
+      - QualCertUsr
   /rest/QualExamEx/{row_id}:
     post:
       summary: Create a new QualExamExbusiness object record
@@ -3416,12 +3936,6 @@ paths:
         description: Search filter for Public
         required: false
       - schema:
-          type: integer
-        in: query
-        name: qualUsrexamScore
-        description: Search filter for Score
-        required: false
-      - schema:
           type: string
         in: query
         name: qualUsrexamDateLimite
@@ -3436,6 +3950,12 @@ paths:
         in: query
         name: qualUsrexamEtat
         description: Search filter for État
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: qualUsrexamScore
+        description: Search filter for Score
         required: false
       - schema:
           type: integer
@@ -4685,8 +5205,73 @@ paths:
         name: qualExamDescription
         description: Search filter for Description
         required: false
+      - schema:
+          type: string
+        in: query
+        name: qualExamCertId
+        description: Search filter for Certification|Certifications
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: qualExamCertId__qualCertNom
+        description: Search filter for Nom de la certification
+        required: false
       tags:
       - QualExam
+  /rest/QualCertif:
+    get:
+      summary: Search QualCertif business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-qualcertif-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfQualCertif'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: qualCertNom
+        description: Search filter for Nom
+        required: false
+      tags:
+      - QualCertif
   /rest/QualUser/{row_id}:
     post:
       summary: Create a new QualUserbusiness object record
@@ -5359,6 +5944,10 @@ info:
   title: Qualification
   version: '0.12'
 tags:
+- name: QualCertif
+  description: Certification
+- name: QualCertUsr
+  description: Certification du candidat
 - name: QualExam
   description: Examen
 - name: QualExamEx

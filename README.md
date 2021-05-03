@@ -13,6 +13,33 @@
 
 
 
+`QualCertif` business object definition
+---------------------------------------
+
+
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
+| ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
+| `qualCertNom`                                                | char(100)                                | yes*     | yes       |          | -                                                                                |
+
+`QualCertUsr` business object definition
+----------------------------------------
+
+
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
+| ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
+| `qualCertusrCertId` link to **`QualCertif`**                 | id                                       | yes*     | yes       |          | -                                                                                |
+| _Ref. `qualCertusrCertId.qualCertNom`_                       | _char(100)_                              |          |           |          | -                                                                                |
+| `qualCertusrUsrId` link to **`QualUser`**                    | id                                       | yes*     | yes       |          | -                                                                                |
+| _Ref. `qualCertusrUsrId.usr_login`_                          | _regexp(100)_                            |          |           | yes      | _Login_                                                                          |
+| _Ref. `qualCertusrUsrId.usr_first_name`_                     | _char(50)_                               |          |           | yes      | _First name_                                                                     |
+| _Ref. `qualCertusrUsrId.usr_last_name`_                      | _char(50)_                               |          |           | yes      | _Last name_                                                                      |
+
 `QualExam` business object definition
 -------------------------------------
 
@@ -26,6 +53,8 @@
 | `qualExamPublic`                                             | boolean                                  |          | yes       |          | -                                                                                |
 | `qualExType`                                                 | enum(40) using `QUALEXTYPE` list         | yes      | yes       |          | -                                                                                |
 | `qualExamDescription`                                        | text(3000)                               |          | yes       |          | -                                                                                |
+| `qualExamCertId` link to **`QualCertif`**                    | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `qualExamCertId.qualCertNom`_                          | _char(100)_                              |          |           |          | -                                                                                |
 
 ### Lists
 
@@ -667,9 +696,9 @@ Exercise
 | `qualUsrexamExamId` link to **`QualExam`**                   | id                                       | yes*     | yes       |          | -                                                                                |
 | _Ref. `qualUsrexamExamId.qualExamName`_                      | _char(100)_                              |          |           |          | -                                                                                |
 | _Ref. `qualUsrexamExamId.qualExamPublic`_                    | _boolean_                                |          |           |          | -                                                                                |
-| `qualUsrexamScore`                                           | int(100)                                 |          | yes       |          | -                                                                                |
 | `qualUsrexamDateLimite`                                      | date                                     |          | yes       |          | -                                                                                |
 | `qualUsrexamEtat`                                            | enum(100) using `QUALUSREXAMETAT` list   |          | yes       |          | -                                                                                |
+| `qualUsrexamScore`                                           | int(100)                                 |          | yes       |          | -                                                                                |
 | `qualUsrexamTotalPoints`                                     | int(100)                                 |          | yes       |          | -                                                                                |
 
 ### Lists
