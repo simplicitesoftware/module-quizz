@@ -39,6 +39,9 @@
 | _Ref. `qualCertusrUsrId.usr_login`_                          | _regexp(100)_                            |          |           | yes      | _Login_                                                                          |
 | _Ref. `qualCertusrUsrId.usr_first_name`_                     | _char(50)_                               |          |           | yes      | _First name_                                                                     |
 | _Ref. `qualCertusrUsrId.usr_last_name`_                      | _char(50)_                               |          |           | yes      | _Last name_                                                                      |
+| _Ref. `qualCertusrUsrId.qualUsrToken`_                       | _char(100)_                              |          |           |          | -                                                                                |
+| `qualCertusrUrlEval`                                         | url(200)                                 |          | yes       |          | -                                                                                |
+| `qualCertusrNote`                                            | char(100)                                |          |           |          | -                                                                                |
 
 `QualExam` business object definition
 -------------------------------------
@@ -700,6 +703,11 @@ Exercise
 | `qualUsrexamEtat`                                            | enum(100) using `QUALUSREXAMETAT` list   |          | yes       |          | -                                                                                |
 | `qualUsrexamScore`                                           | int(100)                                 |          | yes       |          | -                                                                                |
 | `qualUsrexamTotalPoints`                                     | int(100)                                 |          | yes       |          | -                                                                                |
+| `qualUsrexamCertusrId` link to **`QualCertUsr`**             | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `qualUsrexamCertusrId.qualCertusrCertId`_              | _id_                                     |          |           |          | -                                                                                |
+| _Ref. `qualCertusrCertId.qualCertNom`_                       | _char(100)_                              |          |           |          | -                                                                                |
+| _Ref. `qualUsrexamCertusrId.qualCertusrUsrId`_               | _id_                                     |          |           |          | -                                                                                |
+| _Ref. `qualCertusrUsrId.usr_login`_                          | _regexp(100)_                            |          |           | yes      | _Login_                                                                          |
 
 ### Lists
 

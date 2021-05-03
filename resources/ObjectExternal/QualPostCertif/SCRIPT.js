@@ -26,7 +26,7 @@ var QualPostCertif = QualPostCertif || (function() {
 			let generic = params.generic;
 			
 			let exObjRowId = "";
-			let usrExObjIds = [];
+			let usrExObjIds = params.userExamIds;
 			
 			if("" == exams){
 				unknown = true;
@@ -140,8 +140,8 @@ var QualPostCertif = QualPostCertif || (function() {
 				 onAnswer(qA) {
 				 	let id = qA.id;
 				 	
-					if(qA.type == FlowForm.QuestionType.SectionBreak && qA.id.includes("exam")){
-						//create exam in back
+				 	//Exam is already created in back
+					/*if(qA.type == FlowForm.QuestionType.SectionBreak && qA.id.includes("exam")){
 						var usrExObj = app.getBusinessObject("QualUserExam");
 						usrExObj.resetFilters();
 						usrExObj.getForCreate(function () {
@@ -153,7 +153,7 @@ var QualPostCertif = QualPostCertif || (function() {
 							}, usrExObj.item);
 							
 						});
-					}
+					}*/
 					
 					if(qA.type !== FlowForm.QuestionType.SectionBreak){
 						//question answered -> set value in back
@@ -168,7 +168,7 @@ var QualPostCertif = QualPostCertif || (function() {
 							}, usrAnswerObj.list[0].row_id);
 						}, 
 						{
-							qualExusrUsrexamId:exObjRowId,
+							qualExusrUsrexamId:qA.examId,
 							qualExusrExamexId__qualExamexExId__qualExId:qA.id
 						});
 						

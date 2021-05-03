@@ -5,7 +5,7 @@
 	<action>upsert</action>
 	<data>
 		<mdl_name>Qualification</mdl_name>
-		<mdl_version>0.12</mdl_version>
+		<mdl_version>0.13</mdl_version>
 		<mdl_prefix>qual</mdl_prefix>
 		<mdl_url/>
 		<mdl_lastupd>2021-03-04 16:20:55</mdl_lastupd>
@@ -1488,6 +1488,80 @@
 		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
 	</data>
 	<data>
+		<fld_name>qualCertusrNote</fld_name>
+		<fld_dbname>qual_certusr_note</fld_dbname>
+		<fld_visible>3</fld_visible>
+		<fld_updatable>0</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research>1</fld_research>
+		<fld_researchreq>0</fld_researchreq>
+		<fld_sort>C</fld_sort>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_tray>0</fld_tray>
+		<fld_type>3</fld_type>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>100</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_comment/>
+		<fld_classification/>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+	</data>
+	<data>
+		<fld_name>qualCertusrUrlEval</fld_name>
+		<fld_dbname>qual_certusr_url_eval</fld_dbname>
+		<fld_visible>3</fld_visible>
+		<fld_updatable>1</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research>1</fld_research>
+		<fld_researchreq>0</fld_researchreq>
+		<fld_sort>C</fld_sort>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_tray>0</fld_tray>
+		<fld_type>10</fld_type>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>200</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_comment/>
+		<fld_classification/>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+	</data>
+	<data>
 		<fld_name>qualCertusrUsrId</fld_name>
 		<fld_dbname>qual_certusr_usr_id</fld_dbname>
 		<fld_visible>3</fld_visible>
@@ -2450,6 +2524,43 @@
 		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
 	</data>
 	<data>
+		<fld_name>qualUsrexamCertusrId</fld_name>
+		<fld_dbname>qual_usrexam_certusr_id</fld_dbname>
+		<fld_visible>3</fld_visible>
+		<fld_updatable>1</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research/>
+		<fld_researchreq>0</fld_researchreq>
+		<fld_sort>C</fld_sort>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_tray>0</fld_tray>
+		<fld_type>0</fld_type>
+		<fld_type_id.flt_code/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>11</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_speech/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_comment/>
+		<fld_classification/>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+	</data>
+	<data>
 		<fld_name>qualUsrexamDateLimite</fld_name>
 		<fld_dbname>qual_usrexam_date_limite</fld_dbname>
 		<fld_visible>3</fld_visible>
@@ -2979,7 +3090,10 @@
 	</data>
 	<data>
 		<tpl_name>QualUserExam</tpl_name>
-		<tpl_ui><![CDATA[<div class="area" data-area="1"></div>
+		<tpl_ui><![CDATA[<div>
+  <div class="area" data-area="2:-"></div>
+  <div class="area" data-area="1"></div>
+</div>
 ]]></tpl_ui>
 		<tpl_min/>
 		<tpl_image/>
@@ -3007,6 +3121,8 @@
   <div class="field" data-field="qualCertusrUsrId__usr_login"></div>
   <div class="field" data-field="qualCertusrUsrId__usr_first_name"></div>
   <div class="field" data-field="qualCertusrUsrId__usr_last_name"></div>
+  <div class="field" data-field="qualCertusrUsrId__qualUsrToken"></div>
+  <div class="field" data-field="qualCertusrUrlEval"></div>
 </div>
 ]]></ofa_ui>
 		<ofa_icon><![CDATA[[EXPR:[OBJECTICON:QualUser]]]]></ofa_icon>
@@ -3019,6 +3135,7 @@
 		<ofa_ui><![CDATA[<div>
   <div class="field" data-field="qualCertusrCertId"></div>
   <div class="field" data-field="qualCertusrCertId__qualCertNom"></div>
+  <div class="field" data-field="qualCertusrNote"></div>
 </div>
 ]]></ofa_ui>
 		<ofa_icon><![CDATA[[EXPR:[OBJECTICON:QualCertif]]]]></ofa_icon>
@@ -3291,6 +3408,21 @@
 		<ofa_icon>star</ofa_icon>
 		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
 	</data>
+	<data>
+		<ofa_name>QualUserExam-2</ofa_name>
+		<ofa_position>2</ofa_position>
+		<ofa_title>1</ofa_title>
+		<ofa_ui><![CDATA[<div>
+  <div class="field" data-field="qualUsrexamCertusrId"></div>
+  <div class="field" data-field="qualUsrexamCertusrId__qualCertusrCertId"></div>
+  <div class="field" data-field="qualUsrexamCertusrId__qualCertusrCertId__qualCertNom"></div>
+  <div class="field" data-field="qualUsrexamCertusrId__qualCertusrUsrId"></div>
+  <div class="field" data-field="qualUsrexamCertusrId__qualCertusrUsrId__usr_login"></div>
+</div>
+]]></ofa_ui>
+		<ofa_icon><![CDATA[[EXPR:[OBJECTICON:QualCertif]]]]></ofa_icon>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+	</data>
 </object>
 <object>
 	<name>Domain</name>
@@ -3435,7 +3567,7 @@
 		<obo_name>QualCertUsr</obo_name>
 		<obo_dbtable>qual_cert_usr</obo_dbtable>
 		<obo_class/>
-		<obo_script_id/>
+		<obo_script_id>src/com/simplicite/objects/Qualification/QualCertUsr.java</obo_script_id>
 		<obo_usets>1</obo_usets>
 		<obo_nosearch>1</obo_nosearch>
 		<obo_comment/>
@@ -4132,6 +4264,93 @@
 		<obf_field_id.fld_dfault/>
 		<obf_area_id.ofa_name>QualCertUsr-1</obf_area_id.ofa_name>
 		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>QualCertUsr</obf_object_id.obo_name>
+		<obf_field_id.fld_name>qualUsrToken</obf_field_id.fld_name>
+		<obf_field_id.fld_type>3</obf_field_id.fld_type>
+		<obf_order>240</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>qualCertusrUsrId</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>QualUser</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible>3</obf_fld_visible>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more>0</obf_fld_more>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>QualCertUsr-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>QualCertUsr</obf_object_id.obo_name>
+		<obf_field_id.fld_name>qualCertusrUrlEval</obf_field_id.fld_name>
+		<obf_field_id.fld_type>10</obf_field_id.fld_type>
+		<obf_order>250</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>QualCertUsr-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>QualCertUsr</obf_object_id.obo_name>
+		<obf_field_id.fld_name>qualCertusrNote</obf_field_id.fld_name>
+		<obf_field_id.fld_type>3</obf_field_id.fld_type>
+		<obf_order>260</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>QualCertUsr-2</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>2</obf_area_id.ofa_position>
 		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
 	</data>
 	<data>
@@ -6136,6 +6355,151 @@
 		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
 	</data>
 	<data>
+		<obf_object_id.obo_name>QualUserExam</obf_object_id.obo_name>
+		<obf_field_id.fld_name>qualUsrexamCertusrId</obf_field_id.fld_name>
+		<obf_field_id.fld_type>0</obf_field_id.fld_type>
+		<obf_order>300</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name>QualCertUsr</obf_ref_object_id.obo_name>
+		<obf_cascad>C</obf_cascad>
+		<obf_card>0,n</obf_card>
+		<obf_visible>1</obf_visible>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy>0</obf_copy>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>QualUserExam-2</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>2</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>QualUserExam</obf_object_id.obo_name>
+		<obf_field_id.fld_name>qualCertusrCertId</obf_field_id.fld_name>
+		<obf_field_id.fld_type>0</obf_field_id.fld_type>
+		<obf_order>310</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>qualUsrexamCertusrId</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>QualCertUsr</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>QualUserExam-2</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>2</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>QualUserExam</obf_object_id.obo_name>
+		<obf_field_id.fld_name>qualCertNom</obf_field_id.fld_name>
+		<obf_field_id.fld_type>3</obf_field_id.fld_type>
+		<obf_order>320</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>qualCertusrCertId</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>QualCertif</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible>2</obf_fld_visible>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more>0</obf_fld_more>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>QualUserExam-2</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>2</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>QualUserExam</obf_object_id.obo_name>
+		<obf_field_id.fld_name>qualCertusrUsrId</obf_field_id.fld_name>
+		<obf_field_id.fld_type>0</obf_field_id.fld_type>
+		<obf_order>330</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>qualUsrexamCertusrId</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>QualCertUsr</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>QualUserExam-2</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>2</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>QualUserExam</obf_object_id.obo_name>
+		<obf_field_id.fld_name>usr_login</obf_field_id.fld_name>
+		<obf_field_id.fld_type>15</obf_field_id.fld_type>
+		<obf_order>340</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>qualCertusrUsrId</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>QualUser</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible>2</obf_fld_visible>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more>0</obf_fld_more>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>QualUserExam-2</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>2</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+	</data>
+	<data>
 		<obf_object_id.obo_name>QualUsrExamSubjects</obf_object_id.obo_name>
 		<obf_field_id.fld_name>qualUsrexamUsrId</obf_field_id.fld_name>
 		<obf_field_id.fld_type>0</obf_field_id.fld_type>
@@ -6300,6 +6664,30 @@
 		<obf_rendering/>
 		<obf_treedepth/>
 		<obf_area_id.ofa_name>QualCertUsr-2</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>2</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_ref_object_id.obo_name>QualCertUsr</obf_ref_object_id.obo_name>
+		<obf_order>300</obf_order>
+		<obf_ref_order/>
+		<obf_object_id.obj_name>QualUserExam</obf_object_id.obj_name>
+		<obf_field_id.fld_name>qualUsrexamCertusrId</obf_field_id.fld_name>
+		<obf_field_id.fld_dbname>qual_usrexam_certusr_id</obf_field_id.fld_dbname>
+		<obf_field_id.fld_updatable>1</obf_field_id.fld_updatable>
+		<obf_field_id.fld_required>0</obf_field_id.fld_required>
+		<obf_field_id.fld_fonctid>0</obf_field_id.fld_fonctid>
+		<obf_cascad>C</obf_cascad>
+		<obf_card>0,n</obf_card>
+		<obf_query/>
+		<obf_visible>1</obf_visible>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy>0</obf_copy>
+		<obf_associate>1</obf_associate>
+		<obf_inline>0</obf_inline>
+		<obf_rendering/>
+		<obf_treedepth/>
+		<obf_area_id.ofa_name>QualUserExam-2</obf_area_id.ofa_name>
 		<obf_area_id.ofa_position>2</obf_area_id.ofa_position>
 		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
 	</data>
@@ -8082,6 +8470,30 @@
 	</data>
 	<data>
 		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>qualCertusrNote</tsl_id.fld_name>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>qual certusr note</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>qualCertusrUrlEval</tsl_id.fld_name>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>qual certusr url eval</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
 		<tsl_id.fld_name>qualCertusrUsrId</tsl_id.fld_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>qual certusr usr id</tsl_value>
@@ -8394,6 +8806,18 @@
 	</data>
 	<data>
 		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>qualUsrexamCertusrId</tsl_id.fld_name>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Qual cert usr</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
 		<tsl_id.fld_name>qualUsrexamDateLimite</tsl_id.fld_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>qual usrexam date limite</tsl_value>
@@ -8553,6 +8977,30 @@
 		<tsl_id.fld_name>qualCertusrCertId</tsl_id.fld_name>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>ID Certification</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>qualCertusrNote</tsl_id.fld_name>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Note</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>qualCertusrUrlEval</tsl_id.fld_name>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>URL d'évaluation</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_short_value/>
 		<tsl_placeholder/>
@@ -8874,6 +9322,18 @@
 	</data>
 	<data>
 		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>qualUsrexamCertusrId</tsl_id.fld_name>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Certification du candidat</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
 		<tsl_id.fld_name>qualUsrexamDateLimite</tsl_id.fld_name>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>Date limite</tsl_value>
@@ -9155,6 +9615,13 @@
 	</data>
 	<data>
 		<tsl_typeFieldArea>Z</tsl_typeFieldArea>
+		<tsl_id.ofa_name>QualUserExam-2</tsl_id.ofa_name>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>QualUserExam-2</tsl_value>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_typeFieldArea>Z</tsl_typeFieldArea>
 		<tsl_id.ofa_name>QualCertif-1</tsl_id.ofa_name>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>QualCertif-1</tsl_value>
@@ -9286,6 +9753,13 @@
 		<tsl_value>QualUserExam-1</tsl_value>
 		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
 	</data>
+	<data>
+		<tsl_typeFieldArea>Z</tsl_typeFieldArea>
+		<tsl_id.ofa_name>QualUserExam-2</tsl_id.ofa_name>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Certification du candidat associée</tsl_value>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+	</data>
 </object>
 <object>
 	<name>TranslateDomain</name>
@@ -9410,7 +9884,7 @@
 		<tsl_typeObject>O</tsl_typeObject>
 		<tsl_id.obo_name>QualCertUsr</tsl_id.obo_name>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Certification du candidat</tsl_value>
+		<tsl_value>Certification du candidat|Certifications des candidats</tsl_value>
 		<tsl_help/>
 		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
 	</data>
@@ -9588,6 +10062,19 @@
 		<tsl_id.obf_order>230</tsl_id.obf_order>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>Nom</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_listhelp/>
+		<tsl_placeholder/>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_typeObjectField>L</tsl_typeObjectField>
+		<tsl_id.obf_object_id.obo_name>QualCertUsr</tsl_id.obf_object_id.obo_name>
+		<tsl_id.obf_field_id.fld_name>qualUsrToken</tsl_id.obf_field_id.fld_name>
+		<tsl_id.obf_order>240</tsl_id.obf_order>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Token</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_short_value/>
 		<tsl_listhelp/>
@@ -9848,6 +10335,32 @@
 		<tsl_id.obf_order>220</tsl_id.obf_order>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>Public</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_listhelp/>
+		<tsl_placeholder/>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_typeObjectField>L</tsl_typeObjectField>
+		<tsl_id.obf_object_id.obo_name>QualUserExam</tsl_id.obf_object_id.obo_name>
+		<tsl_id.obf_field_id.fld_name>qualCertNom</tsl_id.obf_field_id.fld_name>
+		<tsl_id.obf_order>320</tsl_id.obf_order>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Nom ID Certification Certification du candidat</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_listhelp/>
+		<tsl_placeholder/>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_typeObjectField>L</tsl_typeObjectField>
+		<tsl_id.obf_object_id.obo_name>QualUserExam</tsl_id.obf_object_id.obo_name>
+		<tsl_id.obf_field_id.fld_name>usr_login</tsl_id.obf_field_id.fld_name>
+		<tsl_id.obf_order>340</tsl_id.obf_order>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Login ID Utilisateur Certification du candidat</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_short_value/>
 		<tsl_listhelp/>

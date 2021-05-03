@@ -24,6 +24,9 @@ public class QualPostCertif extends ExternalObject {
 			setDecoration(!pub);
 			
 			String token = params.getParameter("token");
+			
+			String certifId = g.simpleQuery("select row_id from qual_cert_usr where qual_certusr_url_eval LIKE '%"+token+"'");
+			
 			String userId = g.simpleQuery("select row_id from m_user where qual_usr_token = '"+token+"'");
 			ObjectDB examEx = g.getTmpObject("QualExamEx");
 			examEx.resetValues();
@@ -35,17 +38,16 @@ public class QualPostCertif extends ExternalObject {
 			//String userExams = g.simpleQuery("select qual_usr_tests from m_user where row_id = "+userId);
 			JSONArray exams = new JSONArray();
 			
-			
 			List<String[]> userExams = g.query("select qual_usrexam_exam_id from qual_usr_exam_subjects where qual_usrexam_usr_id = "+userId);
 			
-			for(String[] userExamId : userExams){
-				examId = userExamId[0];
-				
-			//}
+			List<String[]> usrCertifExams = g.query("select row_id, QUAL_USREXAM_EXAM_ID from qual_user_exam where QUAL_USREXAM_CERTUSR_ID = "+certifId);
 						
-		//	for(String exType : userExams.split(";")){
+			//for(String[] userExamId : userExams){
+			JSONArray userExamIdsArray = new JSONArray();
+			for(String[] userExamIds : usrCertifExams){
 				
-		//		examId = g.simpleQuery("select row_id from qual_exam where qual_ex_type = '"+exType+"'");
+				examId = userExamIds[1];
+				userExamIdsArray.put(userExamIds[0]);
 				
 				ObjectDB examObj = g.getTmpObject("QualExam");
 				
@@ -95,7 +97,7 @@ public class QualPostCertif extends ExternalObject {
 						
 						exam.put("questions", qsts);
 						exam.put("examTitle", examName);
-						exam.put("examId", examId);
+						exam.put("examId", userExamIds[0]);
 						exam.put("examDescription", examDescription);
 						
 					}
@@ -110,6 +112,7 @@ public class QualPostCertif extends ExternalObject {
 			
 			renderParams.put("generic", generic);
 			renderParams.put("userId", userId);
+			renderParams.put("userExamIds", userExamIdsArray);
 			
 			String render = getName() + ".render(" + renderParams.toString() +",'"+template.replaceAll("(\\r|\\n|\\r\\n)+", "\\\\n")+ "');";
 			if (pub) { // Public page version (standalone Bootstrap page)

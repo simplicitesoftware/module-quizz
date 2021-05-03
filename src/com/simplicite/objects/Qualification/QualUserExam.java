@@ -43,20 +43,6 @@ public class QualUserExam extends ObjectDB {
 		}
 		
 		if(!isNew()){
-			if("DONE".equals(getFieldValue("qualUsrexamEtat")) || isExamOver(getFieldValue("qualUsrexamDateLimite"))){
-				AppLog.info(getClass(), "preValidate", "EXAM IS OVER", getGrant());
-				/*
-				double score = calculateScore(getRowId());
-				setFieldValue("qualUsrexamScore", score);
-				setFieldValue("qualUsrexamEtat", "SCORED");
-				*/
-			}
-			
-			/*if("DONE".equals(getField("qualUsrexamEtat").getOldValue()) && "SCORED".equals(getField("qualUsrexamEtat").getValue())){
-				double score = calculateScore(getRowId());
-				setFieldValue("qualUsrexamScore", score);
-				setFieldValue("qualUsrexamEtat", "SCORED");
-			}*/
 			
 			if("DONE".equals(getFieldValue("qualUsrexamEtat"))){
 				double score = calculateScore(getRowId()).optDouble("score");
