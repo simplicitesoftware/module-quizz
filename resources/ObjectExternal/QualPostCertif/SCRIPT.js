@@ -54,6 +54,39 @@ var QualPostCertif = QualPostCertif || (function() {
         	
 				output.push(start);
 				
+				let examChoices = [];
+				let examJumps = {};
+				for(let j = 0; j<exams.length; j++){
+					let examTitle = exams[j].examTitle;
+					let examId = "exam-"+exams[j].examId +"-break";
+					tmpChoice = new FlowForm.ChoiceOption({
+						label: examTitle, 
+						value: examId,
+					}),
+					examJumps[examId] = examId;
+					examChoices.push(tmpChoice);
+				}
+				examSelector = new FlowForm.QuestionModel({
+					id:"exam_selector",
+					title : "Sélectionnez une catégorie à évaluer :",
+					type: FlowForm.QuestionType.Dropdown,
+		            multiple: false,
+		            inline: true,
+					required: true,
+					options: examChoices,
+					jump: examJumps,
+				});
+				let endExamChoices = examChoices;
+				tmpChoice = new FlowForm.ChoiceOption({
+					label: "Terminer l\'évaluation", 
+					value: "other",
+				}),
+				endExamChoices.push(tmpChoice);
+				let endExamJumps = examJumps;
+				endExamJumps["other"] = "_submit";
+				
+				output.push(examSelector);
+				
 				for(let k = 0; k < exams.length; k++){
 					let input = exams[k].questions;
 					let examTitle = exams[k].examTitle;
@@ -63,7 +96,7 @@ var QualPostCertif = QualPostCertif || (function() {
 							let iChoices = input[i].enum.split("@@@");
 							for(let j = 0; j<iChoices.length; j++){
 								tmpChoice = new FlowForm.ChoiceOption({
-									label: iChoices[j], 
+									label: iChoices[j],
 								}),
 								choices.push(tmpChoice);
 							}
@@ -76,7 +109,7 @@ var QualPostCertif = QualPostCertif || (function() {
 								required: true,
 								multiple: false,
 								options: choices,
-						    })
+						    });
 						}
 						else if(input[i].type == "TXT"){
 							tmp = new FlowForm.QuestionModel({
@@ -86,7 +119,7 @@ var QualPostCertif = QualPostCertif || (function() {
 								type: FlowForm.QuestionType.LongText,
 								required: true
 								
-						    })
+						    });
 						}
 						else if(input[i].type == "QST_BREAK"){
 							tmp = new FlowForm.QuestionModel({
@@ -97,6 +130,35 @@ var QualPostCertif = QualPostCertif || (function() {
 					            type: FlowForm.QuestionType.SectionBreak,
 			        		});
 						}
+						else if(input[i].type == "QST_BREAK_END"){
+							tmp = new FlowForm.QuestionModel({
+								id:"exam_selector",
+								title : "Sélectionnez une catégorie à évaluer :",
+								type: FlowForm.QuestionType.Dropdown,
+					            multiple: false,
+					            inline: true,
+								required: true,
+								options: endExamChoices,
+								jump: examJumps,
+								/* : "exam-"+exams[k].examId +"-break_end",
+								examId : exams[k].examId,
+								helpTextShow: false,
+					            title: "Vous avez terminé cette catégorie.",
+					            subTitle :"Vous pouvez continuer ou retourner à l'écran de sélection de catégories.",
+					            type: FlowForm.QuestionType.MultipleChoice,
+					            required : true,
+					            options: [      
+					            	new FlowForm.ChoiceOption({
+										label: 'Continuer', 
+									}),
+									new FlowForm.ChoiceOption({				             
+						              	label: 'Sélectionner une catégorie',
+						              	value: 'back_to_the_start',
+					            	}),
+					            ],
+					            jump: examJumps,*/
+			        		});
+						}
 						
 						
 						output.push(tmp);
@@ -104,6 +166,7 @@ var QualPostCertif = QualPostCertif || (function() {
 				}
 			}
 			
+			console.log(output);
 			let languageParams = new FlowForm.LanguageModel({
 				enterKey: 'Entrée',
 			    shiftKey: 'Maj',
@@ -155,7 +218,7 @@ var QualPostCertif = QualPostCertif || (function() {
 						});
 					}*/
 					
-					if(qA.type !== FlowForm.QuestionType.SectionBreak){
+					if(qA.type !== FlowForm.QuestionType.SectionBreak && qA.id !== "exam_selector" && !(qA.id).includes("break_end")){
 						//question answered -> set value in back
 						let submittedValue = qA.answer;
 						var usrAnswerObj = app.getBusinessObject("QualExUsr");
@@ -260,7 +323,7 @@ var QualPostCertif = QualPostCertif || (function() {
 					
 					let testTotal = 0;
 					let userTotal = 0;
-					
+					console.log(usrScores);
 					usrScores.forEach(elt =>{
 						testTotal += elt.total;
 						userTotal += elt.score;

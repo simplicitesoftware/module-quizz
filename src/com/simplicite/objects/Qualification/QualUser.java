@@ -19,7 +19,7 @@ public class QualUser extends User {
         resetResps();
         
         if(isCandidate()){
-        	generateCandidateTests(this);
+        	//generateCandidateTests(this);
         }
         return super.postCreate();
     }
@@ -27,6 +27,10 @@ public class QualUser extends User {
     @Override
     public List<String> preValidate() {
     	List<String> msgs = new ArrayList<>();
+    	
+    	if(isNew()){
+    		setFieldValue("row_module_id", ModuleDB.getModuleId("ApplicationUsers"));
+    	}
     	
     	if("".equals(getFieldValue("qualUsrToken")))
     		setFieldValue("qualUsrToken", Tool.randomUUID());

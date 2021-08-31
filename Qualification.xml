@@ -8,8 +8,16 @@
 		<mdl_version>0.13</mdl_version>
 		<mdl_prefix>qual</mdl_prefix>
 		<mdl_url/>
-		<mdl_lastupd>2021-03-04 16:20:55</mdl_lastupd>
 		<mdl_comment/>
+	</data>
+</object>
+<object>
+	<name>ModuleLink</name>
+	<action>upsert</action>
+	<data>
+		<mdk_parent_id.mdl_name>Qualification_Enum</mdk_parent_id.mdl_name>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+		<mdk_cascad>R</mdk_cascad>
 	</data>
 </object>
 <object>
@@ -3512,7 +3520,7 @@
 		<obo_type>O</obo_type>
 		<obo_searchspec/>
 		<obo_delspec/>
-		<obo_exportorder/>
+		<obo_exportorder>6</obo_exportorder>
 		<obo_distinct>0</obo_distinct>
 		<obo_indexable>0</obo_indexable>
 		<obo_groupby>0</obo_groupby>
@@ -3574,7 +3582,7 @@
 		<obo_type>O</obo_type>
 		<obo_searchspec/>
 		<obo_delspec/>
-		<obo_exportorder/>
+		<obo_exportorder>7</obo_exportorder>
 		<obo_distinct>0</obo_distinct>
 		<obo_indexable>0</obo_indexable>
 		<obo_groupby>0</obo_groupby>
@@ -3636,7 +3644,7 @@
 		<obo_type>O</obo_type>
 		<obo_searchspec/>
 		<obo_delspec/>
-		<obo_exportorder/>
+		<obo_exportorder>3</obo_exportorder>
 		<obo_distinct>0</obo_distinct>
 		<obo_indexable>0</obo_indexable>
 		<obo_groupby>0</obo_groupby>
@@ -3698,7 +3706,7 @@
 		<obo_type>O</obo_type>
 		<obo_searchspec/>
 		<obo_delspec/>
-		<obo_exportorder/>
+		<obo_exportorder>4</obo_exportorder>
 		<obo_distinct>0</obo_distinct>
 		<obo_indexable>0</obo_indexable>
 		<obo_groupby>0</obo_groupby>
@@ -3822,7 +3830,7 @@
 		<obo_type>O</obo_type>
 		<obo_searchspec/>
 		<obo_delspec/>
-		<obo_exportorder/>
+		<obo_exportorder>5</obo_exportorder>
 		<obo_distinct>0</obo_distinct>
 		<obo_indexable>0</obo_indexable>
 		<obo_groupby>0</obo_groupby>
@@ -3884,7 +3892,7 @@
 		<obo_type>O</obo_type>
 		<obo_searchspec/>
 		<obo_delspec/>
-		<obo_exportorder/>
+		<obo_exportorder>2</obo_exportorder>
 		<obo_distinct>0</obo_distinct>
 		<obo_indexable>0</obo_indexable>
 		<obo_groupby>0</obo_groupby>
@@ -3946,7 +3954,7 @@
 		<obo_type>O</obo_type>
 		<obo_searchspec/>
 		<obo_delspec/>
-		<obo_exportorder/>
+		<obo_exportorder>8</obo_exportorder>
 		<obo_distinct>0</obo_distinct>
 		<obo_indexable>0</obo_indexable>
 		<obo_groupby>0</obo_groupby>
@@ -4008,7 +4016,7 @@
 		<obo_type>O</obo_type>
 		<obo_searchspec/>
 		<obo_delspec/>
-		<obo_exportorder/>
+		<obo_exportorder>9</obo_exportorder>
 		<obo_distinct>0</obo_distinct>
 		<obo_indexable>0</obo_indexable>
 		<obo_groupby>0</obo_groupby>
@@ -7239,6 +7247,16 @@
 		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
 	</data>
 	<data>
+		<grt_group_id.grp_name>ADMIN</grt_group_id.grp_name>
+		<grt_function_id.fct_name>QualUser-CUD</grt_function_id.fct_name>
+		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
+		<grt_function_id.fct_object_id.obj_name>QualUser</grt_function_id.fct_object_id.obj_name>
+		<grt_function_id.fct_action_id.act_name/>
+		<grt_function_id.fct_function>CMS</grt_function_id.fct_function>
+		<grt_activ>1</grt_activ>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+	</data>
+	<data>
 		<grt_group_id.grp_name>PUBLIC</grt_group_id.grp_name>
 		<grt_function_id.fct_name>QualCertif-R</grt_function_id.fct_name>
 		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
@@ -7868,26 +7886,6 @@
 	<data>
 		<cax_crosstab_id.ctb_name>QualTC-Rep</cax_crosstab_id.ctb_name>
 		<cax_objfield_id.obf_object_id.obo_name>QualExUsr</cax_objfield_id.obf_object_id.obo_name>
-		<cax_objfield_id.obf_order>240</cax_objfield_id.obf_order>
-		<cax_objfield_id.obf_field_id.fld_name>qualExusrAnswerEnumeration</cax_objfield_id.obf_field_id.fld_name>
-		<cax_type>V</cax_type>
-		<cax_order>1</cax_order>
-		<cax_function/>
-		<cax_chart/>
-		<cax_precision/>
-		<cax_subtotal>0</cax_subtotal>
-		<cax_formula/>
-		<cax_hidden>0</cax_hidden>
-		<cax_objfield_id.obf_field_id.fld_type>7</cax_objfield_id.obf_field_id.fld_type>
-		<cax_dategroup/>
-		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
-		<cax_unitscale/>
-		<cax_unitfunct/>
-		<cax_unitlabel/>
-	</data>
-	<data>
-		<cax_crosstab_id.ctb_name>QualTC-Rep</cax_crosstab_id.ctb_name>
-		<cax_objfield_id.obf_object_id.obo_name>QualExUsr</cax_objfield_id.obf_object_id.obo_name>
 		<cax_objfield_id.obf_order>220</cax_objfield_id.obf_order>
 		<cax_objfield_id.obf_field_id.fld_name>qualExusrAnswer</cax_objfield_id.obf_field_id.fld_name>
 		<cax_type>V</cax_type>
@@ -8369,6 +8367,12 @@
 	<data>
 		<scr_code>QualTool</scr_code>
 		<scr_file>src/com/simplicite/commons/Qualification/QualTool.java</scr_file>
+		<scr_type>JSR</scr_type>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+	</data>
+	<data>
+		<scr_code>PlatformHooks</scr_code>
+		<scr_file>src/com/simplicite/commons/Qualification/PlatformHooks.java</scr_file>
 		<scr_type>JSR</scr_type>
 		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
 	</data>
@@ -10460,6 +10464,16 @@
 		<tsl_value>Qualifcation</tsl_value>
 		<tsl_help/>
 		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>Dataset</name>
+	<action>upsert</action>
+	<data>
+		<row_module_id.mdl_name>Qualification</row_module_id.mdl_name>
+		<dt_name>Qualification-data-20210701134910</dt_name>
+		<dt_file>data/Qualification-data-20210701134910.zip</dt_file>
+		<dt_desc><![CDATA[Created by module's data export on 2021-07-01 13:49:10]]></dt_desc>
 	</data>
 </object>
 </simplicite>

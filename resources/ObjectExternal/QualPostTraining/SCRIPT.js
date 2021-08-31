@@ -51,6 +51,7 @@ var QualPostTraining = QualPostTraining || (function($) {
 			            description:"D'avance merci pour votre temps !",
 			            type: FlowForm.QuestionType.SectionBreak,
 			            required: true,
+			            examId: exams[0].examId
 	        		});
 				}
 				else{
@@ -151,7 +152,7 @@ var QualPostTraining = QualPostTraining || (function($) {
 				
 				 onAnswer(qA) {
 				 	let id = qA.id;
-				 	
+				 	console.log(id);
 					if(qA.type == FlowForm.QuestionType.SectionBreak && qA.id.includes("exam")){
 						//create exam in back
 						var usrExObj = app.getBusinessObject("QualUserExam");
@@ -203,6 +204,7 @@ var QualPostTraining = QualPostTraining || (function($) {
 			        this.submitted = true
 			        if(!unknown){
 			        	this.validateExams();
+			        	console.log(exams);
 			        	exams.forEach(exam => {
 			        		examQuestions = [];
 			        		this.questions.forEach(qst => {
@@ -210,7 +212,7 @@ var QualPostTraining = QualPostTraining || (function($) {
 			        				examQuestions.push(qst);
 			        			}
 			        		});
-			        		if(!generic){
+			        		if(exam.examTitle != "Retours Formation"){
 			        			let examScore = this.calculateScore(exam, examQuestions);
 								this.scores.push(examScore);
 			        		}

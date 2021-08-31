@@ -44,6 +44,7 @@ public class QualPostCertif extends ExternalObject {
 						
 			//for(String[] userExamId : userExams){
 			JSONArray userExamIdsArray = new JSONArray();
+			
 			for(String[] userExamIds : usrCertifExams){
 				
 				examId = userExamIds[1];
@@ -87,11 +88,11 @@ public class QualPostCertif extends ExternalObject {
 							
 						}
 						
-						/*if(!generic){
+						if(!generic){
 							JSONObject end = new JSONObject();
-							end.put("type", "QST_BREAK");
+							end.put("type", "QST_BREAK_END");
 							qsts.put(end);
-						}*/
+						}
 						
 						exam.put("answers", answers);
 						

@@ -45,8 +45,9 @@ public class QualUserExam extends ObjectDB {
 		if(!isNew()){
 			
 			if("DONE".equals(getFieldValue("qualUsrexamEtat"))){
-				double score = calculateScore(getRowId()).optDouble("score");
-				double total = calculateScore(getRowId()).optDouble("total");
+				int score = calculateScore(getRowId()).optInt("score");
+				int total = calculateScore(getRowId()).optInt("total");
+				AppLog.info("SCORE SUBMITTED "+String.valueOf(score), getGrant());
 				setFieldValue("qualUsrexamScore", score);
 				setFieldValue("qualUsrexamTotalPoints", total);
 				setFieldValue("qualUsrexamEtat", "SCORED");
@@ -139,14 +140,20 @@ public class QualUserExam extends ObjectDB {
 		Grant g = getGrant();
 		
 		String ok = "select sum(qual_examex_score) from qual_ex_usr q join qual_exam_ex qex on q.QUAL_EXUSR_EXAMEX_ID = qex.row_id where qual_exusr_usrexam_id = '"+testId+"' and QUAL_EXUSR_CHECK='OK';";
-		AppLog.info(ok, g);
+		AppLog.info("OK SCORE : " + g.simpleQuery(ok), g);
 		String total = "select sum(qual_examex_score) from qual_ex_usr q join qual_exam_ex qex on q.QUAL_EXUSR_EXAMEX_ID = qex.row_id where qual_exusr_usrexam_id = '"+testId+"';";
-		AppLog.info(total, g);
-		int totalScore = Integer.parseInt("".equals(g.simpleQuery(total)) ? "0" : g.simpleQuery(total));
-		int okScore = Integer.parseInt("".equals(g.simpleQuery(ok)) ? "0" : g.simpleQuery(ok));
+		AppLog.info("TOTAL SCORE : " + g.simpleQuery(total), g);
 		
+		int totalScore = "".equals(g.simpleQuery(total)) ? 0 : Integer.parseInt(g.simpleQuery(total));
+		int okScore = "".equals(g.simpleQuery(ok)) ? 0 : Integer.parseInt(g.simpleQuery(ok));
+
 		scoreObj.put("total", totalScore);
-		scoreObj.put("score", totalScore > 0 ? (okScore*100)/totalScore : 0);
+		scoreObj.put("score", okScore);
+		AppLog.info("OK SCORE CONVERTED "+String.valueOf(okScore), getGrant());
+
+		AppLog.info(scoreObj.toString(), g);
+		//IF PERCENTAGE IS USED :
+		//scoreObj.put("score", totalScore > 0 ? (okScore*100)/totalScore : 0);
 		return scoreObj;
 		
 	}
